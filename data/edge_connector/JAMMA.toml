@@ -1,0 +1,68 @@
+[info]
+name = "JAMMA"
+description = "# JAMMA Connector"
+heading_left = "SOLDER SIDE"
+heading_right = "PARTS SIDE"
+package = "EDGE"
+num_pins = 56
+
+[pins]
+# right (parts side)
+ 1 = { name = "GND",             dir = "NONE", color = "#000000", color_num = "#ffffff" }
+ 2 = { name = "GND",             dir = "NONE", color = "#000000", color_num = "#ffffff" }
+ 3 = { name = "+5V",             dir = "NONE", color = "POWER"                          }
+ 4 = { name = "+5V",             dir = "NONE", color = "POWER"                          }
+ 5 = { name = "-5V",             dir = "NONE", color = "#00ff00"                        }
+ 6 = { name = "+12V",            dir = "NONE", color = "#ffff00"                        }
+ 7 = { name = "SKIP"                                                                    }
+ 8 = { name = "COIN COUNTER #1", dir = "OUT",  color = "ADDR"                           }
+ 9 = { name = "LOCKOUT #1",      dir = "OUT",  color = "ADDR"                           }
+10 = { name = "SPEAKER+",        dir = "OUT",  color = "#ffffff"                        }
+11 = { name = "NOT USED",        dir = "NONE", color = "NC"                             }
+12 = { name = "VIDEO RED",       dir = "OUT",  color = "#ff0000"                        }
+13 = { name = "VIDEO BLUE",      dir = "OUT",  color = "#0000ff", color_num = "#ffffff" }
+14 = { name = "VIDEO GND",       dir = "OUT",  color = "#000000", color_num = "#ffffff" }
+15 = { name = "TEST SWITCH",     dir = "IN",   color = "ADDR3"                          }
+16 = { name = "COIN SWITCH #1",  dir = "IN",   color = "ADDR"                           }
+17 = { name = "1P START",        dir = "IN",   color = "DATA"                           }
+18 = { name = "1P UP",           dir = "IN",   color = "DATA"                           }
+19 = { name = "1P DOWN",         dir = "IN",   color = "DATA"                           }
+20 = { name = "1P LEFT",         dir = "IN",   color = "DATA"                           }
+21 = { name = "1P RIGHT",        dir = "IN",   color = "DATA"                           }
+22 = { name = "1P BUTTON #1",    dir = "IN",   color = "DATA"                           }
+23 = { name = "1P BUTTON #2",    dir = "IN",   color = "DATA"                           }
+24 = { name = "1P BUTTON #3",    dir = "IN",   color = "DATA"                           }
+25 = { name = "1P BUTTON #4",    dir = "IN",   color = "DATA"                           }
+26 = { name = "NOT USED",        dir = "NONE", color = "NC"                             }
+27 = { name = "GND",             dir = "NONE", color = "#000000", color_num = "#ffffff" }
+28 = { name = "GND",             dir = "NONE", color = "#000000", color_num = "#ffffff" }
+
+# left (solder side with num override)
+29 = { name = "GND",             num = "A", dir = "NONE", color = "#000000", color_num = "#ffffff" }
+30 = { name = "GND",             num = "B", dir = "NONE", color = "#000000", color_num = "#ffffff" }
+31 = { name = "+5V",             num = "C", dir = "NONE", color = "POWER"                          }
+32 = { name = "+5V",             num = "D", dir = "NONE", color = "POWER"                          }
+33 = { name = "-5V",             num = "E", dir = "NONE", color = "#00ff00"                        }
+34 = { name = "+12V",            num = "F", dir = "NONE", color = "#ffff00"                        }
+35 = { name = "SKIP"                                                                               }
+36 = { name = "COIN COUNTER #2", num = "J", dir = "OUT",  color = "ADDR2"                          }
+37 = { name = "LOCKOUT #2",      num = "K", dir = "OUT",  color = "ADDR2"                          }
+38 = { name = "SPEAKER-",        num = "L", dir = "OUT",  color = "#000000", color_num = "#ffffff" }
+39 = { name = "NOT USED",        num = "M", dir = "NONE", color = "NC"                             }
+40 = { name = "VIDEO GREEN",     num = "N", dir = "OUT",  color = "#00ff00"                        }
+41 = { name = "VIDEO SYNC",      num = "P", dir = "OUT",  color = "MISC"                           }
+42 = { name = "SERVICE SWITCH",  num = "R", dir = "IN",   color = "ADDR3"                          }
+43 = { name = "TILT SWITCH",     num = "S", dir = "IN",   color = "ADDR3"                          }
+44 = { name = "COIN SWITCH #2",  num = "T", dir = "IN",   color = "ADDR2"                          }
+45 = { name = "2P START",        num = "U", dir = "IN",   color = "DATA2"                          }
+46 = { name = "2P UP",           num = "V", dir = "IN",   color = "DATA2"                          }
+47 = { name = "2P DOWN",         num = "W", dir = "IN",   color = "DATA2"                          }
+48 = { name = "2P LEFT",         num = "X", dir = "IN",   color = "DATA2"                          }
+49 = { name = "2P RIGHT",        num = "Y", dir = "IN",   color = "DATA2"                          }
+50 = { name = "2P BUTTON #1",    num = "Z", dir = "IN",   color = "DATA2"                          }
+51 = { name = "2P BUTTON #3",    num = "a", dir = "IN",   color = "DATA2"                          }
+52 = { name = "2P BUTTON #3",    num = "b", dir = "IN",   color = "DATA2"                          }
+53 = { name = "2P BUTTON #4",    num = "c", dir = "IN",   color = "DATA2"                          }
+54 = { name = "NOT USED",        num = "d", dir = "NONE", color = "NC"                             }
+55 = { name = "GND",             num = "e", dir = "NONE", color = "#000000", color_num = "#ffffff" }
+56 = { name = "GND",             num = "f", dir = "NONE", color = "#000000", color_num = "#ffffff" }

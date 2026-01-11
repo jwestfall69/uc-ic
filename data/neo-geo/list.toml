@@ -1,0 +1,5 @@
+# This list is what gets loaded into the 'IC' drop down list
+# when this 'Type' is selected.
+list = [
+  { display = "NEO-244", path = "data/neo-geo/NEO-244.toml" }
+]

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>UC IC Pinouts</title>
+  <style>
+    @font-face {
+      font-family: 'Roboto Mono';
+      src: url('./fonts/RobotoMono-VariableFont_wght.ttf') format('truetype');
+      font-display: swap;
+    }
+
+    .ic-svg {
+      width: 80%;
+      height: auto;
+    }
+
+    table {
+      border-collapse: collapse;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    th,
+    tr,
+    td {
+      border: 1px solid #dddddd;
+      padding: 2px 12px;
+      text-align: center;
+      font-size: 1rem;
+    }
+
+    thead {
+      background: #000000;
+      color: #ffffff;
+    }
+  
+    tbody tr:nth-child(even) {
+      background: #f9f9f9;
+    }
+  
+    tbody tr:hover {
+      background: #e8f4ff;
+    }
+
+    .center-text {
+      text-align: center;
+    }
+
+    select {
+      text-align-last:center;
+      padding-right: 29px;
+    }
+
+    .selection-container {
+      display: grid;  
+      grid-template-columns: 1fr;
+      gap: 10px;
+      justify-items: center;
+      text-align: center
+    }
+    
+    .selection-label {
+      font-size: 22px;
+    }
+
+    .selection-select {
+      text-align-last:center;
+      padding-right: 29px;
+      min-width: 200px;
+      position: relative;
+      margin-right: 20px;
+      font-size: 22px;
+    }
+
+  </style>
+</head>
+
+<body>
+    <div class="center-text">
+      <h1>UC IC Pinouts</h1>
+    
+      <div class="selection-container">
+        <div>
+          <span class="selection-label">Type:</span>
+          <select class="selection-select" id="type-select" disabled>
+            <option>----- Loading -----</option>
+          </select>
+
+          <span class="selection-label">IC:</span>
+          <select class="selection-select" id="ic-select" disabled>
+            <option>----- Loading -----</option>
+          </select>
+        </div>
+      </div>
+
+      <span class="ic-description" id="ic-short-description"></span>
+      <svg id="ic-svg" class="ic-svg"></svg>
+      <span id="ic-markdown" class="ic-details"></span>
+  </div>
+
+  <script src="./javascript/mdp-0.1.4.js"></script>
+  <script src="./javascript/uc-ic.js" type="module"></script>
+</body>
+</html>

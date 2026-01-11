@@ -1,0 +1,76 @@
+[info]
+name = "MSM6295"
+description = "# OKI MSM6295 4-Channel Mixing ADPCM Voice"
+package = "QFP"
+num_pins = 44
+
+[pins]
+# bottom
+ 1 = { name = "GND",   dir = "NONE",  color = "GND"  }
+ 2 = { name = "RD",    dir = "IN",    color = "MISC",  flags = [ "activeLow"] }
+ 3 = { name = "WR",    dir = "IN",    color = "MISC",  flags = [ "activeLow"] }
+ 4 = { name = "CS",    dir = "IN",    color = "EN",    flags = [ "activeLow"] }
+ 5 = { name = "XT",    dir = "IN",    color = "CLOCK"}
+ 6 = { name = "XT",    dir = "OUT",   color = "CLOCK", flags = [ "activeLow"] }
+ 7 = { name = "SS",    dir = "IN",    color = "MISC" }
+ 8 = { name = "RESET", dir = "IN",    color = "MISC",  flags = [ "activeLow"] }
+ 9 = { name = "D0",    dir = "IN",    color = "DATA" }
+10 = { name = "D1",    dir = "IN",    color = "DATA" }
+11 = { name = "D2",    dir = "IN",    color = "DATA" }
+
+# right
+12 = { name = "D3",    dir = "IN",    color = "DATA" }
+13 = { name = "D4",    dir = "IN",    color = "DATA" }
+14 = { name = "D5",    dir = "IN",    color = "DATA" }
+15 = { name = "D6",    dir = "IN",    color = "DATA" }
+16 = { name = "D7",    dir = "IN",    color = "DATA" }
+17 = { name = "VCC",   dir = "NONE",  color = "POWER"}
+18 = { name = "A0",    dir = "OUT",   color = "ADDR" }
+19 = { name = "A1",    dir = "OUT",   color = "ADDR" }
+20 = { name = "A2",    dir = "OUT",   color = "ADDR" }
+21 = { name = "A3",    dir = "OUT",   color = "ADDR" }
+22 = { name = "A4",    dir = "OUT",   color = "ADDR" }
+
+# top
+23 = { name = "A5",    dir = "OUT",   color = "ADDR" }
+24 = { name = "A6",    dir = "OUT",   color = "ADDR" }
+25 = { name = "A7",    dir = "OUT",   color = "ADDR" }
+26 = { name = "A8",    dir = "OUT",   color = "ADDR" }
+27 = { name = "A9",    dir = "OUT",   color = "ADDR" }
+28 = { name = "A10",   dir = "OUT",   color = "ADDR" }
+29 = { name = "A11",   dir = "OUT",   color = "ADDR" }
+30 = { name = "A12",   dir = "OUT",   color = "ADDR" }
+31 = { name = "A13",   dir = "OUT",   color = "ADDR" }
+32 = { name = "A14",   dir = "OUT",   color = "ADDR" }
+33 = { name = "A15",   dir = "OUT",   color = "ADDR" }
+
+# left
+34 = { name = "A16",   dir = "IN",    color = "ADDR" }
+35 = { name = "A17",   dir = "IN",    color = "ADDR" }
+36 = { name = "DAO",   dir = "IN",    color = "ADDR" }
+37 = { name = "I0",    dir = "INOUT", color = "DATA" }
+38 = { name = "I1",    dir = "INOUT", color = "DATA" }
+39 = { name = "I2",    dir = "INOUT", color = "DATA" }
+40 = { name = "I3",    dir = "INOUT", color = "DATA" }
+41 = { name = "I4",    dir = "IN",    color = "DATA" }
+42 = { name = "I5",    dir = "IN",    color = "DATA" }
+43 = { name = "I6",    dir = "IN",    color = "DATA" }
+44 = { name = "I7",    dir = "IN",    color = "DATA" }
+
+[details]
+markdown = """
+
+| PIN NAME | FUNCTION                                                            |
+|:--------:|:--------------------------------------------------------------------|
+|  A0-A17  | Address lines that goto the external ROM that contains the PCM data |
+|   CS     | Chip Select                                                         |
+|  D0-D7   | Data lines from the external ROM that contains the PCM data         |
+|   DAO    | Digital Audio Out                                                   |
+|  I0-I7   | Data lines to/from CPU.  I0-I3 are IOs, while I4-I7 are inputs only |
+|  RESET   | Reset                                                               |
+|   RD     | Read Enable                                                         |
+|   SS     | Sampling Frequency select                                           |
+|   WR     | Write Enable                                                        |
+|   XT/XT  | Clocks                                                              |
+
+"""

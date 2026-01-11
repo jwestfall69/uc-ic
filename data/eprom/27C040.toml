@@ -1,0 +1,57 @@
+[info]
+name = "27C040"
+description = "# 27C040 / 27C4001 (512KB)"
+package = "DIP"
+num_pins = 32
+
+[pins]
+# left
+ 1 = { name = "Vpp", dir = "IN",   color = "POWER"}
+ 2 = { name = "A16", dir = "IN",   color = "ADDR" }
+ 3 = { name = "A15", dir = "IN",   color = "ADDR" }
+ 4 = { name = "A12", dir = "IN",   color = "ADDR" }
+ 5 = { name = "A7",  dir = "IN",   color = "ADDR" }
+ 6 = { name = "A6",  dir = "IN",   color = "ADDR" }
+ 7 = { name = "A5",  dir = "IN",   color = "ADDR" }
+ 8 = { name = "A4",  dir = "IN",   color = "ADDR" }
+ 9 = { name = "A3",  dir = "IN",   color = "ADDR" }
+10 = { name = "A2",  dir = "IN",   color = "ADDR" }
+11 = { name = "A1",  dir = "IN",   color = "ADDR" }
+12 = { name = "A0",  dir = "IN",   color = "ADDR" }
+13 = { name = "D0",  dir = "OUT",  color = "DATA" }
+14 = { name = "D1",  dir = "OUT",  color = "DATA" }
+15 = { name = "D2",  dir = "OUT",  color = "DATA" }
+16 = { name = "GND", dir = "NONE", color = "GND"  }
+
+# right
+17 = { name = "D3",  dir = "OUT",  color = "DATA" }
+18 = { name = "D4",  dir = "OUT",  color = "DATA" }
+19 = { name = "D5",  dir = "OUT",  color = "DATA" }
+20 = { name = "D6",  dir = "OUT",  color = "DATA" }
+21 = { name = "D7",  dir = "OUT",  color = "DATA" }
+22 = { name = "CE",  dir = "IN",   color = "EN",    flags = [ "activeLow"] }
+23 = { name = "A10", dir = "IN",   color = "ADDR" }
+24 = { name = "OE",  dir = "IN",   color = "EN",    flags = [ "activeLow"] }
+25 = { name = "A11", dir = "IN",   color = "ADDR" }
+26 = { name = "A9",  dir = "IN",   color = "ADDR" }
+27 = { name = "A8",  dir = "IN",   color = "ADDR" }
+28 = { name = "A13", dir = "IN",   color = "ADDR" }
+29 = { name = "A14", dir = "IN",   color = "ADDR" }
+30 = { name = "A17", dir = "IN",   color = "ADDR" }
+31 = { name = "A18", dir = "IN",   color = "ADDR" }
+32 = { name = "VCC", dir = "NONE", color = "POWER"}
+
+[details]
+markdown = """
+
+# Truth Table
+| CE | OE | OUTPUT  |
+|:--:|:--:|:-------:|
+| H  | X  |    Z    |
+| X  | H  |    Z    |
+| L  | L  |    D    |
+<sup>Z = High Impedance, X = Doesn't Matter</sup>
+
+**NOTE:** 27C040 and 27C4001 have the same pinout.
+
+"""

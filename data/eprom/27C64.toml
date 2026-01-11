@@ -1,0 +1,51 @@
+[info]
+name = "27C64"
+description = "# 27C64 (8KB)"
+package = "DIP"
+num_pins = 28
+
+[pins]
+# left
+ 1 = { name = "Vpp", dir = "NONE", color = "POWER"}
+ 2 = { name = "A12", dir = "IN",   color = "ADDR" }
+ 3 = { name = "A7",  dir = "IN",   color = "ADDR" }
+ 4 = { name = "A6",  dir = "IN",   color = "ADDR" }
+ 5 = { name = "A5",  dir = "IN",   color = "ADDR" }
+ 6 = { name = "A4",  dir = "IN",   color = "ADDR" }
+ 7 = { name = "A3",  dir = "IN",   color = "ADDR" }
+ 8 = { name = "A2",  dir = "IN",   color = "ADDR" }
+ 9 = { name = "A1",  dir = "IN",   color = "ADDR" }
+10 = { name = "A0",  dir = "IN",   color = "ADDR" }
+11 = { name = "D0",  dir = "OUT",  color = "DATA" }
+12 = { name = "D1",  dir = "OUT",  color = "DATA" }
+13 = { name = "D2",  dir = "OUT",  color = "DATA" }
+14 = { name = "GND", dir = "NONE", color = "GND"  }
+
+# right
+15 = { name = "D3",  dir = "OUT",  color = "DATA" }
+16 = { name = "D4",  dir = "OUT",  color = "DATA" }
+17 = { name = "D5",  dir = "OUT",  color = "DATA" }
+18 = { name = "D6",  dir = "OUT",  color = "DATA" }
+19 = { name = "D7",  dir = "OUT",  color = "DATA" }
+20 = { name = "CE",  dir = "IN",   color = "EN",    flags = [ "activeLow"] }
+21 = { name = "A10", dir = "IN",   color = "ADDR" }
+22 = { name = "OE",  dir = "IN",   color = "EN",    flags = [ "activeLow"] }
+23 = { name = "A11", dir = "IN",   color = "ADDR" }
+24 = { name = "A9",  dir = "IN",   color = "ADDR" }
+25 = { name = "A8",  dir = "IN",   color = "ADDR" }
+26 = { name = "NC",  dir = "NONE", color = "NC"   }
+27 = { name = "P",   dir = "IN",   color = "MISC",  flags = [ "activeLow"] }
+28 = { name = "VCC", dir = "NONE", color = "POWER"}
+
+[details]
+markdown = """
+
+# Truth Table
+| CE | OE | OUTPUT  |
+|:--:|:--:|:-------:|
+| H  | X  |    Z    |
+| X  | H  |    Z    |
+| L  | L  |    D    |
+<sup>Z = High Impedance, X = Doesn't Matter</sup>
+
+"""

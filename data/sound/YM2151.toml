@@ -1,0 +1,55 @@
+[info]
+name = "YM2151"
+description = "# Yamaha YM2151 FM Sound Generator"
+package = "DIP"
+num_pins = 24
+
+[pins]
+# left
+ 1 = { name = "GND",   dir = "NONE",  color = "GND"  }
+ 2 = { name = "IRQ",   dir = "OUT",   color = "MISC",  flags = [ "activeLow"] }
+ 3 = { name = "RESET", dir = "IN",    color = "MISC",  flags = [ "activeLow"] }
+ 4 = { name = "A0",    dir = "IN",    color = "ADDR" }
+ 5 = { name = "RD",    dir = "IN",    color = "MISC",  flags = [ "activeLow"] }
+ 6 = { name = "WR",    dir = "IN",    color = "MISC",  flags = [ "activeLow"] }
+ 7 = { name = "CS",    dir = "IN",    color = "EN",    flags = [ "activeLow"] }
+ 8 = { name = "CT1",   dir = "OUT",   color = "MISC" }
+ 9 = { name = "CT2",   dir = "OUT",   color = "MISC" }
+10 = { name = "D0",    dir = "INOUT", color = "DATA" }
+11 = { name = "GND",   dir = "NONE",  color = "GND"  }
+12 = { name = "D1",    dir = "INOUT", color = "DATA" }
+
+# right
+13 = { name = "D2",    dir = "INOUT", color = "DATA" }
+14 = { name = "D3",    dir = "INOUT", color = "DATA" }
+15 = { name = "D4",    dir = "INOUT", color = "DATA" }
+16 = { name = "D5",    dir = "INOUT", color = "DATA" }
+17 = { name = "D6",    dir = "INOUT", color = "DATA" }
+18 = { name = "D7",    dir = "INOUT", color = "DATA" }
+
+19 = { name = "SH2",   dir = "OUT",   color = "DATA" }
+20 = { name = "SH1",   dir = "OUT",   color = "DATA" }
+21 = { name = "SO",    dir = "OUT",   color = "DATA" }
+22 = { name = "VCC",   dir = "NONE",  color = "POWER"}
+23 = { name = "φ1",    dir = "OUT",   color = "CLOCK"}
+24 = { name = "φM",    dir = "IN",    color = "CLOCK"}
+
+
+[details]
+markdown = """
+
+| PIN NAME | FUNCTION                                                            |
+|:--------:|:--------------------------------------------------------------------|
+|   A0     | When A0 = L, D0-D7 are address signal.  When A0 = H, they are data  |
+|   CS     | Chip Select                                                         |
+| CT1/CT2  | Used to control external device                                     |
+|  D0-D7   | Address/Data Bus (from CPU)                                         |
+|   IRQ    | Used to send IRQ to CPU                                             |
+|   φ1     | Clock for DAC (usually to a YM2013 DAC)                             |
+|   φM     | System Clock                                                        |
+|   RD     | CPU read D0-D7 from YM2151                                          |
+|  RESET   | Reset Chip (IC on datasheet)                                        |
+| SH1/SH2  | Sample and Hold (usually to a YM3012 DAC)                           |
+|   SO     | Serial Output (usually to a YM3012 DAC)                             |
+|   WR     | CPU write D0-D7 to YM2151                                           |
+"""

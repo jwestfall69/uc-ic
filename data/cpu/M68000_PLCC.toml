@@ -1,0 +1,84 @@
+[info]
+name = "M68000"
+description = "# Motorola 68000 CPU (PLCC)"
+package = "PLCC"
+num_pins = 68
+
+[pins]
+# top (left side)
+ 1 = { name = "D4",    dir = "INOUT", color = "DATA" }
+ 2 = { name = "D3",    dir = "INOUT", color = "DATA" }
+ 3 = { name = "D2",    dir = "INOUT", color = "DATA" }
+ 4 = { name = "D1",    dir = "INOUT", color = "DATA" }
+ 5 = { name = "D0",    dir = "INOUT", color = "DATA" }
+ 6 = { name = "AS",    dir = "OUT",   color = "MISC",  flags = [ "activeLow" ] }
+ 7 = { name = "UDS",   dir = "OUT",   color = "MISC",  flags = [ "activeLow" ] }
+ 8 = { name = "LDS",   dir = "OUT",   color = "MISC",  flags = [ "activeLow" ] }
+ 9 = { name = "RW",    dir = "OUT",   color = "MISC",  flags = [ "activeLow", "activeLowLastChar"] }
+
+# left
+10 = { name = "DTACK", dir = "IN",    color = "MISC",  flags = [ "activeLow" ] }
+11 = { name = "BG",    dir = "OUT",   color = "MISC",  flags = [ "activeLow" ] }
+12 = { name = "BGACK", dir = "IN",    color = "MISC",  flags = [ "activeLow" ] }
+13 = { name = "BR",    dir = "IN",    color = "MISC",  flags = [ "activeLow" ] }
+14 = { name = "VCC",   dir = "NONE",  color = "POWER"}
+15 = { name = "CLK",   dir = "IN",    color = "CLOCK"}
+16 = { name = "GND",   dir = "NONE",  color = "GND"  }
+17 = { name = "GND",   dir = "NONE",  color = "GND"  }
+18 = { name = "NC",    dir = "NONE",  color = "NC"   }
+19 = { name = "HALT",  dir = "INOUT", color = "MISC",  flags = [ "activeLow" ] }
+20 = { name = "RESET", dir = "INOUT", color = "MISC",  flags = [ "activeLow" ] }
+21 = { name = "VMA",   dir = "OUT",   color = "MISC",  flags = [ "activeLow" ] }
+22 = { name = "E",     dir = "OUT",   color = "MISC" }
+23 = { name = "VPA",   dir = "INOUT", color = "MISC",  flags = [ "activeLow" ] }
+24 = { name = "BERR",  dir = "IN",    color = "MISC",  flags = [ "activeLow" ] }
+25 = { name = "IPL2",  dir = "IN",    color = "MISC",  flags = [ "activeLow" ] }
+26 = { name = "IPL1",  dir = "IN",    color = "MISC",  flags = [ "activeLow" ] }
+
+# bottom
+27 = { name = "IPL0",  dir = "IN",    color = "MISC",  flags = [ "activeLow" ] }
+28 = { name = "FC2",   dir = "OUT",   color = "MISC" }
+29 = { name = "FC1",   dir = "OUT",   color = "MISC" }
+30 = { name = "FC0",   dir = "OUT",   color = "MISC" }
+31 = { name = "NC",    dir = "NONE",  color = "NC"   }
+32 = { name = "A1",    dir = "OUT",   color = "ADDR" }
+33 = { name = "A2",    dir = "OUT",   color = "ADDR" }
+34 = { name = "A3",    dir = "OUT",   color = "ADDR" }
+35 = { name = "A4",    dir = "OUT",   color = "ADDR" }
+36 = { name = "A5",    dir = "OUT",   color = "ADDR" }
+37 = { name = "A6",    dir = "OUT",   color = "ADDR" }
+38 = { name = "A7",    dir = "OUT",   color = "ADDR" }
+39 = { name = "A8",    dir = "OUT",   color = "ADDR" }
+40 = { name = "A9",    dir = "OUT",   color = "ADDR" }
+41 = { name = "A10",   dir = "OUT",   color = "ADDR" }
+42 = { name = "A11",   dir = "OUT",   color = "ADDR" }
+43 = { name = "A12",   dir = "OUT",   color = "ADDR" }
+
+# right
+44 = { name = "A13",   dir = "OUT",   color = "ADDR" }
+45 = { name = "A14",   dir = "OUT",   color = "ADDR" }
+46 = { name = "A15",   dir = "OUT",   color = "ADDR" }
+47 = { name = "A16",   dir = "OUT",   color = "ADDR" }
+48 = { name = "A17",   dir = "OUT",   color = "ADDR" }
+49 = { name = "A18",   dir = "OUT",   color = "ADDR" }
+50 = { name = "A19",   dir = "OUT",   color = "ADDR" }
+51 = { name = "A20",   dir = "OUT",   color = "ADDR" }
+52 = { name = "VCC",   dir = "NONE",  color = "POWER"}
+53 = { name = "A21",   dir = "OUT",   color = "ADDR" }
+54 = { name = "A22",   dir = "OUT",   color = "ADDR" }
+55 = { name = "A23",   dir = "OUT",   color = "ADDR" }
+56 = { name = "GND",   dir = "NONE",  color = "GND"  }
+57 = { name = "GND",   dir = "NONE",  color = "GND"  }
+58 = { name = "D15",   dir = "INOUT", color = "DATA" }
+59 = { name = "D14",   dir = "INOUT", color = "DATA" }
+60 = { name = "D13",   dir = "INOUT", color = "DATA" }
+
+# top (right side)
+61 = { name = "D12",   dir = "INOUT", color = "DATA" }
+62 = { name = "D11",   dir = "INOUT", color = "DATA" }
+63 = { name = "D10",   dir = "INOUT", color = "DATA" }
+64 = { name = "D9",    dir = "INOUT", color = "DATA" }
+65 = { name = "D8",    dir = "INOUT", color = "DATA" }
+66 = { name = "D7",    dir = "INOUT", color = "DATA" }
+67 = { name = "D6",    dir = "INOUT", color = "DATA" }
+68 = { name = "D5",    dir = "INOUT", color = "DATA" }

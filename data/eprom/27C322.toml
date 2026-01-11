@@ -1,0 +1,67 @@
+[info]
+name = "27C322"
+description = "# 27C322 (4096KB)"
+package = "DIP"
+num_pins = 42
+
+[pins]
+# left
+ 1 = { name = "A18",     dir = "IN",   color = "ADDR" }
+ 2 = { name = "A17",     dir = "IN",   color = "ADDR" }
+ 3 = { name = "A7",      dir = "IN",   color = "ADDR" }
+ 4 = { name = "A6",      dir = "IN",   color = "ADDR" }
+ 5 = { name = "A5",      dir = "IN",   color = "ADDR" }
+ 6 = { name = "A4",      dir = "IN",   color = "ADDR" }
+ 7 = { name = "A3",      dir = "IN",   color = "ADDR" }
+ 8 = { name = "A2",      dir = "IN",   color = "ADDR" }
+ 9 = { name = "A1",      dir = "IN",   color = "ADDR" }
+10 = { name = "A0",      dir = "IN",   color = "ADDR" }
+11 = { name = "CE",      dir = "IN",   color = "EN",    flags = [ "activeLow"] }
+12 = { name = "GND",     dir = "NONE", color = "GND"  }
+13 = { name = "OE",      dir = "IN",   color = "EN",    flags = [ "activeLow"] }
+14 = { name = "D0",      dir = "OUT",  color = "DATA" }
+15 = { name = "D8",      dir = "OUT",  color = "DATA" }
+16 = { name = "D1",      dir = "OUT",  color = "DATA" }
+17 = { name = "D9",      dir = "OUT",  color = "DATA" }
+18 = { name = "D2",      dir = "OUT",  color = "DATA" }
+19 = { name = "D10",     dir = "OUT",  color = "DATA" }
+20 = { name = "D3",      dir = "OUT",  color = "DATA" }
+21 = { name = "D11",     dir = "OUT",  color = "DATA" }
+
+# right
+22 = { name = "VCC",     dir = "NONE", color = "POWER"}
+23 = { name = "D4",      dir = "OUT",  color = "DATA" }
+24 = { name = "D12",     dir = "OUT",  color = "DATA" }
+25 = { name = "D5",      dir = "OUT",  color = "DATA" }
+26 = { name = "D13",     dir = "OUT",  color = "DATA" }
+27 = { name = "D6",      dir = "OUT",  color = "DATA" }
+28 = { name = "D14",     dir = "OUT",  color = "DATA" }
+29 = { name = "D7",      dir = "OUT",  color = "DATA" }
+30 = { name = "D15",     dir = "OUT",  color = "DATA" }
+31 = { name = "GND",     dir = "NONE", color = "GND"  }
+32 = { name = "A20",     dir = "IN",   color = "ADDR" }
+33 = { name = "A16",     dir = "IN",   color = "ADDR" }
+34 = { name = "A15",     dir = "IN",   color = "ADDR" }
+35 = { name = "A14",     dir = "IN",   color = "ADDR" }
+36 = { name = "A13",     dir = "IN",   color = "ADDR" }
+37 = { name = "A12",     dir = "IN",   color = "ADDR" }
+38 = { name = "A11",     dir = "IN",   color = "ADDR" }
+39 = { name = "A10",     dir = "IN",   color = "ADDR" }
+40 = { name = "A9",      dir = "IN",   color = "ADDR" }
+41 = { name = "A8",      dir = "IN",   color = "ADDR" }
+42 = { name = "A19",     dir = "IN",   color = "ADDR" }
+
+
+[details]
+markdown = """
+
+# Truth Table
+| CE | OE | OUTPUT  |
+|:--:|:--:|:-------:|
+| H  | X  |    Z    |
+| X  | H  |    Z    |
+| L  | L  |    D    |
+<sup>Z = High Impedance, X = Doesn't Matter</sup>
+
+**NOTE1:** OE pin is also used as a programming pin.<br>
+"""

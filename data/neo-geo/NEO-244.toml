@@ -1,0 +1,92 @@
+[info]
+name = "NEO-244"
+description = "# Dual output buffer/line driver with 3-state outputs"
+package = "QFP"
+num_pins = 64
+num_pins_base = 19
+
+[pins]
+# bottom
+ 1 = { name = "A17", dir = "IN",   color = "DATA"  }
+ 2 = { name = "NC",  dir = "NONE", color = "NC"    }
+ 3 = { name = "NC",  dir = "NONE", color = "NC"    }
+ 4 = { name = "A1",  dir = "IN",   color = "DATA"  }
+ 5 = { name = "A2",  dir = "IN",   color = "DATA"  }
+ 6 = { name = "Y1",  dir = "OUT",  color = "DATA2" }
+ 7 = { name = "Y1",  dir = "OUT",  color = "DATA2" }
+ 8 = { name = "Y2",  dir = "OUT",  color = "DATA2" }
+ 9 = { name = "Y2",  dir = "OUT",  color = "DATA2" }
+10 = { name = "GND", dir = "NONE", color = "GND"   }
+11 = { name = "Y3",  dir = "OUT",  color = "DATA2" }
+12 = { name = "Y3",  dir = "OUT",  color = "DATA2" }
+13 = { name = "Y4",  dir = "OUT",  color = "DATA2" }
+14 = { name = "Y4",  dir = "OUT",  color = "DATA2" }
+15 = { name = "Y5",  dir = "OUT",  color = "DATA2" }
+16 = { name = "A3",  dir = "IN",   color = "DATA"  }
+17 = { name = "A4",  dir = "IN",   color = "DATA"  }
+18 = { name = "A5",  dir = "IN",   color = "DATA"  }
+19 = { name = "A6",  dir = "IN",   color = "DATA"  }
+
+# right
+20 = { name = "A7",  dir = "IN",   color = "DATA"  }
+21 = { name = "Y5",  dir = "OUT",  color = "DATA2" }
+22 = { name = "Y6",  dir = "OUT",  color = "DATA2" }
+23 = { name = "Y6",  dir = "OUT",  color = "DATA2" }
+24 = { name = "Y7",  dir = "OUT",  color = "DATA2" }
+25 = { name = "GND", dir = "NONE", color = "GND"   }
+26 = { name = "VCC", dir = "NONE", color = "POWER" }
+27 = { name = "Y7",  dir = "OUT",  color = "DATA2" }
+28 = { name = "Y8",  dir = "OUT",  color = "DATA2" }
+29 = { name = "Y8",  dir = "OUT",  color = "DATA2" }
+30 = { name = "Y9",  dir = "OUT",  color = "DATA2" }
+31 = { name = "Y9",  dir = "OUT",  color = "DATA2" }
+32 = { name = "A8",  dir = "IN",   color = "DATA"  }
+
+# top
+33 = { name = "A9",  dir = "IN",   color = "DATA"  }
+34 = { name = "NC",  dir = "NONE", color = "NC"    }
+35 = { name = "NC",  dir = "NONE", color = "NC"    }
+36 = { name = "A10", dir = "IN",   color = "DATA"  }
+37 = { name = "A11", dir = "IN",   color = "DATA"  }
+38 = { name = "Y10", dir = "OUT",  color = "DATA2" }
+39 = { name = "Y10", dir = "OUT",  color = "DATA2" }
+40 = { name = "Y11", dir = "OUT",  color = "DATA2" }
+41 = { name = "Y11", dir = "OUT",  color = "DATA2" }
+42 = { name = "GND", dir = "NONE", color = "GND"   }
+43 = { name = "Y12", dir = "OUT",  color = "DATA2" }
+44 = { name = "Y12", dir = "OUT",  color = "DATA2" }
+45 = { name = "Y13", dir = "OUT",  color = "DATA2" }
+46 = { name = "Y14", dir = "OUT",  color = "DATA2" }
+47 = { name = "NC",  dir = "NONE", color = "NC"    }
+48 = { name = "A12", dir = "IN",   color = "DATA"  }
+49 = { name = "A13", dir = "IN",   color = "DATA"  }
+50 = { name = "OE",  dir = "IN",   color = "EN",     flags = [ "activeLow"] }
+51 = { name = "A14", dir = "IN",   color = "DATA"  }
+
+# left
+52 = { name = "A15", dir = "IN",   color = "DATA"  }
+53 = { name = "NC",  dir = "NONE", color = "NC"    }
+54 = { name = "Y14", dir = "OUT",  color = "DATA2" }
+55 = { name = "Y14", dir = "OUT",  color = "DATA2" }
+56 = { name = "Y15", dir = "OUT",  color = "DATA2" }
+57 = { name = "GND", dir = "NONE", color = "GND"   }
+58 = { name = "VCC", dir = "NONE", color = "POWER" }
+59 = { name = "Y15", dir = "OUT",  color = "DATA2" }
+60 = { name = "Y16", dir = "OUT",  color = "DATA2" }
+61 = { name = "Y16", dir = "OUT",  color = "DATA2" }
+62 = { name = "Y17", dir = "OUT",  color = "DATA2" }
+63 = { name = "Y17", dir = "OUT",  color = "DATA2" }
+64 = { name = "A16", dir = "IN",   color = "DATA"  }
+
+[details]
+markdown = """
+
+# Truth Table
+| OE | INPUT | OUTPUTS ||
+|:--:|:-----:|:-------:|:---:|
+| L  |   A   |    Y    |  Y  |
+| H  |   A   |    Z    |  Z  |
+<sup>Z = High Impedance</sup>
+
+
+"""

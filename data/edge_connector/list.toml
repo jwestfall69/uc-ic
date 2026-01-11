@@ -1,0 +1,6 @@
+# This list is what gets loaded into the 'IC' drop down list
+# when this 'Type' is selected.
+list = [
+  { display = "JAMMA",          path = "data/edge_connector/JAMMA.toml" },
+  { display = "MVS",            path = "data/edge_connector/MVS.toml"   }
+]

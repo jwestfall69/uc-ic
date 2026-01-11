@@ -1,0 +1,9 @@
+# This list is what gets loaded into the 'IC' drop down list
+# when this 'Type' is selected.
+list = [
+  { display = "6809/6309",     path = "data/cpu/6809.toml"        },
+  { display = "6809E/6809E",   path = "data/cpu/6809E.toml"       },
+  { display = "M68000 (DIP)",  path = "data/cpu/M68000_DIP.toml"  },
+  { display = "M68000 (PLCC)", path = "data/cpu/M68000_PLCC.toml" },
+  { display = "Z80",           path = "data/cpu/Z80.toml"         }
+]

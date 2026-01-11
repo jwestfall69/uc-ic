@@ -1,0 +1,48 @@
+[info]
+name = "2732"
+description = "# 2732 (4KB)"
+package = "DIP"
+num_pins = 24
+
+[pins]
+# left
+ 1 = { name = "A7",  dir = "IN",   color = "ADDR" }
+ 2 = { name = "A6",  dir = "IN",   color = "ADDR" }
+ 3 = { name = "A5",  dir = "IN",   color = "ADDR" }
+ 4 = { name = "A4",  dir = "IN",   color = "ADDR" }
+ 5 = { name = "A3",  dir = "IN",   color = "ADDR" }
+ 6 = { name = "A2",  dir = "IN",   color = "ADDR" }
+ 7 = { name = "A1",  dir = "IN",   color = "ADDR" }
+ 8 = { name = "A0",  dir = "IN",   color = "ADDR" }
+ 9 = { name = "D0",  dir = "OUT",  color = "DATA" }
+10 = { name = "D1",  dir = "OUT",  color = "DATA" }
+11 = { name = "D2",  dir = "OUT",  color = "DATA" }
+12 = { name = "GND", dir = "NONE", color = "GND"  }
+
+# right
+13 = { name = "D3",  dir = "OUT",  color = "DATA" }
+14 = { name = "D4",  dir = "OUT",  color = "DATA" }
+15 = { name = "D5",  dir = "OUT",  color = "DATA" }
+16 = { name = "D6",  dir = "OUT",  color = "DATA" }
+17 = { name = "D7",  dir = "OUT",  color = "DATA" }
+18 = { name = "CE",  dir = "IN",   color = "EN",    flags = [ "activeLow"] }
+19 = { name = "A10", dir = "IN",   color = "ADDR" }
+20 = { name = "OE",  dir = "IN",   color = "EN",    flags = [ "activeLow"] }
+21 = { name = "A11", dir = "IN",   color = "ADDR" }
+22 = { name = "A9",  dir = "IN",   color = "ADDR" }
+23 = { name = "A8",  dir = "IN",   color = "ADDR" }
+24 = { name = "VCC", dir = "NONE", color = "POWER"}
+
+[details]
+markdown = """
+
+# Truth Table
+| CE | OE | OUTPUT  |
+|:--:|:--:|:-------:|
+| H  | X  |    Z    |
+| X  | H  |    Z    |
+| L  | L  |    D    |
+<sup>Z = High Impedance, X = Doesn't Matter</sup>
+
+**NOTE:** OE pin is also used as a programming pin.
+"""

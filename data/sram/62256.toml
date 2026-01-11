@@ -1,0 +1,66 @@
+[info]
+name = "62256"
+description = "# 62256 (32K x 8bit SRAM)"
+package = "DIP"
+num_pins = 28
+width = "skinny"
+
+[pins]
+# left
+ 1 = { name = "A14", dir = "IN",    color = "ADDR" }
+ 2 = { name = "A12", dir = "IN",    color = "ADDR" }
+ 3 = { name = "A7",  dir = "IN",    color = "ADDR" }
+ 4 = { name = "A6",  dir = "IN",    color = "ADDR" }
+ 5 = { name = "A5",  dir = "IN",    color = "ADDR" }
+ 6 = { name = "A4",  dir = "IN",    color = "ADDR" }
+ 7 = { name = "A3",  dir = "IN",    color = "ADDR" }
+ 8 = { name = "A2",  dir = "IN",    color = "ADDR" }
+ 9 = { name = "A1",  dir = "IN",    color = "ADDR" }
+10 = { name = "A0",  dir = "IN",    color = "ADDR" }
+11 = { name = "D0",  dir = "INOUT", color = "DATA" }
+12 = { name = "D1",  dir = "INOUT", color = "DATA" }
+13 = { name = "D2",  dir = "INOUT", color = "DATA" }
+14 = { name = "GND", dir = "NONE",  color = "GND"  }
+
+# right
+15 = { name = "D3",  dir = "INOUT", color = "DATA" }
+16 = { name = "D4",  dir = "INOUT", color = "DATA" }
+17 = { name = "D5",  dir = "INOUT", color = "DATA" }
+18 = { name = "D6",  dir = "INOUT", color = "DATA" }
+19 = { name = "D7",  dir = "INOUT", color = "DATA" }
+20 = { name = "CE",  dir = "IN",    color = "EN",    flags = [ "activeLow"] }
+21 = { name = "A10", dir = "IN",    color = "ADDR" }
+22 = { name = "OE",  dir = "IN",    color = "EN",    flags = [ "activeLow"] }
+23 = { name = "A11", dir = "IN",    color = "ADDR" }
+24 = { name = "A9",  dir = "IN",    color = "ADDR" }
+25 = { name = "A8",  dir = "IN",    color = "ADDR" }
+26 = { name = "A13", dir = "IN",    color = "ADDR" }
+27 = { name = "WE",  dir = "IN",    color = "EN",    flags = [ "activeLow"] }
+28 = { name = "VCC", dir = "NONE",  color = "POWER"}
+
+[details]
+markdown = """
+
+# Truth Table
+| CE | OE | WE | D MODE  |
+|:--:|:--:|:--:|:-------:|
+| H  | X  | X  |    Z    |
+| L  | H  | H  |    Z    |
+| L  | L  | H  |  READ   |
+| L  | X  | L  |  WRITE  |
+<sup>Z = High Impedance, X = Doesn't Matter</sup>
+
+
+### Common Models
+Cypress CY62256<br>
+Hitachi HM62256<br>
+Mitsubishi M5M5256<br>
+Motorola MCM60256<br>
+NEC D43256<br>
+Samsung KM62256<br>
+Sharp LH52256<br>
+Sony CXK58256, CKX58257<br>
+Toshiba TC55257<br>
+UMC UM61256<br>
+
+"""

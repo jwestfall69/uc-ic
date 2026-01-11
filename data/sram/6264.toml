@@ -1,0 +1,68 @@
+[info]
+name = "6264"
+description = "# 6264 (8K x 8bit SRAM)"
+package = "DIP"
+num_pins = 28
+width = "skinny"
+
+[pins]
+# left
+ 1 = { name = "NC",  dir = "NONE",  color = "NC" }
+ 2 = { name = "A12", dir = "IN",    color = "ADDR" }
+ 3 = { name = "A7",  dir = "IN",    color = "ADDR" }
+ 4 = { name = "A6",  dir = "IN",    color = "ADDR" }
+ 5 = { name = "A5",  dir = "IN",    color = "ADDR" }
+ 6 = { name = "A4",  dir = "IN",    color = "ADDR" }
+ 7 = { name = "A3",  dir = "IN",    color = "ADDR" }
+ 8 = { name = "A2",  dir = "IN",    color = "ADDR" }
+ 9 = { name = "A1",  dir = "IN",    color = "ADDR" }
+10 = { name = "A0",  dir = "IN",    color = "ADDR" }
+11 = { name = "D0",  dir = "INOUT", color = "DATA" }
+12 = { name = "D1",  dir = "INOUT", color = "DATA" }
+13 = { name = "D2",  dir = "INOUT", color = "DATA" }
+14 = { name = "GND", dir = "NONE",  color = "GND"  }
+
+# right
+15 = { name = "D3",  dir = "INOUT", color = "DATA" }
+16 = { name = "D4",  dir = "INOUT", color = "DATA" }
+17 = { name = "D5",  dir = "INOUT", color = "DATA" }
+18 = { name = "D6",  dir = "INOUT", color = "DATA" }
+19 = { name = "D7",  dir = "INOUT", color = "DATA" }
+20 = { name = "CE1", dir = "IN",    color = "EN",    flags = [ "activeLow"] }
+21 = { name = "A10", dir = "IN",    color = "ADDR" }
+22 = { name = "OE",  dir = "IN",    color = "EN",    flags = [ "activeLow"] }
+23 = { name = "A11", dir = "IN",    color = "ADDR" }
+24 = { name = "A9",  dir = "IN",    color = "ADDR" }
+25 = { name = "A8",  dir = "IN",    color = "ADDR" }
+26 = { name = "CE2", dir = "IN",    color = "EN" }
+27 = { name = "WE",  dir = "IN",    color = "EN",    flags = [ "activeLow"] }
+28 = { name = "VCC", dir = "NONE",  color = "POWER"}
+
+[details]
+markdown = """
+
+# Truth Table
+| CE1 | CE2 | OE | WE | D MODE  |
+|:---:|:---:|:--:|:--:|:-------:|
+|  H  |  X  | X  | X  |    Z    |
+|  X  |  L  | X  | X  |    Z    |
+|  L  |  H  | H  | H  |    Z    |
+|  L  |  H  | L  | H  |  READ   |
+|  L  |  H  | X  | L  |  WRITE  |
+<sup>Z = High Impedance, X = Doesn't Matter</sup>
+
+### Common Models
+Cypress CY7C185<br>
+Fujitsu MB8464<br>
+Hitachi HM6264<br>
+Hynix HY6264<br>
+Motorola MCM6264<br>
+NEC D4364, D4464<br>
+Samsung KM6264<br>
+Sanyo LC3664<br>
+Sharp LH5164<br>
+Sony CXK5864<br>
+Toshiba TC5563, TC5565, TC5588, TMM2063<br>
+UMC UM6264<br>
+
+"""

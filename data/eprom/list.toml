@@ -1,0 +1,45 @@
+# This list is what gets loaded into the 'IC' drop down list
+# when this 'Type' is selected.
+list = [
+  { display = "----- 24 PIN -----", path = "" },
+  { display = "2708",           path = "data/eprom/2708.toml"    },
+  { display = "2716",           path = "data/eprom/2716.toml"    },
+  { display = "2732",           path = "data/eprom/2732.toml"    },
+
+  { display = "----- 28 PIN -----", path = "" },
+  { display = "27C64",          path = "data/eprom/27C128.toml" },
+  { display = "27C128",         path = "data/eprom/27C128.toml" },
+  { display = "27C256",         path = "data/eprom/27C256.toml" },
+  { display = "27C512",         path = "data/eprom/27C512.toml" },
+
+  { display = "----- 32 PIN -----", path = "" },
+  { display = "27C010",         path = "data/eprom/27C010.toml" },
+  { display = "27C020",         path = "data/eprom/27C020.toml" },
+  { display = "27C040",         path = "data/eprom/27C040.toml" },
+  { display = "27C080",         path = "data/eprom/27C080.toml" },
+  { display = "27C301",         path = "data/eprom/27C301.toml" },
+  { display = "27C801",         path = "data/eprom/27C080.toml" },
+  { display = "27C1000",        path = "data/eprom/27C301.toml" },
+  { display = "27C1001",        path = "data/eprom/27C010.toml" },
+  { display = "27C2001",        path = "data/eprom/27C020.toml" },
+  { display = "27C4001",        path = "data/eprom/27C040.toml" },
+
+  { display = "----- 40 PIN -----", path = "" },
+  { display = "27C202",         path = "data/eprom/27C2048.toml" },
+  { display = "27C240",         path = "data/eprom/27C4096.toml" },
+  { display = "27C400",         path = "data/eprom/27C4100.toml" },
+  { display = "27C1024",        path = "data/eprom/27C1024.toml" },
+  { display = "27C1100",        path = "data/eprom/27C1100.toml" },
+  { display = "27C2048",        path = "data/eprom/27C2048.toml" },
+  { display = "27C2100",        path = "data/eprom/27C2100.toml" },
+  { display = "27C4002",        path = "data/eprom/27C4096.toml" },
+  { display = "27C4096",        path = "data/eprom/27C4096.toml" },
+  { display = "27C4100",        path = "data/eprom/27C4100.toml" },
+
+  { display = "----- 42 PIN -----", path = "" },
+  { display = "27C160",         path = "data/eprom/27C160.toml" },
+  { display = "27C322",         path = "data/eprom/27C322.toml" },
+  { display = "27C800",         path = "data/eprom/27C800.toml" },
+  { display = "27C8001",        path = "data/eprom/27C800.toml" },
+  { display = "27C8100",        path = "data/eprom/27C800.toml" },
+]

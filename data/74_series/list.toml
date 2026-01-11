@@ -1,0 +1,9 @@
+# This list is what gets loaded into the 'IC' drop down list
+# when this 'Type' is selected.
+list = [
+  { display = "74x00",  path = "data/74_series/74x00.toml"  },
+  { display = "74x04",  path = "data/74_series/74x04.toml"  },
+  { display = "74x08",  path = "data/74_series/74x08.toml"  },
+  { display = "74x32",  path = "data/74_series/74x32.toml"  },
+  { display = "74x245", path = "data/74_series/74x245.toml" }
+]

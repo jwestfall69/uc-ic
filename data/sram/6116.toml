@@ -1,0 +1,59 @@
+[info]
+name = "6116"
+description = "# 6116 (2K x 8bit SRAM)"
+package = "DIP"
+num_pins = 24
+width = "skinny"
+
+[pins]
+# left
+ 1 = { name = "A7",  dir = "IN",    color = "ADDR" }
+ 2 = { name = "A6",  dir = "IN",    color = "ADDR" }
+ 3 = { name = "A5",  dir = "IN",    color = "ADDR" }
+ 4 = { name = "A4",  dir = "IN",    color = "ADDR" }
+ 5 = { name = "A3",  dir = "IN",    color = "ADDR" }
+ 6 = { name = "A2",  dir = "IN",    color = "ADDR" }
+ 7 = { name = "A1",  dir = "IN",    color = "ADDR" }
+ 8 = { name = "A0",  dir = "IN",    color = "ADDR" }
+ 9 = { name = "D0",  dir = "INOUT", color = "DATA" }
+10 = { name = "D1",  dir = "INOUT", color = "DATA" }
+11 = { name = "D2",  dir = "INOUT", color = "DATA" }
+12 = { name = "GND", dir = "NONE",  color = "GND"  }
+
+# right
+13 = { name = "D3",  dir = "INOUT", color = "DATA" }
+14 = { name = "D4",  dir = "INOUT", color = "DATA" }
+15 = { name = "D5",  dir = "INOUT", color = "DATA" }
+16 = { name = "D6",  dir = "INOUT", color = "DATA" }
+17 = { name = "D7",  dir = "INOUT", color = "DATA" }
+18 = { name = "CE",  dir = "IN",    color = "EN",    flags = [ "activeLow"] }
+19 = { name = "A10", dir = "IN",    color = "ADDR" }
+20 = { name = "OE",  dir = "IN",    color = "EN",    flags = [ "activeLow"] }
+21 = { name = "WE",  dir = "IN",    color = "EN",    flags = [ "activeLow"] }
+22 = { name = "A9",  dir = "IN",    color = "ADDR" }
+23 = { name = "A8",  dir = "IN",    color = "ADDR" }
+24 = { name = "VCC", dir = "NONE",  color = "POWER"}
+
+[details]
+markdown = """
+
+# Truth Table
+| CE | OE | WE | D MODE  |
+|:--:|:--:|:--:|:-------:|
+| H  | X  | X  |    Z    |
+| L  | H  | H  |    Z    |
+| L  | L  | H  |  READ   |
+| L  | X  | L  |  WRITE  |
+<sup>Z = High Impedance, X = Doesn't Matter</sup>
+
+### Common Models
+Cypress CY7C128<br>
+Fujitsu MB8416<br>
+Mitsubishi M58725<br>
+Motorola MCM2016, MCM2018<br>
+NEC D4016<br>
+Sony CXK5814<br>
+Toshiba TMM2015, TMM2016<br>
+UMC UM6116<br>
+
+"""

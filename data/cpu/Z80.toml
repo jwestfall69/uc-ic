@@ -1,0 +1,50 @@
+[info]
+name = "Z80"
+description = "# Zilog Z80 CPU"
+package = "DIP"
+num_pins = 40
+
+[pins]
+# left
+ 1 = { name = "A11",   dir = "OUT",   color = "ADDR" }
+ 2 = { name = "A12",   dir = "OUT",   color = "ADDR" }
+ 3 = { name = "A13",   dir = "OUT",   color = "ADDR" }
+ 4 = { name = "A14",   dir = "OUT",   color = "ADDR" }
+ 5 = { name = "A16",   dir = "OUT",   color = "ADDR" }
+ 6 = { name = "CLK",   dir = "IN",    color = "CLOCK"}
+ 7 = { name = "D4",    dir = "INOUT", color = "DATA" }
+ 8 = { name = "D3",    dir = "INOUT", color = "DATA" }
+ 9 = { name = "D5",    dir = "INOUT", color = "DATA" }
+10 = { name = "D6",    dir = "INOUT", color = "DATA" }
+11 = { name = "VCC",   dir = "NONE",  color = "POWER"}
+12 = { name = "D2",    dir = "INOUT", color = "DATA" }
+13 = { name = "D7",    dir = "INOUT", color = "DATA" }
+14 = { name = "D0",    dir = "INOUT", color = "DATA" }
+15 = { name = "D1",    dir = "INOUT", color = "DATA" }
+16 = { name = "INT",   dir = "IN",    color = "MISC",  flags = [ "activeLow" ] }
+17 = { name = "NMI",   dir = "IN",    color = "MISC",  flags = [ "activeLow" ] }
+18 = { name = "HALT",  dir = "OUT",   color = "MISC",  flags = [ "activeLow" ] }
+19 = { name = "MREQ",  dir = "OUT",   color = "MISC",  flags = [ "activeLow" ] }
+20 = { name = "IORQ",  dir = "OUT",   color = "MISC",  flags = [ "activeLow" ] }
+
+# right
+21 = { name = "RD",    dir = "OUT",   color = "MISC",  flags = [ "activeLow" ] }
+22 = { name = "WR",    dir = "OUT",   color = "MISC",  flags = [ "activeLow" ] }
+23 = { name = "BUSAK", dir = "OUT",   color = "MISC",  flags = [ "activeLow" ] }
+24 = { name = "WAIT",  dir = "IN",    color = "MISC",  flags = [ "activeLow" ] }
+25 = { name = "BUSRQ", dir = "IN",    color = "MISC",  flags = [ "activeLow" ] }
+26 = { name = "RESET", dir = "IN",    color = "MISC",  flags = [ "activeLow" ] }
+27 = { name = "M1",    dir = "OUT",   color = "MISC",  flags = [ "activeLow" ] }
+28 = { name = "RFSH",  dir = "OUT",   color = "MISC",  flags = [ "activeLow" ] }
+29 = { name = "GND",   dir = "NONE",  color = "GND"  }
+30 = { name = "A0",    dir = "OUT",   color = "ADDR" }
+31 = { name = "A1",    dir = "OUT",   color = "ADDR" }
+32 = { name = "A2",    dir = "OUT",   color = "ADDR" }
+33 = { name = "A3",    dir = "OUT",   color = "ADDR" }
+34 = { name = "A4",    dir = "OUT",   color = "ADDR" }
+35 = { name = "A5",    dir = "OUT",   color = "ADDR" }
+36 = { name = "A6",    dir = "OUT",   color = "ADDR" }
+37 = { name = "A7",    dir = "OUT",   color = "ADDR" }
+38 = { name = "A8",    dir = "OUT",   color = "ADDR" }
+39 = { name = "A9",    dir = "OUT",   color = "ADDR" }
+40 = { name = "A10",   dir = "OUT",   color = "ADDR" }

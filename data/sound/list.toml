@@ -1,0 +1,6 @@
+# This list is what gets loaded into the 'IC' drop down list
+# when this 'Type' is selected.
+list = [
+  { display = "OKI MSM6295",    path = "data/sound/MSM6295.toml" },
+  { display = "Yamaha YM2151",  path = "data/sound/YM2151.toml"  },
+]

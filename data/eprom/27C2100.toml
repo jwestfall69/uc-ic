@@ -1,0 +1,68 @@
+[info]
+name = "27C2100"
+description = "# 27C2100 (256KB)"
+package = "DIP"
+num_pins = 40
+
+[pins]
+# left
+ 1 = { name = "NC",      dir = "NONE",  color = "NC"   }
+ 2 = { name = "A7",      dir = "IN",    color = "ADDR" }
+ 3 = { name = "A6",      dir = "IN",    color = "ADDR" }
+ 4 = { name = "A5",      dir = "IN",    color = "ADDR" }
+ 5 = { name = "A4",      dir = "IN",    color = "ADDR" }
+ 6 = { name = "A3",      dir = "IN",    color = "ADDR" }
+ 7 = { name = "A2",      dir = "IN",    color = "ADDR" }
+ 8 = { name = "A1",      dir = "IN",    color = "ADDR" }
+ 9 = { name = "A0",      dir = "IN",    color = "ADDR" }
+10 = { name = "CE",      dir = "IN",    color = "EN",    flags = [ "activeLow"] }
+11 = { name = "GND",     dir = "NONE",  color = "GND"  }
+12 = { name = "OE",      dir = "IN",    color = "EN",    flags = [ "activeLow"] }
+13 = { name = "D0",      dir = "OUT",   color = "DATA" }
+14 = { name = "D8",      dir = "OUT",   color = "DATA" }
+15 = { name = "D1",      dir = "OUT",   color = "DATA" }
+16 = { name = "D9",      dir = "OUT",   color = "DATA" }
+17 = { name = "D2",      dir = "OUT",   color = "DATA" }
+18 = { name = "D10",     dir = "OUT",   color = "DATA" }
+19 = { name = "D3",      dir = "OUT",   color = "DATA" }
+20 = { name = "D11",     dir = "OUT",   color = "DATA" }
+
+# right
+21 = { name = "VCC",     dir = "NONE",  color = "POWER"}
+22 = { name = "D4",      dir = "OUT",   color = "DATA" }
+23 = { name = "D12",     dir = "OUT",   color = "DATA" }
+24 = { name = "D5",      dir = "OUT",   color = "DATA" }
+25 = { name = "D13",     dir = "OUT",   color = "DATA" }
+26 = { name = "D6",      dir = "OUT",   color = "DATA" }
+27 = { name = "D14",     dir = "OUT",   color = "DATA" }
+28 = { name = "D7",      dir = "OUT",   color = "DATA" }
+29 = { name = "D15/A-1", dir = "INOUT", color = "DATA" }
+30 = { name = "GND",     dir = "NONE",  color = "GND"  }
+31 = { name = "BYTE",    dir = "IN",    color = "MISC",  flags = [ "activeLow"] }
+32 = { name = "A16",     dir = "IN",    color = "ADDR" }
+33 = { name = "A15",     dir = "IN",    color = "ADDR" }
+34 = { name = "A14",     dir = "IN",    color = "ADDR" }
+35 = { name = "A13",     dir = "IN",    color = "ADDR" }
+36 = { name = "A12",     dir = "IN",    color = "ADDR" }
+37 = { name = "A11",     dir = "IN",    color = "ADDR" }
+38 = { name = "A10",     dir = "IN",    color = "ADDR" }
+39 = { name = "A9",      dir = "IN",    color = "ADDR" }
+40 = { name = "A8",      dir = "IN",    color = "ADDR" }
+
+
+[details]
+markdown = """
+
+# Truth Table
+| CE | OE | OUTPUT  |
+|:--:|:--:|:-------:|
+| H  | X  |    Z    |
+| X  | H  |    Z    |
+| L  | L  |    D    |
+<sup>Z = High Impedance, X = Doesn't Matter</sup>
+
+**NOTE1:** When BYTE is HIGH, D0-D15 will be filled with data.  When BYTE is LOW,<br>
+A-1 will act as an additional address line that picks the high or low byte and that
+gets filled into D0-D7<br>
+**NOTE2:** BYTE pin is also used as a programming pin.
+"""
