@@ -9,7 +9,7 @@ width_direction = 16
 # enable/disable colors on pins
 color_enabled = 1
 
-# color mappings
+# color aliases
 [pin.colors]
 default = "#ffffff"
 ADDR    = "#ffd700"
@@ -25,27 +25,26 @@ MISC    = "#ee82ee"
 NC      = "#d3d3d3"
 POWER   = "#ff0000"
 
-
 # DIP specific settings
-[package_dip]
+[package.dip]
 side_pad = 160
 top_pad = 40
 
-# DIP package widths
-[package_dip.width]
+# DIP package width aliases
+[package.dip.width]
 default = 220
 SKINNY  = 114
 WIDE    = 340
 
 # Edge Connector specific settings
-[package_edge]
+[package.edge]
 side_pad = 300
 top_pad  = 40
 
 # PLCC specific settings
-[package_plcc]
+[package.plcc]
 side_pad = 160
 
 # QFP specific settings
-[package_qfp]
+[package.qfp]
 side_pad = 160

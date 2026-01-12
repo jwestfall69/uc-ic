@@ -263,30 +263,30 @@ function drawPin(x, y, side, num, pin) {
 
 function getDIPWidth(ic) {
     if(!defined(ic.info.width)) {
-        return config.package_dip.width.default;
+        return config.package.dip.width.default;
     }
 
     if(typeof(ic.info.width) == "number") {
         return ic.info.width;
     }
 
-    if(defined(config.package_dip.width[ic.info.width])) {
-        return config.package_dip.width[ic.info.width];
+    if(defined(config.package.dip.width[ic.info.width])) {
+        return config.package.dip.width[ic.info.width];
     }
 
-    return config.package_dip.width.default;
+    return config.package.dip.width.default;
 }
 
 function renderDIP(svg, ic) {
     const numPins = ic.info.num_pins;
     const icHeight = (config.pin.spacing * numPins / 2) + (config.pin.spacing - config.pin.height);
     const icWidth = getDIPWidth(ic);
-    svg.setAttribute("width", `${config.package_dip.side_pad * 2 + icWidth}px`);
-    svg.setAttribute("height", `${config.package_dip.top_pad * 2 + icHeight}px`);
+    svg.setAttribute("width", `${config.package.dip.side_pad * 2 + icWidth}px`);
+    svg.setAttribute("height", `${config.package.dip.top_pad * 2 + icHeight}px`);
 
     const icBody = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-    icBody.setAttribute("x", config.package_dip.side_pad);
-    icBody.setAttribute("y", config.package_dip.top_pad);
+    icBody.setAttribute("x", config.package.dip.side_pad);
+    icBody.setAttribute("y", config.package.dip.top_pad);
     icBody.setAttribute("width", icWidth);
     icBody.setAttribute("height", icHeight);
     icBody.setAttribute("stroke", "black");
@@ -295,8 +295,8 @@ function renderDIP(svg, ic) {
     svg.appendChild(icBody);
 
     const icName = document.createElementNS("http://www.w3.org/2000/svg", "text");
-    const textX = config.package_dip.side_pad + icWidth / 2;
-    const textY = config.package_dip.top_pad + icHeight / 2;
+    const textX = config.package.dip.side_pad + icWidth / 2;
+    const textY = config.package.dip.top_pad + icHeight / 2;
     icName.setAttribute("x", textX);
     icName.setAttribute("y", textY);
     icName.setAttribute("transform", `rotate(90, ${textX}, ${textY})`);
@@ -310,17 +310,17 @@ function renderDIP(svg, ic) {
     svg.appendChild(icName);
 
     const icNotch = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    icNotch.setAttribute("d", `M ${textX - 20} ${config.package_dip.top_pad}
-                               A 20 20 0 0 0 ${textX + 20} ${config.package_dip.top_pad}
-                               L ${textX - 20} ${config.package_dip.top_pad}`);
+    icNotch.setAttribute("d", `M ${textX - 20} ${config.package.dip.top_pad}
+                               A 20 20 0 0 0 ${textX + 20} ${config.package.dip.top_pad}
+                               L ${textX - 20} ${config.package.dip.top_pad}`);
     icNotch.setAttribute("stroke", "black");
     icNotch.setAttribute("stroke-width", "1");
     icNotch.setAttribute("fill", "white");
     svg.appendChild(icNotch);
 
-    const pinStartLeft = config.package_dip.side_pad - config.pin.width;
+    const pinStartLeft = config.package.dip.side_pad - config.pin.width;
     const pinStartRight = pinStartLeft + icWidth + config.pin.width;
-    const pinStartTop = config.package_dip.top_pad + (config.pin.spacing - config.pin.height);
+    const pinStartTop = config.package.dip.top_pad + (config.pin.spacing - config.pin.height);
 
 
     for(let pinNum = 0; pinNum < numPins / 2; pinNum++) {
@@ -333,12 +333,12 @@ function renderEdge(svg, ic) {
     const numPins = ic.info.num_pins;
     const icHeight = (config.pin.spacing * numPins / 2) + (config.pin.spacing - config.pin.height);
     const icWidth = 100;
-    svg.setAttribute("width", `${config.package_edge.side_pad * 2 + icWidth}px`);
-    svg.setAttribute("height", `${config.package_edge.top_pad * 2 + icHeight}px`);
+    svg.setAttribute("width", `${config.package.edge.side_pad * 2 + icWidth}px`);
+    svg.setAttribute("height", `${config.package.edge.top_pad * 2 + icHeight}px`);
 
     const icBody = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-    icBody.setAttribute("x", config.package_edge.side_pad);
-    icBody.setAttribute("y", config.package_edge.top_pad);
+    icBody.setAttribute("x", config.package.edge.side_pad);
+    icBody.setAttribute("y", config.package.edge.top_pad);
     icBody.setAttribute("width", icWidth);
     icBody.setAttribute("height", icHeight);
     icBody.setAttribute("stroke", "black");
@@ -347,8 +347,8 @@ function renderEdge(svg, ic) {
     svg.appendChild(icBody);
 
     const icName = document.createElementNS("http://www.w3.org/2000/svg", "text");
-    let textX = config.package_edge.side_pad + icWidth / 2;
-    let textY = config.package_edge.top_pad + icHeight / 2;
+    let textX = config.package.edge.side_pad + icWidth / 2;
+    let textY = config.package.edge.top_pad + icHeight / 2;
     icName.setAttribute("x", textX);
     icName.setAttribute("y", textY);
     icName.setAttribute("transform", `rotate(90, ${textX}, ${textY})`);
@@ -362,7 +362,7 @@ function renderEdge(svg, ic) {
     svg.appendChild(icName);
 
     const icHeadingRight = document.createElementNS("http://www.w3.org/2000/svg", "text");
-    textX = config.package_edge.side_pad + icWidth + 20;
+    textX = config.package.edge.side_pad + icWidth + 20;
     textY = 0;
     icHeadingRight.setAttribute("x", textX);
     icHeadingRight.setAttribute("y", textY);
@@ -376,7 +376,7 @@ function renderEdge(svg, ic) {
     svg.appendChild(icHeadingRight);
 
     const icHeadingLeft = document.createElementNS("http://www.w3.org/2000/svg", "text");
-    textX = config.package_edge.side_pad - 20;
+    textX = config.package.edge.side_pad - 20;
     textY = 0;
     icHeadingLeft.setAttribute("x", textX);
     icHeadingLeft.setAttribute("y", textY);
@@ -389,9 +389,9 @@ function renderEdge(svg, ic) {
     icHeadingLeft.textContent = ic.info.heading_left;
     svg.appendChild(icHeadingLeft);
 
-    const pinStartLeft = config.package_edge.side_pad - config.pin.width;
+    const pinStartLeft = config.package.edge.side_pad - config.pin.width;
     const pinStartRight = pinStartLeft + icWidth + config.pin.width;
-    const pinStartTop = config.package_edge.top_pad + (config.pin.spacing - config.pin.height);
+    const pinStartTop = config.package.edge.top_pad + (config.pin.spacing - config.pin.height);
 
     // right (top to bottom going from 1 to n)
     let offset = 0;
@@ -415,12 +415,12 @@ function renderPLCC(svg, ic) {
     const icWidth = (config.pin.spacing * numPins / 4) + (config.pin.spacing - config.pin.height);
     const icHeight = icWidth;
 
-    svg.setAttribute("width", `${config.package_plcc.side_pad * 2 + icWidth}px`);
-    svg.setAttribute("height", `${config.package_plcc.side_pad * 2 + icHeight}px`);
+    svg.setAttribute("width", `${config.package.plcc.side_pad * 2 + icWidth}px`);
+    svg.setAttribute("height", `${config.package.plcc.side_pad * 2 + icHeight}px`);
 
     const icBody = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-    icBody.setAttribute("x", config.package_plcc.side_pad);
-    icBody.setAttribute("y", config.package_plcc.side_pad);
+    icBody.setAttribute("x", config.package.plcc.side_pad);
+    icBody.setAttribute("y", config.package.plcc.side_pad);
 
     icBody.setAttribute("width", icWidth);
     icBody.setAttribute("height", icHeight);
@@ -430,8 +430,8 @@ function renderPLCC(svg, ic) {
     svg.appendChild(icBody);
 
     const icName = document.createElementNS("http://www.w3.org/2000/svg", "text");
-    const textX = config.package_plcc.side_pad + icWidth / 2;
-    const textY = config.package_plcc.side_pad + icHeight / 2;
+    const textX = config.package.plcc.side_pad + icWidth / 2;
+    const textY = config.package.plcc.side_pad + icHeight / 2;
     icName.setAttribute("x", textX);
     icName.setAttribute("y", textY);
     icName.setAttribute("text-anchor", "middle");
@@ -444,17 +444,17 @@ function renderPLCC(svg, ic) {
     svg.appendChild(icName);
 
     const icNotch = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    icNotch.setAttribute("d", `M ${textX - 20} ${config.package_plcc.side_pad}
-                               A 20 20 0 0 0 ${textX + 20} ${config.package_plcc.side_pad}
-                               L ${textX - 20} ${config.package_plcc.side_pad}`);
+    icNotch.setAttribute("d", `M ${textX - 20} ${config.package.plcc.side_pad}
+                               A 20 20 0 0 0 ${textX + 20} ${config.package.plcc.side_pad}
+                               L ${textX - 20} ${config.package.plcc.side_pad}`);
     icNotch.setAttribute("stroke", "black");
     icNotch.setAttribute("stroke-width", "1");
     icNotch.setAttribute("fill", "white");
     svg.appendChild(icNotch);
 
     // top (middle to left)
-    let startX = config.package_plcc.side_pad;
-    let startY = config.package_plcc.side_pad - config.pin.height - (config.pin.width - config.pin.height) / 2;
+    let startX = config.package.plcc.side_pad;
+    let startY = config.package.plcc.side_pad - config.pin.height - (config.pin.width - config.pin.height) / 2;
     let pinStart = Math.ceil((numPins / 8));
     let pinStop = 0;
     let offset = 0
@@ -472,8 +472,8 @@ function renderPLCC(svg, ic) {
     }
 
     // left (top to bottom)
-    startX = config.package_plcc.side_pad - config.pin.width;
-    startY = config.package_plcc.side_pad - (config.pin.spacing - config.pin.width);
+    startX = config.package.plcc.side_pad - config.pin.width;
+    startY = config.package.plcc.side_pad - (config.pin.spacing - config.pin.width);
     pinStart = Math.ceil((numPins / 8)) + 1;
     pinStop = pinStart + pinsPerSide - 1;
     offset = 0;
@@ -483,8 +483,8 @@ function renderPLCC(svg, ic) {
     }
 
     // bottom (left to right)
-    startX = config.package_plcc.side_pad;
-    startY = config.package_plcc.side_pad + icHeight + Math.abs(config.pin.spacing - config.pin.width);
+    startX = config.package.plcc.side_pad;
+    startY = config.package.plcc.side_pad + icHeight + Math.abs(config.pin.spacing - config.pin.width);
     pinStart = pinStop + 1;
     pinStop = pinStart + pinsPerSide - 1;
     offset = 0;
@@ -494,8 +494,8 @@ function renderPLCC(svg, ic) {
     }
 
     // right (bottom to top)
-    startX = icWidth + config.package_plcc.side_pad;
-    startY = config.package_plcc.side_pad - (config.pin.spacing - config.pin.width);
+    startX = icWidth + config.package.plcc.side_pad;
+    startY = config.package.plcc.side_pad - (config.pin.spacing - config.pin.width);
     pinStart = pinStop + 1;
     pinStop = pinStart + pinsPerSide - 1;
     offset = (pinsPerSide - 1) * config.pin.spacing;
@@ -517,12 +517,12 @@ function renderQFP(svg, ic) {
 
     const icHeight = (config.pin.spacing * numPinsSide) + (config.pin.spacing - config.pin.height);
     const icWidth = (config.pin.spacing * numPinsBase) + (config.pin.spacing - config.pin.height);
-    svg.setAttribute("width", `${config.package_qfp.side_pad * 2 + icWidth}px`);
-    svg.setAttribute("height", `${config.package_qfp.side_pad * 2 + icHeight}px`);
+    svg.setAttribute("width", `${config.package.qfp.side_pad * 2 + icWidth}px`);
+    svg.setAttribute("height", `${config.package.qfp.side_pad * 2 + icHeight}px`);
 
     const icBody = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-    icBody.setAttribute("x", config.package_qfp.side_pad);
-    icBody.setAttribute("y", config.package_qfp.side_pad);
+    icBody.setAttribute("x", config.package.qfp.side_pad);
+    icBody.setAttribute("y", config.package.qfp.side_pad);
 
     icBody.setAttribute("width", icWidth);
     icBody.setAttribute("height", icHeight);
@@ -532,8 +532,8 @@ function renderQFP(svg, ic) {
     svg.appendChild(icBody);
 
     const icName = document.createElementNS("http://www.w3.org/2000/svg", "text");
-    const textX = config.package_plcc.side_pad + icWidth / 2;
-    const textY = config.package_plcc.side_pad + icHeight / 2;
+    const textX = config.package.plcc.side_pad + icWidth / 2;
+    const textY = config.package.plcc.side_pad + icHeight / 2;
     icName.setAttribute("x", textX);
     icName.setAttribute("y", textY);
     icName.setAttribute("text-anchor", "middle");
@@ -546,8 +546,8 @@ function renderQFP(svg, ic) {
     svg.appendChild(icName);
 
     const icCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-    icCircle.setAttribute("cx", `${config.package_qfp.side_pad + 40}`);
-    icCircle.setAttribute("cy", `${icHeight + config.package_qfp.side_pad - 40}`);
+    icCircle.setAttribute("cx", `${config.package.qfp.side_pad + 40}`);
+    icCircle.setAttribute("cy", `${icHeight + config.package.qfp.side_pad - 40}`);
     icCircle.setAttribute("r", "20");
     icCircle.setAttribute("stroke", "black");
     icCircle.setAttribute("stroke-width", "1");
@@ -555,8 +555,8 @@ function renderQFP(svg, ic) {
     svg.appendChild(icCircle);
 
     // bottom (left to right)
-    let startX = config.package_qfp.side_pad;
-    let startY = config.package_qfp.side_pad + icHeight + (config.pin.width - config.pin.height) / 2;
+    let startX = config.package.qfp.side_pad;
+    let startY = config.package.qfp.side_pad + icHeight + (config.pin.width - config.pin.height) / 2;
     let offset = 0;
     let pinStart = 1;
     let pinStop = numPinsBase;
@@ -566,8 +566,8 @@ function renderQFP(svg, ic) {
     }
 
     // right (bottom to top)
-    startX = icWidth + config.package_qfp.side_pad;
-    startY = config.package_qfp.side_pad - (config.pin.spacing - config.pin.width);
+    startX = icWidth + config.package.qfp.side_pad;
+    startY = config.package.qfp.side_pad - (config.pin.spacing - config.pin.width);
     offset = (numPinsSide - 1) * config.pin.spacing;
     pinStart = pinStop + 1;
     pinStop += numPinsSide;
@@ -577,8 +577,8 @@ function renderQFP(svg, ic) {
     }
 
     // top (right to left)
-    startX = config.package_qfp.side_pad;
-    startY = config.package_qfp.side_pad - config.pin.height - (config.pin.width - config.pin.height) / 2;
+    startX = config.package.qfp.side_pad;
+    startY = config.package.qfp.side_pad - config.pin.height - (config.pin.width - config.pin.height) / 2;
     offset = (numPinsBase - 1) * config.pin.spacing;
     pinStart = pinStop + 1;
     pinStop += numPinsBase;
@@ -588,8 +588,8 @@ function renderQFP(svg, ic) {
     }
 
     // left (top to bottom)
-    startX = config.package_qfp.side_pad - config.pin.width;
-    startY = config.package_qfp.side_pad + (config.pin.width - config.pin.height) / 2;
+    startX = config.package.qfp.side_pad - config.pin.width;
+    startY = config.package.qfp.side_pad + (config.pin.width - config.pin.height) / 2;
     pinStart = pinStop + 1;
     pinStop += numPinsSide;
     offset = 0;
