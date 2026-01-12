@@ -1,0 +1,43 @@
+[info]
+name = "74x74"
+description = "# 74x74: Dual D-Type Flip-Flop"
+package = "DIP"
+num_pins = 14
+width = "SKINNY"
+
+[pins]
+# left
+ 1 = { name = "CLR1", dir = "IN",   color = "MISC",    flags = [ "activeLow" ]   }
+ 2 = { name = "D1",   dir = "IN",   color = "DATA"   }
+ 3 = { name = "CLK1", dir = "IN",   color = "CLOCK"  }
+ 4 = { name = "SET1",  dir = "IN",   color = "MISC",   flags = [ "activeLow" ]  }
+ 5 = { name = "Q1",   dir = "OUT",  color = "DATA"   }
+ 6 = { name = "Q1",   dir = "OUT",  color = "DATA2",   flags = [ "activeLow" ] }
+ 7 = { name = "GND",  dir = "NONE", color = "GND"    }
+
+# right
+ 8 = { name = "Q2",   dir = "OUT",  color = "DATA2",   flags = [ "activeLow" ] }
+ 9 = { name = "Q2",   dir = "OUT",  color = "DATA"   }
+10 = { name = "SET2",  dir = "IN",   color = "MISC",   flags = [ "activeLow" ]  }
+11 = { name = "CLK2", dir = "IN",   color = "CLOCK"  }
+12 = { name = "D2",   dir = "IN",   color = "DATA"   }
+13 = { name = "CLR2", dir = "IN",   color = "MISC",    flags = [ "activeLow" ]   }
+14 = { name = "VCC",  dir = "NONE", color = "POWER"  }
+
+[details]
+markdown = """
+
+# Truth Table
+| INPUTS          |||| OUTPUT ||
+| SET | CLR | CLK | D | Q  | <span style="text-decoration: overline;">Q</span> |
+|:---:|:---:|:---:|:-:|:--:|:--:|
+|  L  |  H  |  X  | X | H  | L  |
+|  H  |  L  |  X  | X | L  | H  |
+|  L  |  L  |  X  | X | H  | H  |
+|  H  |  H  |  ↑  | H | H  | L  |
+|  H  |  H  |  ↑  | L | L  | H  |
+|  H  |  H  |  L  | X | Q  | <span style="text-decoration: overline;">Q</span> |
+<sup>X = Doesn't Matter</sup>
+
+**NOTE:** Outputs are unpredictable if both SET and CLR are L.
+""" 

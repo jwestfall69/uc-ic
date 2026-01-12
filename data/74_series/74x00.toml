@@ -15,7 +15,6 @@ width = "SKINNY"
  6 = { name = "Y2",  dir = "OUT",  color = "DATA2"  }
  7 = { name = "GND", dir = "NONE", color = "GND"    }
 
-
 # right
  8 = { name = "Y3",  dir = "OUT",  color = "DATA2"  }
  9 = { name = "B3",  dir = "IN",   color = "DATA"   }

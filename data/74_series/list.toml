@@ -2,8 +2,14 @@
 # when this 'Type' is selected.
 list = [
   { display = "74x00",  path = "data/74_series/74x00.toml"  },
+  { display = "74x02",  path = "data/74_series/74x02.toml"  },
   { display = "74x04",  path = "data/74_series/74x04.toml"  },
   { display = "74x08",  path = "data/74_series/74x08.toml"  },
+  { display = "74x10",  path = "data/74_series/74x10.toml"  },
+  { display = "74x11",  path = "data/74_series/74x11.toml"  },
+  { display = "74x27",  path = "data/74_series/74x27.toml"  },
   { display = "74x32",  path = "data/74_series/74x32.toml"  },
+  { display = "74x74",  path = "data/74_series/74x74.toml"  },
+  { display = "74x86",  path = "data/74_series/74x86.toml"  },
   { display = "74x245", path = "data/74_series/74x245.toml" }
 ]
