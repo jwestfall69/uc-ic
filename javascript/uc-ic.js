@@ -176,7 +176,29 @@ function drawPin(x, y, side, num, pin) {
     pinName.textContent = pin.name;
     pinGroup.appendChild(pinName);
 
-    if (pin.flags !== undefined && pin.flags.includes("activeLow")) {
+    // add ^AP to pinName if audioProbe flag
+    if(defined(pin.flags) && pin.flags.includes("audioProbe")) {
+        const pinAudioProbe = document.createElementNS("http://www.w3.org/2000/svg", 'text');
+        const pinNameX = parseInt(pinName.getAttribute('x'));
+
+        if(side == PINSIDE.LEFT || side == PINSIDE.BOTTOM) {
+            pinAudioProbe.setAttribute('x', pinNameX - (13 * pin.name.length));
+            pinAudioProbe.setAttribute('text-anchor', 'end');
+        } else {
+            pinAudioProbe.setAttribute('x', pinNameX + (13 * pin.name.length));
+            pinAudioProbe.setAttribute('text-anchor', 'start');
+        }
+        pinAudioProbe.setAttribute('y', y + 8);
+        pinAudioProbe.setAttribute('dominant-baseline', 'middle');
+        pinAudioProbe.setAttribute('font-family', 'Roboto Mono');
+        pinAudioProbe.setAttribute('font-size', '12px');
+        pinAudioProbe.setAttribute('font-weight', '500');
+        pinAudioProbe.textContent = "AP";
+        pinGroup.appendChild(pinAudioProbe);
+    }
+
+    // add overscore to pinName if activeLow flag
+    if(defined(pin.flags) && pin.flags.includes("activeLow")) {
         const pinNameX = parseInt(pinName.getAttribute('x'));
         const pinActiveLow = document.createElementNS("http://www.w3.org/2000/svg", "path");
 

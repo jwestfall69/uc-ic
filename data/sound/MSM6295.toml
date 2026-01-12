@@ -47,7 +47,7 @@ num_pins = 44
 # left
 34 = { name = "A16",   dir = "IN",    color = "ADDR" }
 35 = { name = "A17",   dir = "IN",    color = "ADDR" }
-36 = { name = "DAO",   dir = "IN",    color = "ADDR" }
+36 = { name = "DAO",   dir = "IN",    color = "ADDR",  flags = [ "audioProbe"]  }
 37 = { name = "I0",    dir = "INOUT", color = "DATA" }
 38 = { name = "I1",    dir = "INOUT", color = "DATA" }
 39 = { name = "I2",    dir = "INOUT", color = "DATA" }
@@ -59,6 +59,8 @@ num_pins = 44
 
 [details]
 markdown = """
+
+<sup>**AP**</sup>pin you can audio probe
 
 | PIN NAME | FUNCTION                                                            |
 |:--------:|:--------------------------------------------------------------------|
