@@ -15,7 +15,6 @@ width = "SKINNY"
  6 = { name = "Y2",  dir = "OUT",  color = "DATA2"  }
  7 = { name = "GND", dir = "NONE", color = "GND"    }
 
-
 # right
  8 = { name = "Y3",  dir = "OUT",  color = "DATA2"  }
  9 = { name = "C3",  dir = "IN",   color = "DATA"   }
@@ -29,11 +28,11 @@ width = "SKINNY"
 markdown = """
 
 # Truth Table
-| INPUTS ||| OUTPUT |
-| A  | B  | C  |  Y    |
-|:--:|:--:|:--:|:-----:|
-| L  | L  | L  |  H    |
-| L  | L  | H  |  H    |
-| L  | H  | H  |  H    |
-| H  | H  | H  |  L    |
+|   INPUTS   ||| OUTPUT |
+| A  | B  | C  |   Y    |
+|:--:|:--:|:--:|:------:|
+| L  | L  | L  |   H    |
+| L  | L  | H  |   H    |
+| L  | H  | H  |   H    |
+| H  | H  | H  |   L    |
 """
