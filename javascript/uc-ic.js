@@ -8,13 +8,13 @@ const PINSIDE = Object.freeze({
 });
 
 function defined(variable) {
-    return (typeof(variable) !== "undefined")
+    return (typeof(variable) !== "undefined");
 }
 
 async function loadConfig() {
    try {
-        const res = await fetch('config.toml')
-        if (!res.ok)
+        const res = await fetch("config.toml");
+        if(!res.ok)
             throw new Error(`HTTP ${res.status}`);
 
         config = toml.parse(await res.text());
@@ -24,18 +24,18 @@ async function loadConfig() {
 }
 
 async function loadTypes() {
-    const typeSelect = document.getElementById('type-select');
+    const typeSelect = document.getElementById("type-select");
     try {
-        const res = await fetch('data/types.toml')
-        if (!res.ok)
+        const res = await fetch("data/types.toml");
+        if(!res.ok)
             throw new Error(`HTTP ${res.status}`);
 
-        typeSelect.innerHTML = '';
-        typeSelect.appendChild(new Option('----- Select -----', ''));
+        typeSelect.innerHTML = "";
+        typeSelect.appendChild(new Option("----- Select -----", ""));
 
         const types = toml.parse(await res.text()).list;
         types.forEach(type => {
-            const option = document.createElement('option');
+            const option = document.createElement("option");
             option.value = type.path;
             option.textContent = type.display;
             typeSelect.appendChild(option);
@@ -43,23 +43,23 @@ async function loadTypes() {
         typeSelect.disabled = false;
     } catch (err) {
         console.error(err);
-        typeSelect.innerHTML = '<option>-- Failed to load --</option>';
+        typeSelect.innerHTML = "<option>-- Failed to load --</option>";
     }
 }
 
 async function handleTypeChange(event) {
     const icListPath = event.target.value;
-    const icSelect = document.getElementById('ic-select');
+    const icSelect = document.getElementById("ic-select");
 
-    document.getElementById('ic-svg').innerHTML = '';
-    document.getElementById('ic-markdown').innerHTML = '';
-    document.getElementById('ic-short-description').innerHTML = '';
+    document.getElementById("ic-svg").innerHTML = "";
+    document.getElementById("ic-markdown").innerHTML = "";
+    document.getElementById("ic-short-description").innerHTML = "";
 
-    if (!icListPath) {
-        icSelect.innerHTML = '';
+    if(!icListPath) {
+        icSelect.innerHTML = "";
         icSelect.disabled = true;
 
-        const option = document.createElement('option');
+        const option = document.createElement("option");
         option.textContent = "-- Loading --";
         icSelect.appendChild(option);
         return;
@@ -67,15 +67,15 @@ async function handleTypeChange(event) {
 
     try {
         const res = await fetch(icListPath);
-        if (!res.ok)
+        if(!res.ok)
             throw new Error(`HTTP ${res.status}`);
 
-        icSelect.innerHTML = '';
-        icSelect.appendChild(new Option('----- Select -----', ''));
+        icSelect.innerHTML = "";
+        icSelect.appendChild(new Option("----- Select -----", ""));
 
         const ics = toml.parse(await res.text()).list;
         ics.forEach(ic => {
-            const option = document.createElement('option');
+            const option = document.createElement("option");
             option.value = ic.path;
             option.textContent = ic.display;
             icSelect.appendChild(option);
@@ -83,38 +83,38 @@ async function handleTypeChange(event) {
         icSelect.disabled = false;
     } catch (err) {
         console.error(err);
-        icSelect.innerHTML = '<option>-- Failed to load --</option>';
+        icSelect.innerHTML = "<option>-- Failed to load --</option>";
     }
 }
 
 async function handleIcChange(event) {
     const icPath = event.target.value;
-    if (!icPath) {
-        document.getElementById('ic-svg').innerHTML = '';
-        document.getElementById('ic-markdown').innerHTML = '';
-        document.getElementById('ic-short-description').innerHTML = '';
+    if(!icPath) {
+        document.getElementById("ic-svg").innerHTML = "";
+        document.getElementById("ic-markdown").innerHTML = "";
+        document.getElementById("ic-short-description").innerHTML = "";
         return;
     }
 
     try {
         const res = await fetch(icPath);
-        if (!res.ok)
+        if(!res.ok)
             throw new Error(`HTTP ${res.status}`);
 
         const ic = toml.parse(await res.text());
         renderIC(ic);
     } catch (err) {
         console.error(err);
-        document.getElementById('ic-svg').innerHTML = '';
+        document.getElementById("ic-svg").innerHTML = "";
     }
 }
 
 function getColor(color) {
-    if (config.pin.color_enabled != 1) {
+    if(config.pin.color_enabled != 1) {
         return config.pin.colors.default;
     }
 
-    if (!defined(color)) {
+    if(!defined(color)) {
         return config.pin.colors.default;
     }
 
@@ -122,7 +122,7 @@ function getColor(color) {
         return color;
     }
 
-    if (!defined(config.pin.colors[color])) {
+    if(!defined(config.pin.colors[color])) {
         return config.pin.colors.default;
     }
     return config.pin.colors[color];
@@ -143,74 +143,74 @@ function drawPin(x, y, side, num, pin) {
     pinRect.setAttribute("height", config.pin.height);
     pinRect.setAttribute("stroke", "black");
     pinRect.setAttribute("stroke-width", "1");
-    pinRect.setAttribute('fill', getColor(pin.color));
+    pinRect.setAttribute("fill", getColor(pin.color));
     pinGroup.appendChild(pinRect);
 
-    const pinNum = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-    pinNum.setAttribute('x', x + config.pin.width / 2);
-    pinNum.setAttribute('text-anchor', 'middle');
-    pinNum.setAttribute('y', y + 2 + config.pin.height / 2);
-    pinNum.setAttribute('dominant-baseline', 'middle');
-    pinNum.setAttribute('font-family', 'Roboto Mono');
-    pinNum.setAttribute('font-size', '22px');
-    pinNum.setAttribute('font-weight', '500');
+    const pinNum = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    pinNum.setAttribute("x", x + config.pin.width / 2);
+    pinNum.setAttribute("text-anchor", "middle");
+    pinNum.setAttribute("y", y + 2 + config.pin.height / 2);
+    pinNum.setAttribute("dominant-baseline", "middle");
+    pinNum.setAttribute("font-family", "Roboto Mono");
+    pinNum.setAttribute("font-size", "22px");
+    pinNum.setAttribute("font-weight", "500");
     pinNum.textContent = defined(pin.num) ? pin.num : num;
     if(defined(pin.color_num)) {
-        pinNum.setAttribute('fill', getColor(pin.color_num));
+        pinNum.setAttribute("fill", getColor(pin.color_num));
     }
     pinGroup.appendChild(pinNum);
 
-    const pinName = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-    if (side == PINSIDE.LEFT || side == PINSIDE.BOTTOM) {
-        pinName.setAttribute('x', x - (pin.dir == "NONE" ? 8 : 20));
-        pinName.setAttribute('text-anchor', 'end');
+    const pinName = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    if(side == PINSIDE.LEFT || side == PINSIDE.BOTTOM) {
+        pinName.setAttribute("x", x - (pin.dir == "NONE" ? 8 : 20));
+        pinName.setAttribute("text-anchor", "end");
     } else {
-        pinName.setAttribute('x', x + config.pin.width + (pin.dir == "NONE" ? 8 : 20));
-        pinName.setAttribute('text-anchor', 'start');
+        pinName.setAttribute("x", x + config.pin.width + (pin.dir == "NONE" ? 8 : 20));
+        pinName.setAttribute("text-anchor", "start");
     }
-    pinName.setAttribute('y', y + 2 + config.pin.height / 2);
-    pinName.setAttribute('dominant-baseline', 'middle');
-    pinName.setAttribute('font-family', 'Roboto Mono');
-    pinName.setAttribute('font-size', '22px');
-    pinName.setAttribute('font-weight', '500');
+    pinName.setAttribute("y", y + 2 + config.pin.height / 2);
+    pinName.setAttribute("dominant-baseline", "middle");
+    pinName.setAttribute("font-family", "Roboto Mono");
+    pinName.setAttribute("font-size", "22px");
+    pinName.setAttribute("font-weight", "500");
     pinName.textContent = pin.name;
     pinGroup.appendChild(pinName);
 
     // add ^AP to pinName if audioProbe flag
     if(defined(pin.flags) && pin.flags.includes("audioProbe")) {
-        const pinAudioProbe = document.createElementNS("http://www.w3.org/2000/svg", 'text');
-        const pinNameX = parseInt(pinName.getAttribute('x'));
+        const pinAudioProbe = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        const pinNameX = parseInt(pinName.getAttribute("x"));
 
         if(side == PINSIDE.LEFT || side == PINSIDE.BOTTOM) {
-            pinAudioProbe.setAttribute('x', pinNameX - (13 * pin.name.length));
-            pinAudioProbe.setAttribute('text-anchor', 'end');
+            pinAudioProbe.setAttribute("x", pinNameX - (13 * pin.name.length));
+            pinAudioProbe.setAttribute("text-anchor", "end");
         } else {
-            pinAudioProbe.setAttribute('x', pinNameX + (13 * pin.name.length));
-            pinAudioProbe.setAttribute('text-anchor', 'start');
+            pinAudioProbe.setAttribute("x", pinNameX + (13 * pin.name.length));
+            pinAudioProbe.setAttribute("text-anchor", "start");
         }
-        pinAudioProbe.setAttribute('y', y + 8);
-        pinAudioProbe.setAttribute('dominant-baseline', 'middle');
-        pinAudioProbe.setAttribute('font-family', 'Roboto Mono');
-        pinAudioProbe.setAttribute('font-size', '12px');
-        pinAudioProbe.setAttribute('font-weight', '500');
+        pinAudioProbe.setAttribute("y", y + 8);
+        pinAudioProbe.setAttribute("dominant-baseline", "middle");
+        pinAudioProbe.setAttribute("font-family", "Roboto Mono");
+        pinAudioProbe.setAttribute("font-size", "12px");
+        pinAudioProbe.setAttribute("font-weight", "500");
         pinAudioProbe.textContent = "AP";
         pinGroup.appendChild(pinAudioProbe);
     }
 
     // add overscore to pinName if activeLow flag
     if(defined(pin.flags) && pin.flags.includes("activeLow")) {
-        const pinNameX = parseInt(pinName.getAttribute('x'));
+        const pinNameX = parseInt(pinName.getAttribute("x"));
         const pinActiveLow = document.createElementNS("http://www.w3.org/2000/svg", "path");
 
         const textWidth = 13 * pin.name.length;
         let lineLength;
-        if (pin.flags.includes("activeLowLastChar")) {
+        if(pin.flags.includes("activeLowLastChar")) {
             lineLength = 13;
         } else {
             lineLength = textWidth;
         }
 
-        if (side == PINSIDE.LEFT || side == PINSIDE.BOTTOM) {
+        if(side == PINSIDE.LEFT || side == PINSIDE.BOTTOM) {
             pinActiveLow.setAttribute("d", `M ${pinNameX - lineLength} ${y + 4} ${pinNameX} ${y + 4}`);
         } else {
             pinActiveLow.setAttribute("d", `M ${pinNameX + textWidth - lineLength} ${y + 4} ${pinNameX + textWidth} ${y + 4}`);
@@ -222,44 +222,40 @@ function drawPin(x, y, side, num, pin) {
     }
 
     // in/out arrows
-    if (pin.dir == "IN" || pin.dir == "INOUT") {
+    if(pin.dir == "IN" || pin.dir == "INOUT") {
         const pinDirIn = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
-        if (side == PINSIDE.LEFT || side == PINSIDE.BOTTOM) {
+        if(side == PINSIDE.LEFT || side == PINSIDE.BOTTOM) {
             pinDirIn.setAttribute("points", `
                 ${x - config.pin.width_direction},${y}
                 ${x - config.pin.width_direction},${y + config.pin.height}
-                ${x},${y + config.pin.height / 2}
-        `);
+                ${x},${y + config.pin.height / 2}`);
         } else {
             pinDirIn.setAttribute("points", `
                 ${x + config.pin.width + config.pin.width_direction},${y}
                 ${x + config.pin.width + config.pin.width_direction},${y + config.pin.height}
-                ${x + config.pin.width},${y + config.pin.height / 2}
-        `);
+                ${x + config.pin.width},${y + config.pin.height / 2}`);
         }
         pinGroup.appendChild(pinDirIn);
     }
 
-    if (pin.dir == "OUT" || pin.dir == "INOUT") {
+    if(pin.dir == "OUT" || pin.dir == "INOUT") {
         const pinDirOut = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
-        if (side == PINSIDE.LEFT || side == PINSIDE.BOTTOM) {
+        if(side == PINSIDE.LEFT || side == PINSIDE.BOTTOM) {
             pinDirOut.setAttribute("points", `
                 ${x},${y}
                 ${x},${y + config.pin.height}
-                ${x - config.pin.width_direction},${y + config.pin.height / 2}
-        `);
+                ${x - config.pin.width_direction},${y + config.pin.height / 2}`);
         } else {
             pinDirOut.setAttribute("points", `
                 ${x + config.pin.width},${y}
                 ${x + config.pin.width},${y + config.pin.height}
-                ${x + config.pin.width + config.pin.width_direction},${y + config.pin.height / 2}
-        `);
+                ${x + config.pin.width + config.pin.width_direction},${y + config.pin.height / 2}`);
         }
         pinGroup.appendChild(pinDirOut);
     }
 
-    if (side == PINSIDE.TOP || side == PINSIDE.BOTTOM) {
-        pinGroup.setAttribute('transform', `rotate(-90, ${x + config.pin.width / 2}, ${y + config.pin.height / 2})`);
+    if(side == PINSIDE.TOP || side == PINSIDE.BOTTOM) {
+        pinGroup.setAttribute("transform", `rotate(-90, ${x + config.pin.width / 2}, ${y + config.pin.height / 2})`);
     }
 
     return pinGroup;
@@ -278,15 +274,15 @@ function getDIPWidth(ic) {
         return config.package_dip.width[ic.info.width];
     }
 
-    return config.package_dip.width.default
+    return config.package_dip.width.default;
 }
 
 function renderDIP(svg, ic) {
-    const numPins = ic.info.num_pins
+    const numPins = ic.info.num_pins;
     const icHeight = (config.pin.spacing * numPins / 2) + (config.pin.spacing - config.pin.height);
     const icWidth = getDIPWidth(ic);
-    svg.setAttribute('width', `${config.package_dip.side_pad * 2 + icWidth}px`);
-    svg.setAttribute('height', `${config.package_dip.top_pad * 2 + icHeight}px`);
+    svg.setAttribute("width", `${config.package_dip.side_pad * 2 + icWidth}px`);
+    svg.setAttribute("height", `${config.package_dip.top_pad * 2 + icHeight}px`);
 
     const icBody = document.createElementNS("http://www.w3.org/2000/svg", "rect");
     icBody.setAttribute("x", config.package_dip.side_pad);
@@ -295,31 +291,31 @@ function renderDIP(svg, ic) {
     icBody.setAttribute("height", icHeight);
     icBody.setAttribute("stroke", "black");
     icBody.setAttribute("stroke-width", "1");
-    icBody.setAttribute('fill', 'white');
+    icBody.setAttribute("fill", "white");
     svg.appendChild(icBody);
 
-    const icName = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    const icName = document.createElementNS("http://www.w3.org/2000/svg", "text");
     const textX = config.package_dip.side_pad + icWidth / 2;
     const textY = config.package_dip.top_pad + icHeight / 2;
-    icName.setAttribute('x', textX);
-    icName.setAttribute('y', textY);
-    icName.setAttribute('transform', `rotate(90, ${textX}, ${textY})`);
-    icName.setAttribute('text-anchor', 'middle');
-    icName.setAttribute('dominant-baseline', 'middle');
-    icName.setAttribute('font-family', 'Roboto Mono');
-    icName.setAttribute('font-size', '64px');
-    icName.setAttribute('font-weight', '500');
-    icName.setAttribute('fill', 'gray');
+    icName.setAttribute("x", textX);
+    icName.setAttribute("y", textY);
+    icName.setAttribute("transform", `rotate(90, ${textX}, ${textY})`);
+    icName.setAttribute("text-anchor", "middle");
+    icName.setAttribute("dominant-baseline", "middle");
+    icName.setAttribute("font-family", "Roboto Mono");
+    icName.setAttribute("font-size", "64px");
+    icName.setAttribute("font-weight", "500");
+    icName.setAttribute("fill", "gray");
     icName.textContent = ic.info.name;
     svg.appendChild(icName);
 
-    const icNotch = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-    icNotch.setAttribute('d', `M ${textX - 20} ${config.package_dip.top_pad}
+    const icNotch = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    icNotch.setAttribute("d", `M ${textX - 20} ${config.package_dip.top_pad}
                                A 20 20 0 0 0 ${textX + 20} ${config.package_dip.top_pad}
                                L ${textX - 20} ${config.package_dip.top_pad}`);
     icNotch.setAttribute("stroke", "black");
     icNotch.setAttribute("stroke-width", "1");
-    icNotch.setAttribute('fill', 'white');
+    icNotch.setAttribute("fill", "white");
     svg.appendChild(icNotch);
 
     const pinStartLeft = config.package_dip.side_pad - config.pin.width;
@@ -327,18 +323,18 @@ function renderDIP(svg, ic) {
     const pinStartTop = config.package_dip.top_pad + (config.pin.spacing - config.pin.height);
 
 
-    for (let pinNum = 0; pinNum < numPins / 2; pinNum++) {
+    for(let pinNum = 0; pinNum < numPins / 2; pinNum++) {
         svg.appendChild(drawPin(pinStartLeft, pinStartTop + pinNum * config.pin.spacing, PINSIDE.LEFT, pinNum + 1, ic.pins[pinNum + 1]));
         svg.appendChild(drawPin(pinStartRight, pinStartTop + pinNum * config.pin.spacing, PINSIDE.Right, numPins - pinNum, ic.pins[numPins - pinNum]));
     }
 }
 
 function renderEdge(svg, ic) {
-    const numPins = ic.info.num_pins
+    const numPins = ic.info.num_pins;
     const icHeight = (config.pin.spacing * numPins / 2) + (config.pin.spacing - config.pin.height);
     const icWidth = 100;
-    svg.setAttribute('width', `${config.package_edge.side_pad * 2 + icWidth}px`);
-    svg.setAttribute('height', `${config.package_edge.top_pad * 2 + icHeight}px`);
+    svg.setAttribute("width", `${config.package_edge.side_pad * 2 + icWidth}px`);
+    svg.setAttribute("height", `${config.package_edge.top_pad * 2 + icHeight}px`);
 
     const icBody = document.createElementNS("http://www.w3.org/2000/svg", "rect");
     icBody.setAttribute("x", config.package_edge.side_pad);
@@ -347,49 +343,49 @@ function renderEdge(svg, ic) {
     icBody.setAttribute("height", icHeight);
     icBody.setAttribute("stroke", "black");
     icBody.setAttribute("stroke-width", "1");
-    icBody.setAttribute('fill', 'white');
+    icBody.setAttribute("fill", "white");
     svg.appendChild(icBody);
 
-    const icName = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    const icName = document.createElementNS("http://www.w3.org/2000/svg", "text");
     let textX = config.package_edge.side_pad + icWidth / 2;
     let textY = config.package_edge.top_pad + icHeight / 2;
-    icName.setAttribute('x', textX);
-    icName.setAttribute('y', textY);
-    icName.setAttribute('transform', `rotate(90, ${textX}, ${textY})`);
-    icName.setAttribute('text-anchor', 'middle');
-    icName.setAttribute('dominant-baseline', 'middle');
-    icName.setAttribute('font-family', 'Roboto Mono');
-    icName.setAttribute('font-size', '32px');
-    icName.setAttribute('font-weight', '500');
-    icName.setAttribute('fill', 'gray');
+    icName.setAttribute("x", textX);
+    icName.setAttribute("y", textY);
+    icName.setAttribute("transform", `rotate(90, ${textX}, ${textY})`);
+    icName.setAttribute("text-anchor", "middle");
+    icName.setAttribute("dominant-baseline", "middle");
+    icName.setAttribute("font-family", "Roboto Mono");
+    icName.setAttribute("font-size", "32px");
+    icName.setAttribute("font-weight", "500");
+    icName.setAttribute("fill", "gray");
     icName.textContent = ic.info.name;
     svg.appendChild(icName);
 
-    const icHeadingRight = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    const icHeadingRight = document.createElementNS("http://www.w3.org/2000/svg", "text");
     textX = config.package_edge.side_pad + icWidth + 20;
     textY = 0;
-    icHeadingRight.setAttribute('x', textX);
-    icHeadingRight.setAttribute('y', textY);
-    icHeadingRight.setAttribute('text-anchor', 'start');
-    icHeadingRight.setAttribute('dominant-baseline', 'middle');
-    icHeadingRight.setAttribute('font-family', 'Roboto Mono');
-    icHeadingRight.setAttribute('font-size', '32px');
-    icHeadingRight.setAttribute('font-weight', '500');
-    icHeadingRight.setAttribute('fill', 'black');
+    icHeadingRight.setAttribute("x", textX);
+    icHeadingRight.setAttribute("y", textY);
+    icHeadingRight.setAttribute("text-anchor", "start");
+    icHeadingRight.setAttribute("dominant-baseline", "middle");
+    icHeadingRight.setAttribute("font-family", "Roboto Mono");
+    icHeadingRight.setAttribute("font-size", "32px");
+    icHeadingRight.setAttribute("font-weight", "500");
+    icHeadingRight.setAttribute("fill", "black");
     icHeadingRight.textContent = ic.info.heading_right;
     svg.appendChild(icHeadingRight);
 
-    const icHeadingLeft = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    const icHeadingLeft = document.createElementNS("http://www.w3.org/2000/svg", "text");
     textX = config.package_edge.side_pad - 20;
     textY = 0;
-    icHeadingLeft.setAttribute('x', textX);
-    icHeadingLeft.setAttribute('y', textY);
-    icHeadingLeft.setAttribute('text-anchor', 'end');
-    icHeadingLeft.setAttribute('dominant-baseline', 'middle');
-    icHeadingLeft.setAttribute('font-family', 'Roboto Mono');
-    icHeadingLeft.setAttribute('font-size', '32px');
-    icHeadingLeft.setAttribute('font-weight', '500');
-    icHeadingLeft.setAttribute('fill', 'black');
+    icHeadingLeft.setAttribute("x", textX);
+    icHeadingLeft.setAttribute("y", textY);
+    icHeadingLeft.setAttribute("text-anchor", "end");
+    icHeadingLeft.setAttribute("dominant-baseline", "middle");
+    icHeadingLeft.setAttribute("font-family", "Roboto Mono");
+    icHeadingLeft.setAttribute("font-size", "32px");
+    icHeadingLeft.setAttribute("font-weight", "500");
+    icHeadingLeft.setAttribute("fill", "black");
     icHeadingLeft.textContent = ic.info.heading_left;
     svg.appendChild(icHeadingLeft);
 
@@ -399,7 +395,7 @@ function renderEdge(svg, ic) {
 
     // right (top to bottom going from 1 to n)
     let offset = 0;
-    for (let pinNum = 0; pinNum < numPins / 2; pinNum++) {
+    for(let pinNum = 0; pinNum < numPins / 2; pinNum++) {
         svg.appendChild(drawPin(pinStartRight, pinStartTop + offset, PINSIDE.Right, pinNum + 1, ic.pins[pinNum + 1]));
         offset += config.pin.spacing;
     }
@@ -412,7 +408,6 @@ function renderEdge(svg, ic) {
     }
 }
 
-
 function renderPLCC(svg, ic) {
     const numPins = ic.info.num_pins;
     const pinsPerSide = numPins / 4;
@@ -420,8 +415,8 @@ function renderPLCC(svg, ic) {
     const icWidth = (config.pin.spacing * numPins / 4) + (config.pin.spacing - config.pin.height);
     const icHeight = icWidth;
 
-    svg.setAttribute('width', `${config.package_plcc.side_pad * 2 + icWidth}px`);
-    svg.setAttribute('height', `${config.package_plcc.side_pad * 2 + icHeight}px`);
+    svg.setAttribute("width", `${config.package_plcc.side_pad * 2 + icWidth}px`);
+    svg.setAttribute("height", `${config.package_plcc.side_pad * 2 + icHeight}px`);
 
     const icBody = document.createElementNS("http://www.w3.org/2000/svg", "rect");
     icBody.setAttribute("x", config.package_plcc.side_pad);
@@ -431,30 +426,30 @@ function renderPLCC(svg, ic) {
     icBody.setAttribute("height", icHeight);
     icBody.setAttribute("stroke", "black");
     icBody.setAttribute("stroke-width", "1");
-    icBody.setAttribute('fill', "white");
+    icBody.setAttribute("fill", "white");
     svg.appendChild(icBody);
 
-    const icName = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    const icName = document.createElementNS("http://www.w3.org/2000/svg", "text");
     const textX = config.package_plcc.side_pad + icWidth / 2;
     const textY = config.package_plcc.side_pad + icHeight / 2;
-    icName.setAttribute('x', textX);
-    icName.setAttribute('y', textY);
-    icName.setAttribute('text-anchor', 'middle');
-    icName.setAttribute('dominant-baseline', 'middle');
-    icName.setAttribute('font-family', 'Roboto Mono');
-    icName.setAttribute('font-size', '64px');
-    icName.setAttribute('font-weight', '500');
-    icName.setAttribute('fill', 'gray');
+    icName.setAttribute("x", textX);
+    icName.setAttribute("y", textY);
+    icName.setAttribute("text-anchor", "middle");
+    icName.setAttribute("dominant-baseline", "middle");
+    icName.setAttribute("font-family", "Roboto Mono");
+    icName.setAttribute("font-size", "64px");
+    icName.setAttribute("font-weight", "500");
+    icName.setAttribute("fill", "gray");
     icName.textContent = ic.info.name;
     svg.appendChild(icName);
 
-    const icNotch = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-    icNotch.setAttribute('d', `M ${textX - 20} ${config.package_plcc.side_pad}
+    const icNotch = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    icNotch.setAttribute("d", `M ${textX - 20} ${config.package_plcc.side_pad}
                                A 20 20 0 0 0 ${textX + 20} ${config.package_plcc.side_pad}
                                L ${textX - 20} ${config.package_plcc.side_pad}`);
     icNotch.setAttribute("stroke", "black");
     icNotch.setAttribute("stroke-width", "1");
-    icNotch.setAttribute('fill', 'white');
+    icNotch.setAttribute("fill", "white");
     svg.appendChild(icNotch);
 
     // top (middle to left)
@@ -463,7 +458,7 @@ function renderPLCC(svg, ic) {
     let pinStart = Math.ceil((numPins / 8));
     let pinStop = 0;
     let offset = 0
-    for (let pinNum = pinStart; pinNum > pinStop; pinNum--) {
+    for(let pinNum = pinStart; pinNum > pinStop; pinNum--) {
         svg.appendChild(drawPin(startX + offset, startY, PINSIDE.TOP, pinNum, ic.pins[pinNum]));
         offset += config.pin.spacing;
     }
@@ -471,7 +466,7 @@ function renderPLCC(svg, ic) {
     // top (middle to right)
     pinStop = numPins - pinStart + 1
     pinStart = numPins;
-    for (let pinNum = pinStart; pinNum > pinStop; pinNum--) {
+    for(let pinNum = pinStart; pinNum > pinStop; pinNum--) {
         svg.appendChild(drawPin(startX + offset, startY, PINSIDE.TOP, pinNum, ic.pins[pinNum]));
         offset += config.pin.spacing;
     }
@@ -482,7 +477,7 @@ function renderPLCC(svg, ic) {
     pinStart = Math.ceil((numPins / 8)) + 1;
     pinStop = pinStart + pinsPerSide - 1;
     offset = 0;
-    for (let pinNum = pinStart; pinNum <= pinStop; pinNum++) {
+    for(let pinNum = pinStart; pinNum <= pinStop; pinNum++) {
         svg.appendChild(drawPin(startX, startY + offset, PINSIDE.LEFT, pinNum, ic.pins[pinNum]));
         offset += config.pin.spacing;
     }
@@ -493,7 +488,7 @@ function renderPLCC(svg, ic) {
     pinStart = pinStop + 1;
     pinStop = pinStart + pinsPerSide - 1;
     offset = 0;
-    for (let pinNum = pinStart; pinNum <= pinStop; pinNum++) {
+    for(let pinNum = pinStart; pinNum <= pinStop; pinNum++) {
         svg.appendChild(drawPin(startX + offset, startY, PINSIDE.BOTTOM, pinNum, ic.pins[pinNum]));
         offset += config.pin.spacing;
     }
@@ -504,7 +499,7 @@ function renderPLCC(svg, ic) {
     pinStart = pinStop + 1;
     pinStop = pinStart + pinsPerSide - 1;
     offset = (pinsPerSide - 1) * config.pin.spacing;
-    for (let pinNum = pinStart; pinNum <= pinStop; pinNum++) {
+    for(let pinNum = pinStart; pinNum <= pinStop; pinNum++) {
         svg.appendChild(drawPin(startX, startY + offset, PINSIDE.RIGHT, pinNum, ic.pins[pinNum]));
         offset -= config.pin.spacing;
     }
@@ -522,8 +517,8 @@ function renderQFP(svg, ic) {
 
     const icHeight = (config.pin.spacing * numPinsSide) + (config.pin.spacing - config.pin.height);
     const icWidth = (config.pin.spacing * numPinsBase) + (config.pin.spacing - config.pin.height);
-    svg.setAttribute('width', `${config.package_qfp.side_pad * 2 + icWidth}px`);
-    svg.setAttribute('height', `${config.package_qfp.side_pad * 2 + icHeight}px`);
+    svg.setAttribute("width", `${config.package_qfp.side_pad * 2 + icWidth}px`);
+    svg.setAttribute("height", `${config.package_qfp.side_pad * 2 + icHeight}px`);
 
     const icBody = document.createElementNS("http://www.w3.org/2000/svg", "rect");
     icBody.setAttribute("x", config.package_qfp.side_pad);
@@ -533,39 +528,39 @@ function renderQFP(svg, ic) {
     icBody.setAttribute("height", icHeight);
     icBody.setAttribute("stroke", "black");
     icBody.setAttribute("stroke-width", "1");
-    icBody.setAttribute('fill', "white");
+    icBody.setAttribute("fill", "white");
     svg.appendChild(icBody);
 
-    const icName = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    const icName = document.createElementNS("http://www.w3.org/2000/svg", "text");
     const textX = config.package_plcc.side_pad + icWidth / 2;
     const textY = config.package_plcc.side_pad + icHeight / 2;
-    icName.setAttribute('x', textX);
-    icName.setAttribute('y', textY);
-    icName.setAttribute('text-anchor', 'middle');
-    icName.setAttribute('dominant-baseline', 'middle');
-    icName.setAttribute('font-family', 'Roboto Mono');
-    icName.setAttribute('font-size', '64px');
-    icName.setAttribute('font-weight', '500');
-    icName.setAttribute('fill', 'gray');
+    icName.setAttribute("x", textX);
+    icName.setAttribute("y", textY);
+    icName.setAttribute("text-anchor", "middle");
+    icName.setAttribute("dominant-baseline", "middle");
+    icName.setAttribute("font-family", "Roboto Mono");
+    icName.setAttribute("font-size", "64px");
+    icName.setAttribute("font-weight", "500");
+    icName.setAttribute("fill", "gray");
     icName.textContent = ic.info.name;
     svg.appendChild(icName);
 
-    const icCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    const icCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
     icCircle.setAttribute("cx", `${config.package_qfp.side_pad + 40}`);
     icCircle.setAttribute("cy", `${icHeight + config.package_qfp.side_pad - 40}`);
     icCircle.setAttribute("r", "20");
     icCircle.setAttribute("stroke", "black");
     icCircle.setAttribute("stroke-width", "1");
-    icCircle.setAttribute('fill', "white");
+    icCircle.setAttribute("fill", "white");
     svg.appendChild(icCircle);
 
     // bottom (left to right)
     let startX = config.package_qfp.side_pad;
-    let startY = config.package_qfp.side_pad + icHeight + (config.pin.width - config.pin.height) / 2;;
+    let startY = config.package_qfp.side_pad + icHeight + (config.pin.width - config.pin.height) / 2;
     let offset = 0;
     let pinStart = 1;
     let pinStop = numPinsBase;
-    for (let pinNum = pinStart; pinNum <= pinStop; pinNum++) {
+    for(let pinNum = pinStart; pinNum <= pinStop; pinNum++) {
         svg.appendChild(drawPin(startX + offset, startY, PINSIDE.BOTTOM, pinNum, ic.pins[pinNum]));
         offset += config.pin.spacing;
     }
@@ -574,9 +569,9 @@ function renderQFP(svg, ic) {
     startX = icWidth + config.package_qfp.side_pad;
     startY = config.package_qfp.side_pad - (config.pin.spacing - config.pin.width);
     offset = (numPinsSide - 1) * config.pin.spacing;
-    pinStart = pinStop + 1
+    pinStart = pinStop + 1;
     pinStop += numPinsSide;
-    for (let pinNum = pinStart; pinNum <= pinStop; pinNum++) {
+    for(let pinNum = pinStart; pinNum <= pinStop; pinNum++) {
         svg.appendChild(drawPin(startX, startY + offset, PINSIDE.RIGHT, pinNum, ic.pins[pinNum]));
         offset -= config.pin.spacing;
     }
@@ -587,7 +582,7 @@ function renderQFP(svg, ic) {
     offset = (numPinsBase - 1) * config.pin.spacing;
     pinStart = pinStop + 1;
     pinStop += numPinsBase;
-    for (let pinNum = pinStart; pinNum <= pinStop; pinNum++) {
+    for(let pinNum = pinStart; pinNum <= pinStop; pinNum++) {
         svg.appendChild(drawPin(startX + offset, startY, PINSIDE.TOP, pinNum, ic.pins[pinNum]));
         offset -= config.pin.spacing;
     }
@@ -595,20 +590,20 @@ function renderQFP(svg, ic) {
     // left (top to bottom)
     startX = config.package_qfp.side_pad - config.pin.width;
     startY = config.package_qfp.side_pad + (config.pin.width - config.pin.height) / 2;
-    pinStart = pinStop + 1
+    pinStart = pinStop + 1;
     pinStop += numPinsSide;
     offset = 0;
-    for (let pinNum = pinStart; pinNum <= pinStop; pinNum++) {
+    for(let pinNum = pinStart; pinNum <= pinStop; pinNum++) {
         svg.appendChild(drawPin(startX, startY + offset, PINSIDE.LEFT, pinNum, ic.pins[pinNum]));
         offset += config.pin.spacing;
     }
 }
 
 function renderIC(ic) {
-    const svg = document.getElementById('ic-svg');
-    svg.innerHTML = '';
+    const svg = document.getElementById("ic-svg");
+    svg.innerHTML = "";
 
-    document.getElementById('ic-short-description').innerHTML = mdp.render(ic.info.description);
+    document.getElementById("ic-short-description").innerHTML = mdp.render(ic.info.description);
 
     switch (ic.info.package) {
         case "DIP":
@@ -618,21 +613,21 @@ function renderIC(ic) {
             renderEdge(svg, ic);
             break;
         case "PLCC":
-            renderPLCC(svg, ic)
+            renderPLCC(svg, ic);
             break;
         case "QFP":
-            renderQFP(svg, ic)
+            renderQFP(svg, ic);
             break;
     }
     //svg.setAttribute("transform-origin", "center");
-    //svg.setAttribute('transform', `rotate(-90)`);
+    //svg.setAttribute("transform", `rotate(-90)`);
 
     // setting to the exact width/height seems to cause the very edge row/column
     // of pixels to be missing?
     const svgBB = svg.getBBox();
-    svg.setAttribute('viewBox', `${svgBB.x} ${svgBB.y} ${svgBB.width + 1} ${svgBB.height + 1}`);
+    svg.setAttribute("viewBox", `${svgBB.x} ${svgBB.y} ${svgBB.width + 1} ${svgBB.height + 1}`);
 
-    // don't allow the svg to be larger then we drew it
+    // don"t allow the svg to be larger then we drew it
     document.getElementById("ic-svg").style.maxWidth = `${svgBB.width}px`;
     document.getElementById("ic-svg").style.maxHeight = `${window.innerHeight * 0.8}px`;
 
@@ -644,22 +639,24 @@ function renderIC(ic) {
 }
 
 const mdp = makeMDP();
-// This function call and the function definition after are used to override mdp's
+// This function call and the function definition after are used to override mdp"s
 // built in table parsing.  It has the following changes
 // - allow up to 2 header rows
 // - add colspan support to header rows
-// - fix a bug where it would break if the line after the table wasn't empty
-mdp.addBlockSyntax ({
-    tag: "TB",
-    priority: 30,
-    matchRegex: new RegExp("^(\\|.+?\\| *\\n){1,2}\\|[-:| ]*\\| *\\n\\|.+?\\|[\\s\\S]*?(?=\\n[^\\|])", 'gm'),
-    converter: function ( argBlock ) {
-        argBlock = mdp.mdInlineParserFormer(argBlock);
-        var temp = argBlock.replace( new RegExp("^\\n*([\\s\\S]*)\\n*$"), "$1" );
-        return mdp.mdInlineParserLatter(mdTBParser(temp));
-    },
-    convertedHTML: new Array()
-});
+// - fix a bug where it would break if the line after the table wasn"t empty
+mdp.addBlockSyntax (
+    {
+        tag: "TB",
+        priority: 30,
+        matchRegex: new RegExp("^(\\|.+?\\| *\\n){1,2}\\|[-:| ]*\\| *\\n\\|.+?\\|[\\s\\S]*?(?=\\n[^\\|])", "gm"),
+        converter: function ( argBlock ) {
+            argBlock = mdp.mdInlineParserFormer(argBlock);
+            var temp = argBlock.replace( new RegExp("^\\n*([\\s\\S]*)\\n*$"), "$1" );
+            return mdp.mdInlineParserLatter(mdTBParser(temp));
+        },
+        convertedHTML: new Array()
+    }
+);
 
 function mdTBParser( argText ) {
     let retText = "";
@@ -669,17 +666,23 @@ function mdTBParser( argText ) {
     let headerCount = 0;
     let foundAlign = false;
     let alignText = new Array();
-    for (let kk = 0; kk < 3 && !foundAlign; kk++) {
+    for(let kk = 0; kk < 3 && !foundAlign; kk++) {
         let items = lineText[kk].replace(/^\|\s*/, "").replace(/\s*\|$/, "").split(/\s*\|\s*/g);
-        for (let jj = 0; jj < items.length; jj++) {
-            if ( /^:[\s-]+:$/.test(items[jj]) ) {
-                alignText.push(" style='text-align:center'");   // :--: center align
+        for(let jj = 0; jj < items.length; jj++) {
+
+            // :--: center align
+            if( /^:[\s-]+:$/.test(items[jj]) ) {
+                alignText.push(" style=\"text-align:center\"");   
                 foundAlign = true;
+
+            // :--- left align
             } else if( /^:[\s-]+$/.test(items[jj]) ) {
-                alignText.push(" style='text-align:left'");     // :--- left align
+                alignText.push(" style=\"text-align:left\"");
                 foundAlign = true;
+
+            // ---: right align
             } else if( /^[\s-]+:$/.test(items[jj]) ) {
-                alignText.push(" style='text-align:right'");    // ---: right align
+                alignText.push(" style=\"text-align:right\"");
                 foundAlign = true;
             }
         }
@@ -689,51 +692,51 @@ function mdTBParser( argText ) {
 
     // render the header row(s)
     retText = "<table>\n";
-    retText +=  "<thead>";
-    for (let kk = 0; kk < headerCount; kk++) {
+    retText += "<thead>";
+    for(let kk = 0; kk < headerCount; kk++) {
         retText += "<tr>\n";
         lineText[kk] = lineText[kk].replace(/^\|\s*/, "");
         let items = lineText[kk].split(/\s*\|+\s*/g);
         let colDivText = lineText[kk].replace(/\s/g, "").match(/\|+/g);
         let num = 0;
-        for (let jj = 0; jj < (colDivText||[]).length; jj++) {
-            if (colDivText[jj] == "|") {
-                retText +=  "<th"+alignText[num]+">" + items[jj] + "</th>\n";
+        for(let jj = 0; jj < (colDivText||[]).length; jj++) {
+            if(colDivText[jj] == "|") {
+                retText +=  "<th" + alignText[num] + ">" + items[jj] + "</th>\n";
                 num += 1;
             } else {
-                retText +=  "<th"+alignText[num]+" colspan='"+colDivText[jj].length+"'>" + items[jj] + "</th>\n";
+                retText +=  "<th" + alignText[num] + " colspan=" + colDivText[jj].length + ">" + items[jj] + "</th>\n";
                 num += colDivText[jj].length;
             }
         }
-        retText += "</tr>"
+        retText += "</tr>";
     }
-    retText +=  "</thead>\n";
+    retText += "</thead>\n";
 
     // render normal rows
-    retText +=  "<tbody>\n";
-    for (let kk = headerCount + 1; kk < lineText.length; kk++) {
+    retText += "<tbody>\n";
+    for(let kk = headerCount + 1; kk < lineText.length; kk++) {
         lineText[kk] = lineText[kk].replace(/^\|\s*/, "");
         let items = lineText[kk].split(/\s*\|+\s*/g);
         let colDivText = lineText[kk].replace(/\s/g, "").match(/\|+/g);
         retText +=  "<tr>\n";
         let num = 0;
-        for (let jj = 0; jj < (colDivText||[]).length; jj++) {
-            if (colDivText[jj] == "|") {
-                retText +=  "<td"+alignText[num]+">" + items[jj] + "</td>\n";
+        for(let jj = 0; jj < (colDivText||[]).length; jj++) {
+            if(colDivText[jj] == "|") {
+                retText +=  "<td" + alignText[num] + ">" + items[jj] + "</td>\n";
                 num += 1;
             } else {
-                retText +=  "<td"+alignText[num]+" colspan='"+colDivText[jj].length+"'>" + items[jj] + "</td>\n";
+                retText +=  "<td" + alignText[num] + " colspan=" +colDivText[jj].length + ">" + items[jj] + "</td>\n";
                 num += colDivText[jj].length;
             }
         }
-        retText +=  "</tr>\n";
+        retText += "</tr>\n";
     }
-    retText +=  "</tbody></table>";
+    retText += "</tbody></table>";
     return retText;
 }
 
 let config = undefined;
 loadConfig();
-document.addEventListener('DOMContentLoaded', loadTypes);
-document.getElementById('type-select').addEventListener('change', handleTypeChange);
-document.getElementById('ic-select').addEventListener('change', handleIcChange);
+document.addEventListener("DOMContentLoaded", loadTypes);
+document.getElementById("type-select").addEventListener("change", handleTypeChange);
+document.getElementById("ic-select").addEventListener("change", handleIcChange);
