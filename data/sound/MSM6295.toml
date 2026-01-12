@@ -45,9 +45,9 @@ num_pins = 44
 33 = { name = "A15",   dir = "OUT",   color = "ADDR" }
 
 # left
-34 = { name = "A16",   dir = "IN",    color = "ADDR" }
-35 = { name = "A17",   dir = "IN",    color = "ADDR" }
-36 = { name = "DAO",   dir = "IN",    color = "ADDR",  flags = [ "audioProbe"]  }
+34 = { name = "A16",   dir = "OUT",   color = "ADDR" }
+35 = { name = "A17",   dir = "OUT",   color = "ADDR" }
+36 = { name = "DAO",   dir = "OUT",   color = "DATA2",  flags = [ "audioProbe"]  }
 37 = { name = "I0",    dir = "INOUT", color = "DATA" }
 38 = { name = "I1",    dir = "INOUT", color = "DATA" }
 39 = { name = "I2",    dir = "INOUT", color = "DATA" }
