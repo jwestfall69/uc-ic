@@ -639,6 +639,23 @@ function renderIC(ic) {
 }
 
 const mdp = makeMDP();
+
+// Add a url parser to to markdown to support [link](url){:attributes}
+// such that stuff inside the {:} will be added into the anchor as additional
+// attributes.  ie {:target="_blank"} to cause link to open a new window/tab
+mdp.addInlineSyntax (
+    {
+	    tag: "ACA",
+	    priority: 55,
+	    provisionalText: '<a href="$2" $3>$1</a>',
+	    matchRegex: new RegExp("\\[(.+?)\\]\\((.+?)\\)\\{\\:(.+?)\\}", 'g'),
+	    converter: function ( argBlock ) {
+            return null;
+	    },
+	    matchedString: new Array()
+    }
+);
+
 // This function call and the function definition after are used to override mdp"s
 // built in table parsing.  It has the following changes
 // - allow up to 2 header rows
