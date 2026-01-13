@@ -1,0 +1,42 @@
+[info]
+name = "74x175"
+description = "# 74x175: Quad D-Type Flip-Flops"
+package = "DIP"
+num_pins = 16
+width = "SKINNY"
+
+[pins]
+# left
+ 1 = { name = "CLR", dir = "IN",   color = "MISC",  flags = [ "activeLow" ] }
+ 2 = { name = "1Q",  dir = "OUT",  color = "DATA" }
+ 3 = { name = "1Q",  dir = "OUT",  color = "DATA2", flags = [ "activeLow" ] }
+ 4 = { name = "1D",  dir = "IN",   color = "DATA" }
+ 5 = { name = "2D",  dir = "IN",   color = "DATA" }
+ 6 = { name = "2Q",  dir = "OUT",  color = "DATA2", flags = [ "activeLow" ] }
+ 7 = { name = "2Q",  dir = "OUT",  color = "DATA" }
+ 8 = { name = "GND", dir = "NONE", color = "GND"  }
+
+# right
+ 9 = { name = "CLK", dir = "IN",   color = "CLOCK"}
+10 = { name = "3Q",  dir = "OUT",  color = "DATA "}
+11 = { name = "3Q",  dir = "OUT",  color = "DATA2", flags = [ "activeLow" ] }
+12 = { name = "3D",  dir = "IN",   color = "DATA" }
+13 = { name = "4D",  dir = "IN",   color = "DATA" }
+14 = { name = "4Q",  dir = "OUT",  color = "DATA2", flags = [ "activeLow" ] }
+15 = { name = "4Q",  dir = "OUT",  color = "DATA "}
+16 = { name = "VCC", dir = "NONE", color = "POWER"}
+
+[details]
+markdown = """
+
+# Truth Table
+|   INPUTS    ||| OUTPUTS ||
+| CLR | CLK | D |  Q  | <span style="text-decoration: overline;">Q</span> |
+|:---:|:---:|:-:|:---:|:--:|
+|  L  |  X  | X |  L  |  H |
+|  H  |  ↑  | H |  H  |  L |
+|  H  |  ↑  | L |  L  |  H |
+|  H  |  L  | X |  Q  |  <span style="text-decoration: overline;">Q</span> |
+<sup>X = Doesn't Matter</sup>
+
+"""

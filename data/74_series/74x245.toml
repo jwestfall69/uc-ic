@@ -41,4 +41,5 @@ markdown = """
 | H  |  L  |   B   |   Z    |
 | H  |  H  |   A   |   Z    |
 <sup>Z = High Impedance</sup>
+
 """

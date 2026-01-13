@@ -1,0 +1,45 @@
+[info]
+name = "74x244"
+description = "# 74x244: Octal 3-STATE Buffer/Line Driver/Line Receiver"
+package = "DIP"
+num_pins = 20
+width = "SKINNY"
+
+[pins]
+# left
+ 1 = { name = "EN1", dir = "IN",   color = "EN",     flags = [ "activeLow" ] }
+ 2 = { name = "1A1", dir = "IN",   color = "DATA"  }
+ 3 = { name = "2Y4", dir = "OUT",  color = "DATA2" }
+ 4 = { name = "1A2", dir = "IN",   color = "DATA"  }
+ 5 = { name = "2Y3", dir = "OUT",  color = "DATA2" }
+ 6 = { name = "1A3", dir = "IN",   color = "DATA"  }
+ 7 = { name = "2Y2", dir = "OUT",  color = "DATA2" }
+ 8 = { name = "1A4", dir = "IN",   color = "DATA"  }
+ 9 = { name = "2Y1", dir = "OUT",  color = "DATA2" }
+10 = { name = "GND", dir = "NONE", color = "GND"   }
+
+# right
+11 = { name = "2A1", dir = "IN",   color = "DATA2" }
+12 = { name = "1Y4", dir = "OUT",  color = "DATA"  }
+13 = { name = "2A2", dir = "IN",   color = "DATA2" }
+14 = { name = "1Y3", dir = "OUT",  color = "DATA"  }
+15 = { name = "2A3", dir = "IN",   color = "DATA2" }
+16 = { name = "1Y2", dir = "OUT",  color = "DATA"  }
+17 = { name = "2A4", dir = "IN",   color = "DATA2" }
+18 = { name = "1Y1", dir = "OUT",  color = "DATA"  }
+19 = { name = "EN2", dir = "IN",   color = "EN",     flags = [ "activeLow" ] }
+20 = { name = "VCC", dir = "NONE", color = "POWER" }
+
+[details]
+markdown = """
+
+# Truth Table
+| INPUTS  || OUTPUT |
+| ENn | nA |   nY   |
+|:--:|:---:|:------:|
+| L  |  L  |   L    |
+| L  |  H  |   H    |
+| H  |  L  |   Z    |
+<sup>Z = High Impedance</sup>
+
+"""

@@ -1,0 +1,47 @@
+[info]
+name = "74x253"
+description = "# 74x253: Dual 4-Line To 1-Line Data<br>Selectors/Multiplexers With 3-State Outputs"
+package = "DIP"
+num_pins = 16
+width = "SKINNY"
+
+[pins]
+# left
+ 1 = { name = "EN1", dir = "IN",   color = "EN",    flags = [ "activeLow" ]}
+ 2 = { name = "S1",  dir = "IN",   color = "ADDR" }
+ 3 = { name = "1A3", dir = "IN",   color = "DATA" }
+ 4 = { name = "1A2", dir = "IN",   color = "DATA" }
+ 5 = { name = "1A1", dir = "IN",   color = "DATA" }
+ 6 = { name = "1A0", dir = "IN",   color = "DATA" }
+ 7 =  { name = "1Y", dir = "OUT",  color = "DATA2"}
+ 8 = { name = "GND", dir = "NONE", color = "GND"  }
+
+# right
+ 9 = { name = "2Y",  dir = "OUT",  color = "DATA2"}
+10 = { name = "2A3", dir = "IN",   color = "DATA" }
+11 = { name = "2A2", dir = "IN",   color = "DATA" }
+12 = { name = "2A1", dir = "IN",   color = "DATA" }
+13 = { name = "2A0", dir = "IN",   color = "DATA" }
+14 = { name = "S2",  dir = "IN",   color = "ADDR" }
+15 = { name = "EN2", dir = "IN",   color = "EN",    flags = [ "activeLow" ]}
+16 = { name = "VCC", dir = "NONE", color = "POWER"}
+
+[details]
+markdown = """
+
+# Truth Table
+| EN  | SELECT ||        INPUTS      |||| OUTPUT |
+| ENn | S1 | S2 | nA0 | nA1 | nA2 | nA3 |   nY   |
+|:---:|:--:|:--:|:---:|:---:|:---:|:---:|:------:|
+|  H  | X  | X  |  X  |  X  |  X  |  X  |   Z    |
+|  L  | L  | L  |  L  |  X  |  X  |  X  |   L    |
+|  L  | L  | L  |  H  |  X  |  X  |  X  |   H    |
+|  L  | L  | H  |  X  |  L  |  X  |  X  |   L    |
+|  L  | L  | H  |  X  |  H  |  X  |  X  |   H    |
+|  L  | H  | L  |  X  |  X  |  L  |  X  |   L    |
+|  L  | H  | L  |  X  |  X  |  H  |  X  |   H    |
+|  L  | H  | H  |  X  |  X  |  X  |  L  |   L    |
+|  L  | H  | H  |  X  |  X  |  X  |  H  |   H    |
+<sup>X = Doesn't Matter, Z = High Impedance</sup>
+
+"""

@@ -28,7 +28,7 @@ width = "SKINNY"
 markdown = """
 
 # Truth Table
-| INPUTS          |||| OUTPUT ||
+| INPUTS           |||| OUTPUT ||
 | SET | CLR | CLK | D | Q  | <span style="text-decoration: overline;">Q</span> |
 |:---:|:---:|:---:|:-:|:--:|:--:|
 |  L  |  H  |  X  | X | H  | L  |
@@ -40,4 +40,5 @@ markdown = """
 <sup>X = Doesn't Matter</sup>
 
 **NOTE:** Outputs are unpredictable if both SET and CLR are L.
-""" 
+
+"""

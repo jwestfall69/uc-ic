@@ -1,0 +1,44 @@
+[info]
+name = "74x157"
+description = "# 74x157: Quad 2-Input Multiplexer"
+package = "DIP"
+num_pins = 16
+width = "SKINNY"
+
+[pins]
+# left
+ 1 = { name = "S",   dir = "IN",   color = "ADDR" }
+ 2 = { name = "1A",  dir = "IN",   color = "DATA" }
+ 3 = { name = "1B",  dir = "IN",   color = "DATA" }
+ 4 = { name = "1Y",  dir = "OUT",  color = "DATA2"}
+ 5 = { name = "2A",  dir = "IN",   color = "DATA" }
+ 6 = { name = "2B",  dir = "IN",   color = "DATA" }
+ 7 = { name = "2Y",  dir = "OUT",  color = "DATA2"}
+ 8 = { name = "GND", dir = "NONE", color = "GND"  }
+
+# right
+ 9 = { name = "3Y",  dir = "OUT",  color = "DATA2"}
+10 = { name = "3B",  dir = "IN",   color = "DATA" }
+11 = { name = "3A",  dir = "IN",   color = "DATA" }
+12 = { name = "4Y",  dir = "OUT",  color = "DATA2"}
+13 = { name = "4B",  dir = "IN",   color = "DATA" }
+14 = { name = "4A",  dir = "IN",   color = "DATA" }
+15 = { name = "EN",  dir = "IN",   color = "EN",    flags = [ "activeLow" ]}
+16 = { name = "VCC", dir = "NONE", color = "POWER"}
+
+[details]
+markdown = """
+
+# Truth Table
+|       INPUTS  |||| OUTPUT |
+| EN | S | nA | nB |   nY   |
+|:--:|:-:|:--:|:--:|:------:|
+| H  | X | X  | X  |   L    |
+| L  | L | L  | X  |   L    |
+| L  | L | H  | X  |   H    |
+| L  | H | X  | L  |   L    |
+| L  | H | X  | H  |   H    |
+<sup>X = Doesn't Matter</sup>
+
+**S** selects if **A** or **B** passes to **Y**
+"""

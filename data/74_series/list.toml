@@ -11,5 +11,11 @@ list = [
   { display = "74x32",  path = "data/74_series/74x32.toml"  },
   { display = "74x74",  path = "data/74_series/74x74.toml"  },
   { display = "74x86",  path = "data/74_series/74x86.toml"  },
-  { display = "74x245", path = "data/74_series/74x245.toml" }
+  { display = "74x138", path = "data/74_series/74x138.toml" },
+  { display = "74x157", path = "data/74_series/74x157.toml" },
+  { display = "74x174", path = "data/74_series/74x174.toml" },
+  { display = "74x175", path = "data/74_series/74x175.toml" },
+  { display = "74x244", path = "data/74_series/74x244.toml" },
+  { display = "74x245", path = "data/74_series/74x245.toml" },
+  { display = "74x253", path = "data/74_series/74x253.toml" }
 ]

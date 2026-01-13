@@ -35,4 +35,5 @@ markdown = """
 | L  | L  | H  |   L    |
 | L  | H  | H  |   L    |
 | H  | H  | H  |   H    |
+
 """

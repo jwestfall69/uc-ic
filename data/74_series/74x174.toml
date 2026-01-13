@@ -1,0 +1,42 @@
+[info]
+name = "74x174"
+description = "# 74x174: Hex D-Type Flip-Flops"
+package = "DIP"
+num_pins = 16
+width = "SKINNY"
+
+[pins]
+# left
+ 1 = { name = "CLR", dir = "IN",   color = "MISC",  flags = [ "activeLow" ]}
+ 2 = { name = "1Q",  dir = "OUT",  color = "DATA2"}
+ 3 = { name = "1D",  dir = "IN",   color = "DATA" }
+ 4 = { name = "2D",  dir = "IN",   color = "DATA" }
+ 5 = { name = "2Q",  dir = "OUT",  color = "DATA2"}
+ 6 = { name = "3D",  dir = "IN",   color = "DATA" }
+ 7 = { name = "3Q",  dir = "OUT",  color = "DATA2"}
+ 8 = { name = "GND", dir = "NONE", color = "GND"  }
+
+# right
+ 9 = { name = "CLK", dir = "IN",   color = "CLOCK"}
+10 = { name = "4Q",  dir = "OUT",  color = "DATA2"}
+11 = { name = "4D",  dir = "IN",   color = "DATA" }
+12 = { name = "5Q",  dir = "OUT",  color = "DATA2"}
+13 = { name = "5D",  dir = "IN",   color = "DATA" }
+14 = { name = "6D",  dir = "IN",   color = "DATA" }
+15 = { name = "6Q",  dir = "OUT",  color = "DATA2"}
+16 = { name = "VCC", dir = "NONE", color = "POWER"}
+
+[details]
+markdown = """
+
+# Truth Table
+|   INPUTS    ||| OUTPUT |
+| CLR | CLK | D |   Q    |
+|:---:|:---:|:-:|:------:|
+|  L  |  X  | X |   L    |
+|  H  |  ↑  | H |   H    |
+|  H  |  ↑  | L |   L    |
+|  H  |  L  | X |   Q    |
+<sup>X = Doesn't Matter</sup>
+
+"""

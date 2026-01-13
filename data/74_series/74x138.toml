@@ -1,0 +1,49 @@
+[info]
+name = "74x138"
+description = "# 74x138: 1-of-8 Decoder/Demultiplexer"
+package = "DIP"
+num_pins = 16
+width = "SKINNY"
+
+[pins]
+# left
+ 1 = { name = "A0",  dir = "IN",   color = "ADDR" }
+ 2 = { name = "A1",  dir = "IN",   color = "ADDR" }
+ 3 = { name = "A2",  dir = "IN",   color = "ADDR" }
+ 4 = { name = "EN1", dir = "IN",   color = "EN",    flags = [ "activeLow" ]}
+ 5 = { name = "EN2", dir = "IN",   color = "EN",    flags = [ "activeLow" ]}
+ 6 = { name = "EN3", dir = "IN",   color = "EN"   }
+ 7 = { name = "Y7",  dir = "OUT",  color = "DATA" }
+ 8 = { name = "GND", dir = "NONE", color = "GND"  }
+
+# right
+ 9 = { name = "Y6",  dir = "OUT",  color = "DATA" }
+10 = { name = "Y5",  dir = "OUT",  color = "DATA" }
+11 = { name = "Y4",  dir = "OUT",  color = "DATA" }
+12 = { name = "Y3",  dir = "OUT",  color = "DATA" }
+13 = { name = "Y2",  dir = "OUT",  color = "DATA" }
+14 = { name = "Y1",  dir = "OUT",  color = "DATA" }
+15 = { name = "Y0",  dir = "OUT",  color = "DATA" }
+16 = { name = "VCC", dir = "NONE", color = "POWER"}
+
+[details]
+markdown = """
+
+# Truth Table
+| INPUTS                    ||||||                OUTPUT          ||||||||
+| EN1 | EN2 | EN3 | A0 | A1 | A2 | Y0 | Y1 | Y2 | Y3 | Y4 | Y5 | Y6 | Y7 |
+|:---:|:---:|:---:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+|  H  |  X  |  X  | X  | X  | X  | H  | H  | H  | H  | H  | H  | H  | H  |
+|  X  |  H  |  X  | X  | X  | X  | H  | H  | H  | H  | H  | H  | H  | H  |
+|  X  |  X  |  L  | X  | X  | X  | H  | H  | H  | H  | H  | H  | H  | H  |
+|  L  |  L  |  H  | L  | L  | L  | L  | H  | H  | H  | H  | H  | H  | H  |
+|  L  |  L  |  H  | H  | L  | L  | H  | L  | H  | H  | H  | H  | H  | H  |
+|  L  |  L  |  H  | L  | H  | L  | H  | H  | L  | H  | H  | H  | H  | H  |
+|  L  |  L  |  H  | H  | H  | L  | H  | H  | H  | L  | H  | H  | H  | H  |
+|  L  |  L  |  H  | L  | L  | H  | H  | H  | H  | H  | L  | H  | H  | H  |
+|  L  |  L  |  H  | H  | L  | H  | H  | H  | H  | H  | H  | L  | H  | H  |
+|  L  |  L  |  H  | L  | H  | H  | H  | H  | H  | H  | H  | H  | L  | H  |
+|  L  |  L  |  H  | H  | H  | H  | H  | H  | H  | H  | H  | H  | H  | L  |
+<sup>X = Doesn't Matter, </sup>
+
+"""
