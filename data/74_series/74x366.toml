@@ -1,0 +1,42 @@
+[info]
+name = "74x366"
+description = "# 74x366: Hex Bus Inverter Drivers With 3-State Outputs"
+package = "DIP"
+num_pins = 16
+width = "SKINNY"
+
+[pins]
+# left
+ 1 = { name = "EN1", dir = "IN",   color = "EN",  flags = [ "activeLow" ] }
+ 2 = { name = "A1",  dir = "IN",   color = "DATA" }
+ 3 = { name = "Y1",  dir = "OUT",  color = "DATA2"}
+ 4 = { name = "A2",  dir = "IN",   color = "DATA" }
+ 5 = { name = "Y2",  dir = "OUT",  color = "DATA2"}
+ 6 = { name = "A3",  dir = "IN",   color = "DATA" }
+ 7 = { name = "Y3",  dir = "OUT",  color = "DATA2"}
+ 8 = { name = "GND", dir = "NONE", color = "GND"  }
+
+# right
+ 9 = { name = "Y4",  dir = "OUT",  color = "DATA2"}
+10 = { name = "A4",  dir = "IN",   color = "DATA" }
+11 = { name = "Y5",  dir = "OUT",  color = "DATA2"}
+12 = { name = "A5",  dir = "IN",   color = "DATA" }
+13 = { name = "Y6",  dir = "OUT",  color = "DATA2"}
+14 = { name = "A6",  dir = "IN",   color = "DATA" }
+15 = { name = "EN2", dir = "IN",   color = "EN",  flags = [ "activeLow" ] }
+16 = { name = "VCC", dir = "NONE", color = "POWER"}
+
+[details]
+markdown = """
+
+# Truth Table
+|    INPUTS   ||| OUTPUT |
+| EN1 | EN2 | D |   Y    |
+|:---:|:---:|:-:|:------:|
+|  L  |  L  | L |   H    |
+|  L  |  L  | H |   L    |
+|  H  |  X  | X |   Z    |
+|  X  |  H  | X |   Z    |
+<sup>X = Doesn't Matter, Z = High Impedance</sup>
+
+"""

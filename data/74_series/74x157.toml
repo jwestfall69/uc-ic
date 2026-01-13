@@ -23,7 +23,7 @@ width = "SKINNY"
 12 = { name = "4Y",  dir = "OUT",  color = "DATA2"}
 13 = { name = "4B",  dir = "IN",   color = "DATA" }
 14 = { name = "4A",  dir = "IN",   color = "DATA" }
-15 = { name = "EN",  dir = "IN",   color = "EN",    flags = [ "activeLow" ]}
+15 = { name = "EN",  dir = "IN",   color = "EN",    flags = [ "activeLow" ] }
 16 = { name = "VCC", dir = "NONE", color = "POWER"}
 
 [details]

@@ -1,8 +1,8 @@
 [info]
-name = "74x174"
-description = "# 74x174: Hex D-Type Flip-Flops"
+name = "74x273"
+description = "# 74x273: Octal D-Type Flip-Flops With Clear"
 package = "DIP"
-num_pins = 16
+num_pins = 20
 width = "SKINNY"
 
 [pins]
@@ -12,19 +12,23 @@ width = "SKINNY"
  3 = { name = "1D",  dir = "IN",   color = "DATA" }
  4 = { name = "2D",  dir = "IN",   color = "DATA" }
  5 = { name = "2Q",  dir = "OUT",  color = "DATA2"}
- 6 = { name = "3D",  dir = "IN",   color = "DATA" }
- 7 = { name = "3Q",  dir = "OUT",  color = "DATA2"}
- 8 = { name = "GND", dir = "NONE", color = "GND"  }
+ 6 = { name = "3Q",  dir = "OUT",  color = "DATA2"}
+ 7 = { name = "3D",  dir = "IN",   color = "DATA" }
+ 8 = { name = "4D",  dir = "IN",   color = "DATA" }
+ 9 = { name = "Q4",  dir = "OUT",  color = "DATA2"}
+10 = { name = "GND", dir = "NONE", color = "GND"  }
 
 # right
- 9 = { name = "CLK", dir = "IN",   color = "CLOCK"}
-10 = { name = "4Q",  dir = "OUT",  color = "DATA2"}
-11 = { name = "4D",  dir = "IN",   color = "DATA" }
+11 = { name = "CLK", dir = "IN",   color = "CLOCK"}
 12 = { name = "5Q",  dir = "OUT",  color = "DATA2"}
 13 = { name = "5D",  dir = "IN",   color = "DATA" }
 14 = { name = "6D",  dir = "IN",   color = "DATA" }
 15 = { name = "6Q",  dir = "OUT",  color = "DATA2"}
-16 = { name = "VCC", dir = "NONE", color = "POWER"}
+16 = { name = "7Q",  dir = "OUT",  color = "DATA2"}
+17 = { name = "7D",  dir = "IN",   color = "DATA" }
+18 = { name = "8D",  dir = "IN",   color = "DATA" }
+19 = { name = "8Q",  dir = "OUT",  color = "DATA2"}
+20 = { name = "VCC", dir = "NONE", color = "POWER"}
 
 [details]
 markdown = """

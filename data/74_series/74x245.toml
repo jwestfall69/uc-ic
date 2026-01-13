@@ -7,28 +7,28 @@ width = "SKINNY"
 
 [pins]
 # left
- 1 = { name = "DIR", dir = "IN",    color = "MISC"  }
- 2 = { name = "A1",  dir = "INOUT", color = "DATA"  }
- 3 = { name = "A2",  dir = "INOUT", color = "DATA"  }
- 4 = { name = "A3",  dir = "INOUT", color = "DATA"  }
- 5 = { name = "A4",  dir = "INOUT", color = "DATA"  }
- 6 = { name = "A5",  dir = "INOUT", color = "DATA"  }
- 7 = { name = "A6",  dir = "INOUT", color = "DATA"  }
- 8 = { name = "A7",  dir = "INOUT", color = "DATA"  }
- 9 = { name = "A8",  dir = "INOUT", color = "DATA"  }
-10 = { name = "GND", dir = "NONE",  color = "GND"   }
+ 1 = { name = "DIR", dir = "IN",    color = "MISC" }
+ 2 = { name = "A1",  dir = "INOUT", color = "DATA" }
+ 3 = { name = "A2",  dir = "INOUT", color = "DATA" }
+ 4 = { name = "A3",  dir = "INOUT", color = "DATA" }
+ 5 = { name = "A4",  dir = "INOUT", color = "DATA" }
+ 6 = { name = "A5",  dir = "INOUT", color = "DATA" }
+ 7 = { name = "A6",  dir = "INOUT", color = "DATA" }
+ 8 = { name = "A7",  dir = "INOUT", color = "DATA" }
+ 9 = { name = "A8",  dir = "INOUT", color = "DATA" }
+10 = { name = "GND", dir = "NONE",  color = "GND"  }
 
 # right
-11 = { name = "B8",  dir = "INOUT", color = "DATA2"  }
-12 = { name = "B7",  dir = "INOUT", color = "DATA2"  }
-13 = { name = "B6",  dir = "INOUT", color = "DATA2"  }
-14 = { name = "B5",  dir = "INOUT", color = "DATA2"  }
-15 = { name = "B4",  dir = "INOUT", color = "DATA2"  }
-16 = { name = "B3",  dir = "INOUT", color = "DATA2"  }
-17 = { name = "B2",  dir = "INOUT", color = "DATA2"  }
-18 = { name = "B1",  dir = "INOUT", color = "DATA2"  }
-19 = { name = "EN",  dir = "IN",    color = "EN",      flags = [ "activeLow" ] }
-20 = { name = "VCC", dir = "NONE",  color = "POWER"  }
+11 = { name = "B8",  dir = "INOUT", color = "DATA2"}
+12 = { name = "B7",  dir = "INOUT", color = "DATA2"}
+13 = { name = "B6",  dir = "INOUT", color = "DATA2"}
+14 = { name = "B5",  dir = "INOUT", color = "DATA2"}
+15 = { name = "B4",  dir = "INOUT", color = "DATA2"}
+16 = { name = "B3",  dir = "INOUT", color = "DATA2"}
+17 = { name = "B2",  dir = "INOUT", color = "DATA2"}
+18 = { name = "B1",  dir = "INOUT", color = "DATA2"}
+19 = { name = "EN",  dir = "IN",    color = "EN",    flags = [ "activeLow" ] }
+20 = { name = "VCC", dir = "NONE",  color = "POWER"}
 
 [details]
 markdown = """

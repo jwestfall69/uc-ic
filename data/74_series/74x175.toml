@@ -18,12 +18,12 @@ width = "SKINNY"
 
 # right
  9 = { name = "CLK", dir = "IN",   color = "CLOCK"}
-10 = { name = "3Q",  dir = "OUT",  color = "DATA "}
+10 = { name = "3Q",  dir = "OUT",  color = "DATA" }
 11 = { name = "3Q",  dir = "OUT",  color = "DATA2", flags = [ "activeLow" ] }
 12 = { name = "3D",  dir = "IN",   color = "DATA" }
 13 = { name = "4D",  dir = "IN",   color = "DATA" }
 14 = { name = "4Q",  dir = "OUT",  color = "DATA2", flags = [ "activeLow" ] }
-15 = { name = "4Q",  dir = "OUT",  color = "DATA "}
+15 = { name = "4Q",  dir = "OUT",  color = "DATA" }
 16 = { name = "VCC", dir = "NONE", color = "POWER"}
 
 [details]

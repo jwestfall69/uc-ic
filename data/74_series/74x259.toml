@@ -1,0 +1,72 @@
+[info]
+name = "74x259"
+description = "# 74x259: 8-Bit Addressable Latch"
+package = "DIP"
+num_pins = 16
+width = "SKINNY"
+
+[pins]
+# left
+ 1 = { name = "A0",  dir = "IN",   color = "ADDR" }
+ 2 = { name = "A1",  dir = "IN",   color = "ADDR" }
+ 3 = { name = "A2",  dir = "IN",   color = "ADDR" }
+ 4 = { name = "Y0",  dir = "OUT",  color = "DATA2"}
+ 5 = { name = "Y1",  dir = "OUT",  color = "DATA2"}
+ 6 = { name = "Y2",  dir = "OUT",  color = "DATA2"}
+ 7 = { name = "Y3",  dir = "OUT",  color = "DATA2"}
+ 8 = { name = "GND", dir = "NONE", color = "GND"  }
+
+# right
+ 9 = { name = "Y4",  dir = "OUT",  color = "DATA2"}
+10 = { name = "Y5",  dir = "OUT",  color = "DATA2"}
+11 = { name = "Y6",  dir = "OUT",  color = "DATA2"}
+12 = { name = "Y7",  dir = "OUT",  color = "DATA2"}
+13 = { name = "D",   dir = "IN",   color = "DATA" }
+14 = { name = "EN",  dir = "IN",   color = "EN",    flags = [ "activeLow" ] }
+15 = { name = "CLR", dir = "IN",   color = "MISC",  flags = [ "activeLow" ] }
+16 = { name = "VCC", dir = "NONE", color = "POWER"}
+
+[details]
+markdown = """
+
+# Truth Table
+| INPUTS                    ||||||                OUTPUT       ||||||||                   |
+| CLR | EN | D | A0 | A1 | A2 | Y0 | Y1 | Y2 | Y3 | Y4 | Y5 | Y6 | Y7 |      MODE         |
+|:---:|:--:|:-:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:------------------|
+|  L  | H  | X | X  | X  | X  | L  | L  | L  | L  | L  | L  | L  | L  | Clear             |
+|  L  | L  | L | L  | L  | L  | L  | L  | L  | L  | L  | L  | L  | L  | Demultiplex       |
+|  L  | L  | H | L  | L  | L  | H  | L  | L  | L  | L  | L  | L  | L  | Demultiplex       |
+|  L  | L  | L | H  | L  | L  | L  | L  | L  | L  | L  | L  | L  | L  | Demultiplex       |
+|  L  | L  | H | H  | L  | L  | L  | H  | L  | L  | L  | L  | L  | L  | Demultiplex       |
+|  L  | L  | L | L  | H  | L  | L  | L  | L  | L  | L  | L  | L  | L  | Demultiplex       |
+|  L  | L  | H | L  | H  | L  | L  | L  | H  | L  | L  | L  | L  | L  | Demultiplex       |
+|  L  | L  | L | H  | H  | L  | L  | L  | L  | L  | L  | L  | L  | L  | Demultiplex       |
+|  L  | L  | H | H  | H  | L  | L  | L  | L  | H  | L  | L  | L  | L  | Demultiplex       |
+|  L  | L  | L | L  | L  | H  | L  | L  | L  | L  | L  | L  | L  | L  | Demultiplex       |
+|  L  | L  | H | L  | L  | H  | L  | L  | L  | L  | H  | L  | L  | L  | Demultiplex       |
+|  L  | L  | L | H  | L  | H  | L  | L  | L  | L  | L  | L  | L  | L  | Demultiplex       |
+|  L  | L  | H | H  | L  | H  | L  | L  | L  | L  | L  | H  | L  | L  | Demultiplex       |
+|  L  | L  | L | L  | H  | H  | L  | L  | L  | L  | L  | L  | L  | L  | Demultiplex       |
+|  L  | L  | H | L  | H  | H  | L  | L  | L  | L  | L  | L  | H  | L  | Demultiplex       |
+|  L  | L  | L | H  | H  | H  | L  | L  | L  | L  | L  | L  | L  | L  | Demultiplex       |
+|  L  | L  | H | H  | H  | H  | L  | L  | L  | L  | L  | L  | L  | H  | Demultiplex       |
+|  H  | H  | X | X  | X  | X  | Y0 | Y1 | Y2 | Y3 | Y4 | Y5 | Y6 | Y7 | Memory            |
+|  H  | L  | L | L  | L  | L  | L  | Y1 | Y2 | Y3 | Y4 | Y5 | Y6 | Y7 | Addressable Latch |
+|  H  | L  | H | L  | L  | L  | H  | Y1 | Y2 | Y3 | Y4 | Y5 | Y6 | Y7 | Addressable Latch |
+|  H  | L  | L | H  | L  | L  | Y0 | L  | Y2 | Y3 | Y4 | Y5 | Y6 | Y7 | Addressable Latch |
+|  H  | L  | H | H  | L  | L  | Y0 | H  | Y2 | Y3 | Y4 | Y5 | Y6 | Y7 | Addressable Latch |
+|  H  | L  | L | L  | H  | L  | Y0 | Y1 | L  | Y3 | Y4 | Y5 | Y6 | Y7 | Addressable Latch |
+|  H  | L  | H | L  | H  | L  | Y0 | Y1 | H  | Y3 | Y4 | Y5 | Y6 | Y7 | Addressable Latch |
+|  H  | L  | L | H  | H  | L  | Y0 | Y1 | Y2 | L  | Y4 | Y5 | Y6 | Y7 | Addressable Latch |
+|  H  | L  | H | H  | H  | L  | Y0 | Y1 | Y2 | H  | Y4 | Y5 | Y6 | Y7 | Addressable Latch |
+|  H  | L  | L | L  | L  | H  | Y0 | Y1 | Y2 | Y3 | L  | Y5 | Y6 | Y7 | Addressable Latch |
+|  H  | L  | H | L  | L  | H  | Y0 | Y1 | Y2 | Y3 | H  | Y5 | Y6 | Y7 | Addressable Latch |
+|  H  | L  | L | H  | L  | H  | Y0 | Y1 | Y2 | Y3 | Y4 | L  | Y6 | Y7 | Addressable Latch |
+|  H  | L  | H | H  | L  | H  | Y0 | Y1 | Y2 | Y3 | Y4 | H  | Y6 | Y7 | Addressable Latch |
+|  H  | L  | L | L  | H  | H  | Y0 | Y1 | Y2 | Y3 | Y4 | Y5 | L  | Y7 | Addressable Latch |
+|  H  | L  | H | L  | H  | H  | Y0 | Y1 | Y2 | Y3 | Y4 | Y5 | H  | Y7 | Addressable Latch |
+|  H  | L  | L | H  | H  | H  | Y0 | Y1 | Y2 | Y3 | Y4 | Y5 | Y6 | L  | Addressable Latch |
+|  H  | L  | H | H  | H  | H  | Y0 | Y1 | Y2 | Y3 | Y4 | Y5 | Y6 | H  | Addressable Latch |
+<sup>X = Doesn't Matter</sup>
+
+"""

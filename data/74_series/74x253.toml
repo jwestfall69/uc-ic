@@ -7,7 +7,7 @@ width = "SKINNY"
 
 [pins]
 # left
- 1 = { name = "EN1", dir = "IN",   color = "EN",    flags = [ "activeLow" ]}
+ 1 = { name = "EN1", dir = "IN",   color = "EN",    flags = [ "activeLow" ] }
  2 = { name = "S1",  dir = "IN",   color = "ADDR" }
  3 = { name = "1A3", dir = "IN",   color = "DATA" }
  4 = { name = "1A2", dir = "IN",   color = "DATA" }
@@ -23,7 +23,7 @@ width = "SKINNY"
 12 = { name = "2A1", dir = "IN",   color = "DATA" }
 13 = { name = "2A0", dir = "IN",   color = "DATA" }
 14 = { name = "S2",  dir = "IN",   color = "ADDR" }
-15 = { name = "EN2", dir = "IN",   color = "EN",    flags = [ "activeLow" ]}
+15 = { name = "EN2", dir = "IN",   color = "EN",    flags = [ "activeLow" ] }
 16 = { name = "VCC", dir = "NONE", color = "POWER"}
 
 [details]

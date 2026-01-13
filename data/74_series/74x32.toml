@@ -7,22 +7,22 @@ width = "SKINNY"
 
 [pins]
 # left
- 1 = { name = "A1",  dir = "IN",   color = "DATA"  }
- 2 = { name = "B1",  dir = "IN",   color = "DATA2" }
- 3 = { name = "Y1",  dir = "OUT",  color = "DATA3" }
- 4 = { name = "A2",  dir = "IN",   color = "DATA"  }
- 5 = { name = "B2",  dir = "IN",   color = "DATA2" }
- 6 = { name = "Y2",  dir = "OUT",  color = "DATA3" }
- 7 = { name = "GND", dir = "NONE", color = "GND"   }
+ 1 = { name = "A1",  dir = "IN",   color = "DATA" }
+ 2 = { name = "B1",  dir = "IN",   color = "DATA2"}
+ 3 = { name = "Y1",  dir = "OUT",  color = "DATA3"}
+ 4 = { name = "A2",  dir = "IN",   color = "DATA" }
+ 5 = { name = "B2",  dir = "IN",   color = "DATA2"}
+ 6 = { name = "Y2",  dir = "OUT",  color = "DATA3"}
+ 7 = { name = "GND", dir = "NONE", color = "GND"  }
 
 # right
- 8 = { name = "Y3",  dir = "OUT",  color = "DATA3" }
- 9 = { name = "A3",  dir = "IN",   color = "DATA"  }
-10 = { name = "B3",  dir = "IN",   color = "DATA2" }
-11 = { name = "Y4",  dir = "OUT",  color = "DATA3" }
-12 = { name = "A4",  dir = "IN",   color = "DATA"  }
-13 = { name = "B4",  dir = "IN",   color = "DATA2" }
-14 = { name = "VCC", dir = "NONE", color = "POWER" }
+ 8 = { name = "Y3",  dir = "OUT",  color = "DATA3"}
+ 9 = { name = "A3",  dir = "IN",   color = "DATA" }
+10 = { name = "B3",  dir = "IN",   color = "DATA2"}
+11 = { name = "Y4",  dir = "OUT",  color = "DATA3"}
+12 = { name = "A4",  dir = "IN",   color = "DATA" }
+13 = { name = "B4",  dir = "IN",   color = "DATA2"}
+14 = { name = "VCC", dir = "NONE", color = "POWER"}
 
 [details]
 markdown = """

@@ -10,8 +10,8 @@ width = "SKINNY"
  1 = { name = "A0",  dir = "IN",   color = "ADDR" }
  2 = { name = "A1",  dir = "IN",   color = "ADDR" }
  3 = { name = "A2",  dir = "IN",   color = "ADDR" }
- 4 = { name = "EN1", dir = "IN",   color = "EN",    flags = [ "activeLow" ]}
- 5 = { name = "EN2", dir = "IN",   color = "EN",    flags = [ "activeLow" ]}
+ 4 = { name = "EN1", dir = "IN",   color = "EN",    flags = [ "activeLow" ] }
+ 5 = { name = "EN2", dir = "IN",   color = "EN",    flags = [ "activeLow" ] }
  6 = { name = "EN3", dir = "IN",   color = "EN"   }
  7 = { name = "Y7",  dir = "OUT",  color = "DATA" }
  8 = { name = "GND", dir = "NONE", color = "GND"  }
