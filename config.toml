@@ -48,3 +48,7 @@ side_pad = 160
 # QFP specific settings
 [package.qfp]
 side_pad = 160
+
+# SIP specific settings
+[package.sip]
+bottom_pad = 40

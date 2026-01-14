@@ -599,6 +599,53 @@ function renderQFP(svg, ic) {
     }
 }
 
+function renderSIP(svg, ic) {
+    const numPins = ic.info.num_pins;
+    const icHeight = 200;
+    const icWidth = (config.pin.spacing * numPins) + (config.pin.spacing - config.pin.height);
+    svg.setAttribute("width", `icWidth}px`);
+    svg.setAttribute("height", `${config.package.sip.top_pad + icHeight}px`);
+
+    const icBody = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    icBody.setAttribute("x", config.package.sip.side_pad);
+    icBody.setAttribute("y", config.package.sip.top_pad);
+    icBody.setAttribute("width", icWidth);
+    icBody.setAttribute("height", icHeight);
+    icBody.setAttribute("stroke", "black");
+    icBody.setAttribute("stroke-width", "1");
+    icBody.setAttribute("fill", "white");
+    svg.appendChild(icBody);
+
+    const icName = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    const textX = icWidth / 2;
+    const textY = icHeight / 2;
+    icName.setAttribute("x", textX);
+    icName.setAttribute("y", textY);
+    icName.setAttribute("text-anchor", "middle");
+    icName.setAttribute("dominant-baseline", "middle");
+    icName.setAttribute("font-family", "Roboto Mono");
+    icName.setAttribute("font-size", "64px");
+    icName.setAttribute("font-weight", "500");
+    icName.setAttribute("fill", "gray");
+    icName.textContent = ic.info.name;
+    svg.appendChild(icName);
+
+    const icCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    icCircle.setAttribute("cx", "30");
+    icCircle.setAttribute("cy", `${icHeight - 30}`);
+    icCircle.setAttribute("r", "15");
+    icCircle.setAttribute("stroke", "black");
+    icCircle.setAttribute("stroke-width", "1");
+    icCircle.setAttribute("fill", "white");
+    svg.appendChild(icCircle);
+
+    const pinBottom = icHeight + (config.pin.width - config.pin.height) / 2;
+
+    for(let pinNum = 0; pinNum < numPins; pinNum++) {
+        svg.appendChild(drawPin(pinNum * config.pin.spacing, pinBottom, PINSIDE.BOTTOM, pinNum + 1, ic.pins[pinNum + 1]));
+    }
+}
+
 function renderIC(ic) {
     const svg = document.getElementById("ic-svg");
     svg.innerHTML = "";
@@ -617,6 +664,9 @@ function renderIC(ic) {
             break;
         case "QFP":
             renderQFP(svg, ic);
+            break;
+        case "SIP":
+            renderSIP(svg, ic);
             break;
     }
     //svg.setAttribute("transform-origin", "center");
