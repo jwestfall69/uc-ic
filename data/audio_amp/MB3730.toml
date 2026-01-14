@@ -1,0 +1,22 @@
+[info]
+name = "MB3730"
+description = "# Fujitsu MB3730: 14W Audio Power AMP"
+package = "SIP"
+num_pins = 7
+
+[pins]
+# left
+ 1 = { name = "INPUT",  dir = "IN",   color = "DATA",  flags = [ "audioProbe"] }
+ 2 = { name = "FB",     dir = "IN",   color = "MISC" }
+ 3 = { name = "BYPASS", dir = "IN",   color = "MISC" }
+ 4 = { name = "GND",    dir = "NONE", color = "GND"  }
+ 5 = { name = "OUT-",   dir = "OUT",  color = "DATA2", flags = [ "audioProbe"] }
+ 6 = { name = "OUT+",   dir = "OUT",  color = "DATA2", flags = [ "audioProbe"] }
+ 7 = { name = "VCC",    dir = "NONE", color = "POWER"}
+
+ [details]
+ markdown = """
+
+<sup>**AP**</sup>pins you can audio probe
+
+ """

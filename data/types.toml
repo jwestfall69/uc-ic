@@ -1,6 +1,7 @@
 # This list is what gets loaded into the 'Type' drop down list
 list = [
   { display = "74 Series Logic", path = "data/74_series/list.toml"      },
+  { display = "Audio AMP",       path = "data/audio_amp/list.toml"      },
   { display = "CPU",             path = "data/cpu/list.toml"            },
   { display = "Edge Connector",  path = "data/edge_connector/list.toml" },
   { display = "EPROM",           path = "data/eprom/list.toml"          },

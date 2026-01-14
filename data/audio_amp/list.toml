@@ -1,0 +1,6 @@
+# This list is what gets loaded into the 'IC' drop down list
+# when this 'Type' is selected.
+list = [
+  { display = "Fujitsu MB3730",  path = "data/audio_amp/MB3730.toml" },
+  { display = "Hitachi HA13001", path = "data/audio_amp/HA13001.toml" }
+]

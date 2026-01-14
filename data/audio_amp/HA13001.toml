@@ -1,0 +1,32 @@
+[info]
+name = "HA13001"
+description = "# Hitachi HA13001 5.5W Dual/17.5W BTL Audio"
+package = "SIP"
+num_pins = 12
+
+[pins]
+# left
+ 1 = { name = "GND",     dir = "NONE", color = "GND"  }
+ 2 = { name = "???",     dir = "NONE"                 }
+ 3 = { name = "INPUT#1", dir = "IN",   color = "DATA",  flags = [ "audioProbe"] }
+ 4 = { name = "INPUT#2", dir = "IN",   color = "DATA",  flags = [ "audioProbe"] }
+ 5 = { name = "???",     dir = "NONE"                 }
+ 6 = { name = "???",     dir = "NONE"                 }
+ 7 = { name = "OUT-",    dir = "OUT",  color = "DATA2", flags = [ "audioProbe"] }
+ 8 = { name = "???",     dir = "NONE"                 }
+ 9 = { name = "GND",     dir = "NONE", color = "GND"  }
+10 = { name = "VCC",     dir = "NONE", color = "POWER"}
+11 = { name = "???",     dir = "NONE"                 }
+12 = { name = "OUT+",    dir = "OUT",  color = "DATA2", flags = [ "audioProbe"] }
+
+ [details]
+ markdown = """
+
+<sup>**AP**</sup>pins you can audio probe
+
+I can't find any real docs on this AMP.<p>
+
+It appears to support 1 input with 1 speaker, or 2 inputs with 2 speakers?<br>
+If there is only a single input it will come in on INPUT#1, with INPUT#2 tied to GND?<br>
+
+ """
