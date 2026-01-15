@@ -1,0 +1,28 @@
+[info]
+name = "MB3731"
+description = "# Fujitsu MB3731 18W Audio Power AMP"
+package = "SIP"
+num_pins = 12
+reversed = true
+
+[pins]
+ 1 = { name = "INPUT",   dir = "IN",   color = "DATA",  flags = [ "audioProbe"] }
+ 2 = { name = "NC",      dir = "NONE", color = "NC"   }
+ 3 = { name = "GND-IN",  dir = "NONE", color = "GND"  }
+ 4 = { name = "FB",      dir = "IN",   color = "MISC" }
+ 5 = { name = "BYPASS",  dir = "IN",   color = "MISC" }
+ 6 = { name = "MUTE",    dir = "IN",   color = "MISC" }
+ 7 = { name = "GND-OUT", dir = "NONE", color = "GND"  }
+ 8 = { name = "OUT-",    dir = "OUT",  color = "DATA2", flags = [ "audioProbe"] }
+ 9 = { name = "BS-",     dir = "NONE"                 , flags = [ "audioProbe"] }
+10 = { name = "OUT+",    dir = "OUT",  color = "DATA2", flags = [ "audioProbe"] }
+11 = { name = "VCC",     dir = "NONE", color = "POWER"}
+12 = { name = "BS+",     dir = "NONE"                 , flags = [ "audioProbe"] }
+
+ [details]
+ markdown = """
+
+<sup>**AP**</sup>pins you can audio probe
+
+Unclear what **BS** pins are, maybe bias?
+"""

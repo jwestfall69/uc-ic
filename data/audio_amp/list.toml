@@ -2,5 +2,6 @@
 # when this 'Type' is selected.
 list = [
   { display = "Fujitsu MB3730",  path = "data/audio_amp/MB3730.toml" },
+  { display = "Fujitsu MB3731",  path = "data/audio_amp/MB3731.toml" },
   { display = "Hitachi HA13001", path = "data/audio_amp/HA13001.toml" }
 ]
