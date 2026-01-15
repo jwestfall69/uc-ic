@@ -136,7 +136,6 @@ function drawPin(x, y, side, num, pin) {
     }
 
     const pinRect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-    const pinColor = getColor(pin.color);
     pinRect.setAttribute("x", x);
     pinRect.setAttribute("y", y);
     pinRect.setAttribute("width", config.pin.width);

@@ -1,6 +1,6 @@
 [info]
 name = "6809E"
-description = "# 6809E/6309E"
+description = "# 6809E / 6309E"
 package = "DIP"
 num_pins = 40
 
