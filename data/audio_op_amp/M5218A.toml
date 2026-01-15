@@ -1,0 +1,27 @@
+[info]
+name = "M5218A"
+name_size = 32
+description = "# Mitsubishi M5218A Dual OP AMP"
+package = "DIP"
+width = "SKINNY"
+num_pins = 8
+
+[pins]
+# left
+ 1 = { name = "OUT1", dir = "OUT",  color = "DATA2",  flags = [ "audioProbe"] }
+ 2 = { name = "IN1-", dir = "IN",   color = "DATA" }
+ 3 = { name = "IN1+", dir = "IN",   color = "DATA" }
+ 4 = { name = "GND",  dir = "NONE", color = "GND"  }
+ 
+ # right
+ 5 = { name = "IN2+", dir = "IN",   color = "DATA" }
+ 6 = { name = "IN2-", dir = "IN",   color = "DATA" }
+ 7 = { name = "OUT2", dir = "OUT",  color = "DATA2", flags = [ "audioProbe"] }
+ 8 = { name = "VCC",  dir = "NONE", color = "POWER"}
+
+ [details]
+ markdown = """
+
+<sup>**AP**</sup>pins you can audio probe
+
+ """

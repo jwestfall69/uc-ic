@@ -1,0 +1,7 @@
+# This list is what gets loaded into the 'IC' drop down list
+# when this 'Type' is selected.
+list = [
+  { display = "Mitsubishi M5218A",         path = "data/audio_op_amp/M5218A.toml" },
+  { display = "Rohm Semiconductor BA4558", path = "data/audio_op_amp/BA4558.toml" },
+  { display = "Sanyo LS6358",              path = "data/audio_op_amp/LA6358.toml" }
+]
