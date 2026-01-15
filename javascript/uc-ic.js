@@ -603,12 +603,12 @@ function renderSIP(svg, ic) {
     const numPins = ic.info.num_pins;
     const icHeight = 200;
     const icWidth = (config.pin.spacing * numPins) + (config.pin.spacing - config.pin.height);
-    svg.setAttribute("width", `icWidth}px`);
-    svg.setAttribute("height", `${config.package.sip.top_pad + icHeight}px`);
+    svg.setAttribute("width", `${icWidth}px`);
+    svg.setAttribute("height", `${icHeight + config.package.sip.bottom_pad}px`);
 
     const icBody = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-    icBody.setAttribute("x", config.package.sip.side_pad);
-    icBody.setAttribute("y", config.package.sip.top_pad);
+    icBody.setAttribute("x", "0");
+    icBody.setAttribute("y", "0");
     icBody.setAttribute("width", icWidth);
     icBody.setAttribute("height", icHeight);
     icBody.setAttribute("stroke", "black");
@@ -631,19 +631,30 @@ function renderSIP(svg, ic) {
     svg.appendChild(icName);
 
     const icCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-    icCircle.setAttribute("cx", "30");
     icCircle.setAttribute("cy", `${icHeight - 30}`);
     icCircle.setAttribute("r", "15");
     icCircle.setAttribute("stroke", "black");
     icCircle.setAttribute("stroke-width", "1");
     icCircle.setAttribute("fill", "white");
-    svg.appendChild(icCircle);
 
     const pinBottom = icHeight + (config.pin.width - config.pin.height) / 2;
+    if(defined(ic.info.reversed) && ic.info.reversed === true) {
+        icCircle.setAttribute("cx", `${icWidth - 30}`);
 
-    for(let pinNum = 0; pinNum < numPins; pinNum++) {
-        svg.appendChild(drawPin(pinNum * config.pin.spacing, pinBottom, PINSIDE.BOTTOM, pinNum + 1, ic.pins[pinNum + 1]));
+        const startX = icWidth - config.pin.spacing - (config.pin.width - config.pin.height) / 2;
+        for(let pinNum = 0; pinNum < numPins; pinNum++) {
+            svg.appendChild(drawPin(startX - (pinNum * config.pin.spacing), pinBottom, PINSIDE.BOTTOM, pinNum + 1, ic.pins[pinNum + 1]));
+        }
+
+    } else {
+        icCircle.setAttribute("cx", "30");
+
+        for(let pinNum = 0; pinNum < numPins; pinNum++) {
+            svg.appendChild(drawPin(pinNum * config.pin.spacing, pinBottom, PINSIDE.BOTTOM, pinNum + 1, ic.pins[pinNum + 1]));
+        }
     }
+    svg.appendChild(icCircle);
+
 }
 
 function renderIC(ic) {
