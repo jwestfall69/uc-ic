@@ -1,0 +1,50 @@
+[info]
+name = "6510"
+description = "# 6510"
+package = "DIP"
+num_pins = 40
+
+[pins]
+# left
+ 1 = { name = "φ0",    dir = "IN",    color = "CLOCK"}
+ 2 = { name = "RDY",   dir = "IN",    color = "MISC" }
+ 3 = { name = "IRQ",   dir = "IN",    color = "MISC",  flags = [ "activeLow" ] }
+ 4 = { name = "NMI",   dir = "IN",    color = "MISC",  flags = [ "activeLow" ] }
+ 5 = { name = "AEC",   dir = "IN",    color = "MISC" }
+ 6 = { name = "VCC",   dir = "NONE",  color = "POWER"}  
+ 7 = { name = "A0",    dir = "IN",    color = "ADDR" }
+ 8 = { name = "A1",    dir = "IN",    color = "ADDR" }
+ 9 = { name = "A2",    dir = "IN",    color = "ADDR" }
+10 = { name = "A3",    dir = "IN",    color = "ADDR" }
+11 = { name = "A4",    dir = "IN",    color = "ADDR" }
+12 = { name = "A5",    dir = "IN",    color = "ADDR" }
+13 = { name = "A6",    dir = "IN",    color = "ADDR" }
+14 = { name = "A7",    dir = "IN",    color = "ADDR" }
+15 = { name = "A8",    dir = "IN",    color = "ADDR" }
+16 = { name = "A9",    dir = "IN",    color = "ADDR" }
+17 = { name = "A10",   dir = "IN",    color = "ADDR" }
+18 = { name = "A11",   dir = "IN",    color = "ADDR" }
+19 = { name = "A12",   dir = "IN",    color = "ADDR" }
+20 = { name = "A13",   dir = "IN",    color = "ADDR" }
+
+# right
+21 = { name = "GND",   dir = "NONE",  color = "GND"  }
+22 = { name = "A14",   dir = "IN",    color = "ADDR" }
+23 = { name = "A15",   dir = "IN",    color = "ADDR" }
+24 = { name = "P5",    dir = "OUT",   color = "ADDR2"}
+25 = { name = "P4",    dir = "OUT",   color = "ADDR2"}
+26 = { name = "P3",    dir = "OUT",   color = "ADDR2"}
+27 = { name = "P2",    dir = "OUT",   color = "ADDR2"}
+28 = { name = "P1",    dir = "OUT",   color = "ADDR2"}
+29 = { name = "P0",    dir = "OUT",   color = "ADDR2"}
+30 = { name = "D7",    dir = "INOUT", color = "DATA" }
+31 = { name = "D6",    dir = "INOUT", color = "DATA" }
+32 = { name = "D5",    dir = "INOUT", color = "DATA" }
+33 = { name = "D4",    dir = "INOUT", color = "DATA" }
+34 = { name = "D3",    dir = "INOUT", color = "DATA" }
+35 = { name = "D2",    dir = "INOUT", color = "DATA" }
+36 = { name = "D1",    dir = "INOUT", color = "DATA" }
+37 = { name = "D0",    dir = "INOUT", color = "DATA" }
+38 = { name = "RW",    dir = "OUT",   color = "MISC",  flags = [ "activeLow", "activeLowLastChar" ] }
+39 = { name = "φ2",    dir = "OUT",   color = "CLOCK"}
+40 = { name = "RESET", dir = "IN",    color = "MISC",  flags = [ "activeLow" ] }

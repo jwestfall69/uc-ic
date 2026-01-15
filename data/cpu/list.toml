@@ -1,6 +1,8 @@
 # This list is what gets loaded into the 'IC' drop down list
 # when this 'Type' is selected.
 list = [
+  { display = "6502",          path = "data/cpu/6502.toml"        },
+  { display = "6510",          path = "data/cpu/6510.toml"        },
   { display = "6809/6309",     path = "data/cpu/6809.toml"        },
   { display = "6809E/6809E",   path = "data/cpu/6809E.toml"       },
   { display = "M68000 (DIP)",  path = "data/cpu/M68000_DIP.toml"  },
