@@ -302,7 +302,7 @@ function renderDIP(svg, ic) {
     icName.setAttribute("text-anchor", "middle");
     icName.setAttribute("dominant-baseline", "middle");
     icName.setAttribute("font-family", "Roboto Mono");
-    icName.setAttribute("font-size", "64px");
+    icName.setAttribute("font-size", `${ic.info.name_size || config.package.dip.name_size}px`);
     icName.setAttribute("font-weight", "500");
     icName.setAttribute("fill", "gray");
     icName.textContent = ic.info.name;
@@ -354,7 +354,7 @@ function renderEdge(svg, ic) {
     icName.setAttribute("text-anchor", "middle");
     icName.setAttribute("dominant-baseline", "middle");
     icName.setAttribute("font-family", "Roboto Mono");
-    icName.setAttribute("font-size", "32px");
+    icName.setAttribute("font-size", `${ic.info.name_size || config.package.edge.name_size}px`);
     icName.setAttribute("font-weight", "500");
     icName.setAttribute("fill", "gray");
     icName.textContent = ic.info.name;
@@ -436,7 +436,7 @@ function renderPLCC(svg, ic) {
     icName.setAttribute("text-anchor", "middle");
     icName.setAttribute("dominant-baseline", "middle");
     icName.setAttribute("font-family", "Roboto Mono");
-    icName.setAttribute("font-size", "64px");
+    icName.setAttribute("font-size", `${ic.info.name_size || config.package.plcc.name_size}px`);
     icName.setAttribute("font-weight", "500");
     icName.setAttribute("fill", "gray");
     icName.textContent = ic.info.name;
@@ -531,14 +531,14 @@ function renderQFP(svg, ic) {
     svg.appendChild(icBody);
 
     const icName = document.createElementNS("http://www.w3.org/2000/svg", "text");
-    const textX = config.package.plcc.side_pad + icWidth / 2;
-    const textY = config.package.plcc.side_pad + icHeight / 2;
+    const textX = config.package.qfp.side_pad + icWidth / 2;
+    const textY = config.package.qfp.side_pad + icHeight / 2;
     icName.setAttribute("x", textX);
     icName.setAttribute("y", textY);
     icName.setAttribute("text-anchor", "middle");
     icName.setAttribute("dominant-baseline", "middle");
     icName.setAttribute("font-family", "Roboto Mono");
-    icName.setAttribute("font-size", "64px");
+    icName.setAttribute("font-size", `${ic.info.name_size || config.package.qfp.name_size}px`);
     icName.setAttribute("font-weight", "500");
     icName.setAttribute("fill", "gray");
     icName.textContent = ic.info.name;
@@ -623,7 +623,7 @@ function renderSIP(svg, ic) {
     icName.setAttribute("text-anchor", "middle");
     icName.setAttribute("dominant-baseline", "middle");
     icName.setAttribute("font-family", "Roboto Mono");
-    icName.setAttribute("font-size", "64px");
+    icName.setAttribute("font-size", `${ic.info.name_size || config.package.dip.name_size}px`);
     icName.setAttribute("font-weight", "500");
     icName.setAttribute("fill", "gray");
     icName.textContent = ic.info.name;

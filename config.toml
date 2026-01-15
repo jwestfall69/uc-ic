@@ -29,6 +29,7 @@ POWER   = "#ff0000"
 [package.dip]
 side_pad = 160
 top_pad = 40
+name_size = 64
 
 # DIP package width aliases
 [package.dip.width]
@@ -40,15 +41,19 @@ WIDE    = 340
 [package.edge]
 side_pad = 300
 top_pad  = 40
+name_size = 64
 
 # PLCC specific settings
 [package.plcc]
 side_pad = 160
+name_size = 64
 
 # QFP specific settings
 [package.qfp]
 side_pad = 160
+name_size = 64
 
 # SIP specific settings
 [package.sip]
 bottom_pad = 160
+name_size = 64
