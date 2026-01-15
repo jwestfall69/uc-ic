@@ -42,8 +42,9 @@
       background: #e8f4ff;
     }
 
-    .center-text {
+    .main-container {
       text-align: center;
+      font-family: 'Roboto Mono';
     }
 
     select {
@@ -64,7 +65,7 @@
     }
 
     .selection-select {
-      text-align-last:center;
+      text-align-last: center;
       padding-right: 29px;
       min-width: 200px;
       position: relative;
@@ -76,7 +77,7 @@
 </head>
 
 <body>
-    <div class="center-text">
+    <div class="main-container">
       <h1>UC IC Pinouts</h1>
     
       <div class="selection-container">
@@ -94,7 +95,9 @@
       </div>
 
       <span class="ic-description" id="ic-short-description"></span>
+
       <svg id="ic-svg" class="ic-svg"></svg>
+
       <span id="ic-markdown" class="ic-details"></span>
   </div>
 
