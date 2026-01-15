@@ -3,7 +3,7 @@ name = "62256"
 description = "# 62256 (32K x 8bit SRAM)"
 package = "DIP"
 num_pins = 28
-width = "skinny"
+width = "SKINNY"
 
 [pins]
 # left
