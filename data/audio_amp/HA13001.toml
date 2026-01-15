@@ -13,10 +13,10 @@ num_pins = 12
  5 = { name = "???",     dir = "NONE"                 }
  6 = { name = "???",     dir = "NONE"                 }
  7 = { name = "OUT-",    dir = "OUT",  color = "DATA2", flags = [ "audioProbe"] }
- 8 = { name = "???",     dir = "NONE"                 }
+ 8 = { name = "???",     dir = "NONE"                 , flags = [ "audioProbe"] }
  9 = { name = "GND",     dir = "NONE", color = "GND"  }
 10 = { name = "VCC",     dir = "NONE", color = "POWER"}
-11 = { name = "???",     dir = "NONE"                 }
+11 = { name = "???",     dir = "NONE"                 , flags = [ "audioProbe"] }
 12 = { name = "OUT+",    dir = "OUT",  color = "DATA2", flags = [ "audioProbe"] }
 
  [details]
