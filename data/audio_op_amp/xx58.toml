@@ -1,7 +1,7 @@
 [info]
-name = "M5218A"
+name = "xx58"
 name_size = 32
-description = "# Mitsubishi M5218A Dual OP AMP"
+description = "# Generic xx58 Dual OP AMP"
 package = "DIP"
 width = "SKINNY"
 num_pins = 8
@@ -23,5 +23,11 @@ num_pins = 8
  markdown = """
 
 <sup>**AP**</sup>pins you can audio probe
+
+## Common Models
+Mitsubishi M5218A<br>
+Rohm Semiconductor BA4558<br>
+Sanyo LA6358<br>
+Ti LM358<br>
 
  """
