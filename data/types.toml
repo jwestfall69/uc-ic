@@ -7,6 +7,7 @@ list = [
   { display = "Edge Connector",  path = "data/edge_connector/list.toml" },
   { display = "EPROM",           path = "data/eprom/list.toml"          },
   { display = "Neo-Geo",         path = "data/neo-geo/list.toml"        },
+  { display = "PROM",            path = "data/prom/list.toml"            },
   { display = "Sound",           path = "data/sound/list.toml"          },
   { display = "SRAM",            path = "data/sram/list.toml"           }
 ]

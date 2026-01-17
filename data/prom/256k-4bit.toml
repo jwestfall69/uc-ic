@@ -1,0 +1,49 @@
+[info]
+name = "256k x 4bit"
+name_size = 40
+description = "# Generic 256k x 4bit PROM"
+package = "DIP"
+num_pins = 16
+width = "SKINNY"
+
+[pins]
+# left
+ 1 = { name = "A6",  dir = "IN",   color = "ADDR" }
+ 2 = { name = "A5",  dir = "IN",   color = "ADDR" }
+ 3 = { name = "A4",  dir = "IN",   color = "ADDR" }
+ 4 = { name = "A3",  dir = "IN",   color = "ADDR" }
+ 5 = { name = "A0",  dir = "IN",   color = "ADDR" }
+ 6 = { name = "A1",  dir = "IN",   color = "ADDR" }
+ 7 = { name = "A2",  dir = "IN",   color = "ADDR" }
+ 8 = { name = "GND", dir = "NONE", color = "GND"  }
+
+# right
+ 9 = { name = "D3",  dir = "OUT",  color = "DATA" }
+10 = { name = "D2",  dir = "OUT",  color = "DATA" }
+11 = { name = "D1",  dir = "OUT",  color = "DATA" }
+12 = { name = "D0",  dir = "OUT",  color = "DATA" }
+13 = { name = "CE1", dir = "IN",   color = "EN",    flags = [ "activeLow" ] }
+14 = { name = "CE2", dir = "IN",   color = "EN",    flags = [ "activeLow" ] }
+15 = { name = "A7",  dir = "IN",   color = "ADDR" }
+16 = { name = "VCC", dir = "NONE", color = "POWER"}
+
+[details]
+markdown = """
+
+# Truth Table
+| CE1 | CE2 | OUTPUT  |
+|:---:|:---:|:-------:|
+|  H  |  X  |    Z    |
+|  X  |  H  |    Z    |
+|  L  |  L  |    D    |
+<sup>Z = High Impedance, X = Doesn't Matter</sup>
+
+### Common Models
+74S287<br>
+AMD AM27S21<br>
+Fujistu MB7052, MB7114<br>
+Monolithic Memories 63S141<br>
+NXP Semiconductors N82S129<br>
+Philips 82S126, 82S129<br>
+
+"""

@@ -1,0 +1,5 @@
+# This list is what gets loaded into the 'IC' drop down list
+# when this 'Type' is selected.
+list = [
+  { display = "Generic 256k x 4bit",   path = "data/prom/256k-4bit.toml"  }
+]
