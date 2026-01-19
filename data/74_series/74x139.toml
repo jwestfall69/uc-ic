@@ -1,0 +1,43 @@
+[info]
+name = "74x139"
+description = "# 74x253: Dual 2-Line to<br>4-Line Decoders/Demultiplexers"
+package = "DIP"
+num_pins = 16
+width = "SKINNY"
+
+[pins]
+# left
+ 1 = { name = "EN1", dir = "IN",   color = "EN",    flags = [ "activeLow" ] }
+ 2 = { name = "1A0", dir = "IN",   color = "ADDR" }
+ 3 = { name = "1A1", dir = "IN",   color = "ADDR" }
+ 4 = { name = "1Y0", dir = "OUT",  color = "DATA" }
+ 5 = { name = "1Y1", dir = "OUT",  color = "DATA" }
+ 6 = { name = "1Y2", dir = "OUT",  color = "DATA" }
+ 7 = { name = "1Y3", dir = "OUT",  color = "DATA" }
+ 8 = { name = "GND", dir = "NONE", color = "GND"  }
+
+# right
+ 9 = { name = "2Y3", dir = "OUT",  color = "DATA2"}
+10 = { name = "2Y2", dir = "OUT",  color = "DATA2"}
+11 = { name = "2Y1", dir = "OUT",  color = "DATA2"}
+12 = { name = "2Y0", dir = "OUT",  color = "DATA2"}
+13 = { name = "2A1", dir = "IN",   color = "ADDR2"}
+14 = { name = "2A0", dir = "IN",   color = "ADDR2"}
+15 = { name = "EN2", dir = "IN",   color = "EN",    flags = [ "activeLow" ] }
+16 = { name = "VCC", dir = "NONE", color = "POWER"}
+
+[details]
+markdown = """
+
+# Truth Table
+|     INPUTS    |||        OUTPUTS     ||||
+| ENn | nA0 | nA1 | nY0 | nY1 | nY2 | nY3 |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|  H  |  X  |  X  |  H  |  H  |  H  |  H  |
+|  L  |  L  |  L  |  L  |  H  |  H  |  H  |
+|  L  |  L  |  H  |  H  |  L  |  H  |  H  |
+|  L  |  H  |  L  |  H  |  H  |  L  |  H  |
+|  L  |  H  |  H  |  H  |  H  |  H  |  L  |
+<sup>X = Doesn't Matter</sup>
+
+"""

@@ -13,7 +13,7 @@ width = "SKINNY"
  4 = { name = "1A2", dir = "IN",   color = "DATA" }
  5 = { name = "1A1", dir = "IN",   color = "DATA" }
  6 = { name = "1A0", dir = "IN",   color = "DATA" }
- 7 =  { name = "1Y", dir = "OUT",  color = "DATA2"}
+ 7 = { name = "1Y",  dir = "OUT",  color = "DATA2"}
  8 = { name = "GND", dir = "NONE", color = "GND"  }
 
 # right
