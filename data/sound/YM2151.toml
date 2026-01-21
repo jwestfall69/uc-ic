@@ -26,7 +26,6 @@ num_pins = 24
 16 = { name = "D5",    dir = "INOUT", color = "DATA" }
 17 = { name = "D6",    dir = "INOUT", color = "DATA" }
 18 = { name = "D7",    dir = "INOUT", color = "DATA" }
-
 19 = { name = "SH2",   dir = "OUT",   color = "DATA" }
 20 = { name = "SH1",   dir = "OUT",   color = "DATA" }
 21 = { name = "SO",    dir = "OUT",   color = "DATA" }
@@ -37,6 +36,8 @@ num_pins = 24
 
 [details]
 markdown = """
+
+This FM Sound Generator is usually paired with a YM3012 DAC<p>
 
 | PIN NAME | FUNCTION                                                            |
 |:--------:|:--------------------------------------------------------------------|

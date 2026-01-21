@@ -1,0 +1,5 @@
+# This list is what gets loaded into the 'IC' drop down list
+# when this 'Type' is selected.
+list = [
+  { display = "Yamaha YM3012", path = "data/audio_dac/YM3012.toml" }
+]

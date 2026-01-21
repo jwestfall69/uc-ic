@@ -1,0 +1,51 @@
+[info]
+name = "YM3012"
+description = "# Yamaha YM3012 2-Channel Serial Input<br>Floating D/A Converter"
+package = "DIP"
+num_pins = 16
+width = "SKINNY"
+
+[pins]
+# left
+ 1 = { name = "VCC",         dir = "NONE", color = "POWER"}
+ 2 = { name = "φ1",          dir = "IN",   color = "CLOCK"}
+ 3 = { name = "DIGITAL GND", dir = "NONE", color = "GND"  }
+ 4 = { name = "SD",          dir = "IN",   color = "DATA" }
+ 5 = { name = "SAM2",        dir = "IN",   color = "DATA2"}
+ 6 = { name = "SMA1",        dir = "IN",   color = "DATA2"}
+ 7 = { name = "RESET",       dir = "IN",   color = "MISC",  flags = [ "activeLow" ] }
+ 8 = { name = "ANALOG GND",  dir = "NONE", color = "GND"  }
+
+# right
+ 9 = { name = "CH1",         dir = "OUT",  color = "DATA3", flags = [ "audioProbe"] }
+10 = { name = "CH2",         dir = "OUT",  color = "DATA3", flags = [ "audioProbe"] }
+11 = { name = "COM",         dir = "IN",   color = "MISC",  flags = [ "audioProbe"] }
+12 = { name = "To BUFF",     dir = "OUT",  color = "MISC",  flags = [ "audioProbe"] }
+13 = { name = "MP",          dir = "IN",   color = "MISC" }
+14 = { name = "BC",          dir = "IN",   color = "MISC" }
+15 = { name = "RB",          dir = "OUT",  color = "MISC" }
+16 = { name = "ANALOG GND",  dir = "NONE", color = "GND"  }
+
+[details]
+markdown = """
+
+This DAC is usually paired with a YM2151 FM Sound Generator<p> 
+
+|  PIN NAME   | FUNCTION                                                                |
+|:-----------:|:------------------------------------------------------------------------|
+| ANALOG GND  | GND for analog side                                                     |
+|    BC       | Resistance eliminating error due to buffer OP AMP input bias current ?? | 
+|    CH1      | CH1 Analog output                                                       |
+|    CH2      | CH2 Analog output                                                       |
+|    COM      | Analog switch common input for CH1 and CH2                              |
+| DIGITAL GND | GND for digital side                                                    |
+|     MP      | Normally biased to 1/2 VCC ??                                           |
+|    RESET    | Reset Chip (ICL on datasheet)                                           |
+|     φ1      | Clock (usually from a YM2151)                                           |
+|     RB      | High precisions 1/2 VCC voltage generated internally ??                 |
+|    SAM1     | 1 section becomes CH1 sampling period (usually from SH1 pin on YM2151)  |
+|    SAM2     | 1 section becomes CH1 sampling period (usually from SH2 pin on YM2151)  |
+|     SD      | Serial input of converted digital signal                                |
+|  To BUFF    | Analog output from DAC, input to buffer OP AMP                          |
+
+"""

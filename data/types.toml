@@ -2,12 +2,13 @@
 list = [
   { display = "74 Series Logic", path = "data/74_series/list.toml"      },
   { display = "Audio AMP",       path = "data/audio_amp/list.toml"      },
+  { display = "Audio DAC",       path = "data/audio_dac/list.toml"      },
   { display = "Audio OP AMP",    path = "data/audio_op_amp/list.toml"   },
   { display = "CPU",             path = "data/cpu/list.toml"            },
   { display = "Edge Connector",  path = "data/edge_connector/list.toml" },
   { display = "EPROM",           path = "data/eprom/list.toml"          },
   { display = "Neo-Geo",         path = "data/neo-geo/list.toml"        },
-  { display = "PROM",            path = "data/prom/list.toml"            },
+  { display = "PROM",            path = "data/prom/list.toml"           },
   { display = "Sound",           path = "data/sound/list.toml"          },
   { display = "SRAM",            path = "data/sram/list.toml"           }
 ]
