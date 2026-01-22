@@ -1,6 +1,6 @@
 [info]
 name = "74x139"
-description = "# 74x253: Dual 2-Line to<br>4-Line Decoders/Demultiplexers"
+description = "# 74x139: Dual 2-Line to<br>4-Line Decoders/Demultiplexers"
 package = "DIP"
 num_pins = 16
 width = "SKINNY"
@@ -35,8 +35,8 @@ markdown = """
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |  H  |  X  |  X  |  H  |  H  |  H  |  H  |
 |  L  |  L  |  L  |  L  |  H  |  H  |  H  |
-|  L  |  L  |  H  |  H  |  L  |  H  |  H  |
-|  L  |  H  |  L  |  H  |  H  |  L  |  H  |
+|  L  |  H  |  L  |  H  |  L  |  H  |  H  |
+|  L  |  L  |  H  |  H  |  H  |  L  |  H  |
 |  L  |  H  |  H  |  H  |  H  |  H  |  L  |
 <sup>X = Doesn't Matter</sup>
 
