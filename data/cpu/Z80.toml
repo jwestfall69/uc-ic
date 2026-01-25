@@ -10,7 +10,7 @@ num_pins = 40
  2 = { name = "A12",   dir = "OUT",   color = "ADDR" }
  3 = { name = "A13",   dir = "OUT",   color = "ADDR" }
  4 = { name = "A14",   dir = "OUT",   color = "ADDR" }
- 5 = { name = "A16",   dir = "OUT",   color = "ADDR" }
+ 5 = { name = "A15",   dir = "OUT",   color = "ADDR" }
  6 = { name = "CLK",   dir = "IN",    color = "CLOCK"}
  7 = { name = "D4",    dir = "INOUT", color = "DATA" }
  8 = { name = "D3",    dir = "INOUT", color = "DATA" }
