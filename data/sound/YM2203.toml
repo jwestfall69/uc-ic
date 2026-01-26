@@ -1,0 +1,74 @@
+[info]
+name = "YM2203"
+description = "# Yamaha YM2203 FM Operator Type-N(OPN)"
+package = "DIP"
+num_pins = 40
+
+[pins]
+# left
+ 1 = { name = "DIGITAL GND", dir = "NONE",  color = "GND"  }
+ 2 = { name = "D1",          dir = "INOUT", color = "DATA" }
+ 3 = { name = "D2",          dir = "INOUT", color = "DATA" }
+ 4 = { name = "D3",          dir = "INOUT", color = "DATA" }
+ 5 = { name = "D4",          dir = "INOUT", color = "DATA" }
+ 6 = { name = "D5",          dir = "INOUT", color = "DATA" }
+ 7 = { name = "D6",          dir = "INOUT", color = "DATA" }
+ 8 = { name = "D7",          dir = "INOUT", color = "DATA2"}
+ 9 = { name = "IOA7",        dir = "INOUT", color = "DATA2"}
+10 = { name = "IOA6",        dir = "INOUT", color = "DATA2"}
+11 = { name = "IOA5",        dir = "INOUT", color = "DATA2"}
+12 = { name = "IOA4",        dir = "INOUT", color = "DATA2"}
+13 = { name = "IOA3",        dir = "INOUT", color = "DATA2"}
+14 = { name = "IOA2",        dir = "INOUT", color = "DATA2"}
+15 = { name = "IOA1",        dir = "INOUT", color = "DATA2"}
+16 = { name = "IOA0",        dir = "INOUT", color = "DATA2"}
+17 = { name = "ANALOG GND",  dir = "NONE",  color = "GND"  }
+18 = { name = "CH-C",        dir = "OUT",   color = "MISC",  flags = [ "audioProbe"] }
+19 = { name = "CH-B",        dir = "OUT",   color = "MISC",  flags = [ "audioProbe"] }
+20 = { name = "CH-A",        dir = "OUT",   color = "MISC",  flags = [ "audioProbe"] }
+
+# right
+21 = { name = "VCC",         dir = "NONE",  color = "POWER"}
+22 = { name = "SH",          dir = "OUT",   color = "DATA" }
+23 = { name = "OP-O",        dir = "OUT",   color = "DATA",  flags = [ "audioProbe"] }
+24 = { name = "RESET",       dir = "IN",    color = "MISC",  flags = [ "activeLow"]  }
+25 = { name = "IRQ",         dir = "OUT",   color = "MISC",  flags = [ "activeLow"]  }
+26 = { name = "IOB0",        dir = "INOUT", color = "DATA3"}
+27 = { name = "IOB1",        dir = "INOUT", color = "DATA3"}
+28 = { name = "IOB2",        dir = "INOUT", color = "DATA3"}
+29 = { name = "IOB3",        dir = "INOUT", color = "DATA3"}
+30 = { name = "IOB4",        dir = "INOUT", color = "DATA3"}
+31 = { name = "IOB5",        dir = "INOUT", color = "DATA3"}
+32 = { name = "IOB6",        dir = "INOUT", color = "DATA3"}
+33 = { name = "IOB7",        dir = "INOUT", color = "DATA3"}
+34 = { name = "CS",          dir = "IN",    color = "EN",    flags = [ "activeLow"]  }
+35 = { name = "WR",          dir = "IN",    color = "MISC",  flags = [ "activeLow"]  }
+36 = { name = "RD",          dir = "IN",    color = "MISC",  flags = [ "activeLow"]  }
+37 = { name = "A0",          dir = "IN",    color = "ADDR" }
+38 = { name = "φM",          dir = "IN",    color = "CLOCK"}
+39 = { name = "φS",          dir = "OUT",   color = "CLOCK"}
+40 = { name = "D0",          dir = "INOUT", color = "DATA" }
+
+
+[details]
+markdown = """
+
+<sup>**AP**</sup>pins you can audio probe
+
+| PIN NAME  | FUNCTION                                                            |
+|:---------:|:--------------------------------------------------------------------|
+|   A0      | When A0 = L, D0-D7 are address signal.  When A0 = H, they are data  |
+| CH-A/B/C  | Analog square wave audio signals                                    |
+|   CS      | Chip Select                                                         |
+|  D0-D7    | Address/Data Bus (from CPU)                                         |
+| IOA0-IOA7 | IOA Input/Output port                                               |
+| IOB0-IOB7 | IOB Input/Output port                                               |
+|    IRQ    | Used to send IRQ to CPU                                             |
+|   OP-O    | Serial Output to DAC                                                |
+|    φM     | System Clock                                                        |
+|    φS     | SH Clock for DAC                                                    |
+|    RD     | CPU read D0-D7 from YM2203                                          |
+|   RESET   | Reset Chip (IC on datasheet)                                        |
+|    WR     | CPU write D0-D7 to YM2203                                           |
+
+"""
