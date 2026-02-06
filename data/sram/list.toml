@@ -1,7 +1,8 @@
 # This list is what gets loaded into the 'IC' drop down list
 # when this 'Type' is selected.
 list = [
-  { display = "Generic 6116 (2K x 8bit)",   path = "data/sram/6116.toml"  },
-  { display = "Generic 6264 (8K x 8bit)",   path = "data/sram/6264.toml"  },
-  { display = "Generic 62256 (32K x 8bit)", path = "data/sram/62256.toml" }
+  { display = "Generic 2114/2148 (1K x 4bit)", path = "data/sram/2148.toml"  },
+  { display = "Generic 6116 (2K x 8bit)",      path = "data/sram/6116.toml"  },
+  { display = "Generic 6264 (8K x 8bit)",      path = "data/sram/6264.toml"  },
+  { display = "Generic 62256 (32K x 8bit)",    path = "data/sram/62256.toml" }
 ]

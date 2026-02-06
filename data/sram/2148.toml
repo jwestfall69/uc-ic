@@ -1,0 +1,55 @@
+[info]
+name = "2148"
+description = "# 2114/2148 (1K x 4bit SRAM)"
+package = "DIP"
+num_pins = 18
+width = "SKINNY"
+
+[pins]
+# left
+ 1 = { name = "A6",  dir = "IN",    color = "ADDR" }
+ 2 = { name = "A5",  dir = "IN",    color = "ADDR" }
+ 3 = { name = "A4",  dir = "IN",    color = "ADDR" }
+ 4 = { name = "A3",  dir = "IN",    color = "ADDR" }
+ 5 = { name = "A0",  dir = "IN",    color = "ADDR" }
+ 6 = { name = "A1",  dir = "IN",    color = "ADDR" }
+ 7 = { name = "A2",  dir = "IN",    color = "ADDR" }
+ 8 = { name = "CS",  dir = "IN",    color = "EN",    flags = [ "activeLow"] }
+ 9 = { name = "GND", dir = "NONE",  color = "GND"  }
+
+# right
+10 = { name = "WE",  dir = "IN",    color = "EN",    flags = [ "activeLow"] }
+11 = { name = "D3",  dir = "INOUT", color = "DATA" }
+12 = { name = "D2",  dir = "INOUT", color = "DATA" }
+13 = { name = "D1",  dir = "INOUT", color = "DATA" }
+14 = { name = "D0",  dir = "INOUT", color = "DATA" }
+15 = { name = "A9",  dir = "IN",    color = "ADDR" }
+16 = { name = "A8",  dir = "IN",    color = "ADDR" }
+17 = { name = "A7",  dir = "IN",    color = "ADDR" }
+18 = { name = "VCC", dir = "NONE",  color = "POWER"}
+
+[details]
+markdown = """
+Be mindful that 2148 (35-70ns) will be much faster then 2114 (100-250+ns).
+
+# Truth Table
+| CS | WE | D MODE  |
+|:--:|:--:|:-------:|
+| H  | X  |    Z    |
+| L  | H  |  READ   |
+| L  | L  |  WRITE  |
+<sup>Z = High Impedance, X = Doesn't Matter</sup>
+
+### Common Models
+AMD AM2148, AM2149<br>
+Cypress CY2148<br>
+Hitachi HM472114, HM6148<br>
+Intel P2144, D2148<br>
+Fujitsu MBM2148<br>
+Motorola MCM2114<br>
+National Semiconductor NMC2148<br>
+NEC UPD2114<br>
+Toshiba TMM2114<br>
+UMC UM2148<br>
+
+"""
