@@ -38,7 +38,7 @@ markdown = """
 | L  | L | H  | X  |   H    |
 | L  | H | X  | L  |   L    |
 | L  | H | X  | H  |   H    |
-<sup>X = Doesn't Matter</sup>
+<p class="table-notes">X = Doesn't Matter</p>
 
 **S** selects if **A** or **B** passes to **Y**
 """

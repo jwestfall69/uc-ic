@@ -37,6 +37,6 @@ markdown = """
 |  L  |  L  | H |   H    |
 |  H  |  X  | X |   Z    |
 |  X  |  H  | X |   Z    |
-<sup>X = Doesn't Matter, Z = High Impedance</sup>
+<p class="table-notes">X = Doesn't Matter, Z = High Impedance</p>
 
 """

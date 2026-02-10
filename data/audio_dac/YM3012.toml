@@ -29,6 +29,8 @@ width = "SKINNY"
 [details]
 markdown = """
 
+<p class="center-text"><sup>**AP**</sup>pins you can audio probe.</p>
+
 This DAC is usually paired with a YM2151 FM Sound Generator<p> 
 
 |  PIN NAME   | FUNCTION                                                                |

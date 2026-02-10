@@ -37,8 +37,8 @@ markdown = """
 |  H  |  H  |  ↑  | H | H  | L  |
 |  H  |  H  |  ↑  | L | L  | H  |
 |  H  |  H  |  L  | X | Q  | <span style="text-decoration: overline;">Q</span> |
-<sup>X = Doesn't Matter</sup>
+<p class="table-notes">X = Doesn't Matter</p>
 
-**NOTE:** Outputs are unpredictable if both SET and CLR are L.
+**NOTE:** Outputs are unpredictable if both SET and CLR are low.
 
 """

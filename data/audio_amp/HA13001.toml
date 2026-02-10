@@ -22,11 +22,11 @@ num_pins = 12
  [details]
  markdown = """
 
-<sup>**AP**</sup>pins you can audio probe
+<p class="center-text"><sup>**AP**</sup>pins you can audio probe.</p>
 
 I can't find any real docs on this AMP.<p>
 
-It appears to support 1 input with 1 speaker, or 2 inputs with 2 speakers?<br>
-If there is only a single input it will come in on INPUT#1, with INPUT#2 tied to GND?<br>
+It appears to support 1 input with 1 speaker, or 2 inputs with 2 speakers?
+If there is only a single input it will come in on INPUT#1, with INPUT#2 tied to GND?
 
  """

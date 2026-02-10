@@ -59,10 +59,10 @@ markdown = """
 | H  | X  |    Z    |
 | X  | H  |    Z    |
 | L  | L  |    D    |
-<sup>Z = High Impedance, X = Doesn't Matter</sup>
+<p class="table-notes">Z = High Impedance, X = Doesn't Matter</p>
 
 **NOTE1:** 27C4100 and 27C400 have the same pinout.<br>
-**NOTE2:** When BYTE is HIGH, D0-D15 will be filled with data.  When BYTE is LOW,<br>
+**NOTE2:** When BYTE is HIGH, D0-D15 will be filled with data.  When BYTE is LOW,
 A-1 will act as an additional address line that picks the high or low byte and that
 gets filled into D0-D7<br>
 **NOTE3:** BYTE pin is also used as a programming pin.<br>

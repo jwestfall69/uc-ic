@@ -50,7 +50,7 @@ markdown = """
 | H  | X  |    Z    |
 | X  | H  |    Z    |
 | L  | L  |    D    |
-<sup>Z = High Impedance, X = Doesn't Matter</sup>
+<p class="table-notes">Z = High Impedance, X = Doesn't Matter</p>
 
 **NOTE1:** 27C301 and 27C1000 have the same pinout.<br>
 **NOTE2:** MX messed up their model numbers.  MX27C1001 has the above pinout,

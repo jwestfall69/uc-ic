@@ -49,7 +49,7 @@ markdown = """
 |  L  |  H  | H  | H  |    Z    |
 |  L  |  H  | L  | H  |  READ   |
 |  L  |  H  | X  | L  |  WRITE  |
-<sup>Z = High Impedance, X = Doesn't Matter</sup>
+<p class="table-notes">Z = High Impedance, X = Doesn't Matter</p>
 
 ### Common Models
 Cypress CY7C185<br>

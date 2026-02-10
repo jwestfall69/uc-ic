@@ -9,9 +9,12 @@
       font-display: swap;
     }
 
-    .ic-svg {
+    #ic-svg {
       width: 80%;
       height: auto;
+      text-align: center;
+      display: block;
+      margin: 0 auto;
     }
 
     table {
@@ -42,8 +45,16 @@
       background: #e8f4ff;
     }
 
-    .main-container {
+    .table-notes {
+      font-size: 70%;
       text-align: center;
+    }
+
+    .center-text {
+      text-align: center;
+    }
+
+    .main-container {
       font-family: 'Roboto Mono';
     }
 
@@ -73,12 +84,26 @@
       font-size: 22px;
     }
 
+    #ic-short-description {
+      text-align: center;
+    }
+
+    #Truth\ Table {
+      text-align: center;
+    }
+
+    #ic-markdown {
+      display: block;
+      margin: 0 auto;
+      width: 60%;
+    }
+
   </style>
 </head>
 
 <body>
     <div class="main-container">
-      <h1>UC IC Pinouts</h1>
+      <h1 class="center-text">UC IC Pinouts</h1>
     
       <div class="selection-container">
         <div>
@@ -94,11 +119,11 @@
         </div>
       </div>
 
-      <span class="ic-description" id="ic-short-description"></span>
+      <span id="ic-short-description"></span>
 
-      <svg id="ic-svg" class="ic-svg"></svg>
+      <svg id="ic-svg"></svg>
 
-      <span id="ic-markdown" class="ic-details"></span>
+      <span id="ic-markdown"></span>
   </div>
 
   <script src="./javascript/mdp-0.1.4.js"></script>

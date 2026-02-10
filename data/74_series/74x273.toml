@@ -41,6 +41,6 @@ markdown = """
 |  H  |  ↑  | H |   H    |
 |  H  |  ↑  | L |   L    |
 |  H  |  L  | X |   Q    |
-<sup>X = Doesn't Matter</sup>
+<p class="table-notes">X = Doesn't Matter</p>
 
 """

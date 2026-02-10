@@ -61,7 +61,7 @@ markdown = """
 | H  | X  |    Z    |
 | X  | H  |    Z    |
 | L  | L  |    D    |
-<sup>Z = High Impedance, X = Doesn't Matter</sup>
+<p class="table-notes">Z = High Impedance, X = Doesn't Matter</p>
 
 **NOTE1:** OE pin is also used as a programming pin.<br>
 """

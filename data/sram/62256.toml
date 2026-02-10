@@ -48,8 +48,7 @@ markdown = """
 | L  | H  | H  |    Z    |
 | L  | L  | H  |  READ   |
 | L  | X  | L  |  WRITE  |
-<sup>Z = High Impedance, X = Doesn't Matter</sup>
-
+<p class="table-notes">Z = High Impedance, X = Doesn't Matter</p>
 
 ### Common Models
 Cypress CY62256<br>

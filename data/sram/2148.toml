@@ -30,6 +30,7 @@ width = "SKINNY"
 
 [details]
 markdown = """
+
 Be mindful that 2148 (35-70ns) will be much faster then 2114 (100-250+ns).
 
 # Truth Table
@@ -38,7 +39,7 @@ Be mindful that 2148 (35-70ns) will be much faster then 2114 (100-250+ns).
 | H  | X  |    Z    |
 | L  | H  |  READ   |
 | L  | L  |  WRITE  |
-<sup>Z = High Impedance, X = Doesn't Matter</sup>
+<p class="table-notes">Z = High Impedance, X = Doesn't Matter</p>
 
 ### Common Models
 AMD AM2148, AM2149<br>

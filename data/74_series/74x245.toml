@@ -40,6 +40,6 @@ markdown = """
 | L  |  H  |   A   |   B    |
 | H  |  L  |   B   |   Z    |
 | H  |  H  |   A   |   Z    |
-<sup>Z = High Impedance</sup>
+<p class="table-notes">Z = High Impedance</p>
 
 """

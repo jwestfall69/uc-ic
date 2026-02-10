@@ -22,7 +22,7 @@ reversed = true
  [details]
  markdown = """
 
-<sup>**AP**</sup>pins you can audio probe
+<p class="center-text"><sup>**AP**</sup>pins you can audio probe.</p>
 
 Unclear what **BS** pins are, maybe bias?
 """

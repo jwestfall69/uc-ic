@@ -50,7 +50,7 @@ markdown = """
 | H  | X  |    Z    |
 | X  | H  |    Z    |
 | L  | L  |    D    |
-<sup>Z = High Impedance, X = Doesn't Matter</sup>
+<p class="table-notes">Z = High Impedance, X = Doesn't Matter</p>
 
 **NOTE:** 27C040 and 27C4001 have the same pinout.
 

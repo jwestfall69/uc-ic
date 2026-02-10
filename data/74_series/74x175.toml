@@ -37,6 +37,6 @@ markdown = """
 |  H  |  ↑  | H |  H  |  L |
 |  H  |  ↑  | L |  L  |  H |
 |  H  |  L  | X |  Q  |  <span style="text-decoration: overline;">Q</span> |
-<sup>X = Doesn't Matter</sup>
+<p class="table-notes">X = Doesn't Matter</p>
 
 """

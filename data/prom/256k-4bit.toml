@@ -36,12 +36,12 @@ markdown = """
 |  H  |  X  |    Z    |
 |  X  |  H  |    Z    |
 |  L  |  L  |    D    |
-<sup>Z = High Impedance, X = Doesn't Matter</sup>
+<p class="table-notes">Z = High Impedance, X = Doesn't Matter</p>
 
 ### Common Models
 74S287<br>
 AMD AM27S21<br>
-Fujistu MB7052, MB7114<br>
+Fujitsu MB7052, MB7114<br>
 Monolithic Memories 63S141<br>
 NXP Semiconductors N82S129<br>
 Philips 82S126, 82S129<br>
