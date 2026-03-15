@@ -1,0 +1,44 @@
+[info]
+name = "74x161"
+description = "# 74x161: 4-Bit Binary Counter"
+package = "DIP"
+num_pins = 16
+width = "SKINNY"
+
+[pins]
+# left
+ 1 = { name = "MR",  dir = "IN",   color = "MISC",    flags = [ "activeLow" ] }
+ 2 = { name = "CP",  dir = "IN",   color = "CLOCK"}
+ 3 = { name = "D0",  dir = "IN",   color = "DATA" }
+ 4 = { name = "D1",  dir = "IN",   color = "DATA" }
+ 5 = { name = "D2",  dir = "IN",   color = "DATA" }
+ 6 = { name = "D3",  dir = "IN",   color = "DATA" }
+ 7 = { name = "CEP", dir = "IN",   color = "MISC" }
+ 8 = { name = "GND", dir = "NONE", color = "GND"  }
+
+# right
+ 9 = { name = "PE",  dir = "IN",   color = "MISC"}
+10 = { name = "CET", dir = "IN",   color = "MISC", flags = [ "activeLow" ] }
+11 = { name = "Q3",  dir = "OUT",  color = "DATA2"}
+12 = { name = "Q2",  dir = "OUT",  color = "DATA2"}
+13 = { name = "Q1",  dir = "OUT",  color = "DATA2"}
+14 = { name = "Q0",  dir = "OUT",  color = "DATA2"}
+15 = { name = "TC",  dir = "OUT",  color = "MISC" }
+16 = { name = "VCC", dir = "NONE", color = "POWER"}
+
+[details]
+markdown = """
+
+# Truth Table
+|            INPUTS        ||||||    OUTPUTS    ||     OPERATING     |
+| MR | CP | CEP | CET | PE | Dn |    Qn   |  TC  |        MODE       |
+|:--:|:--:|:---:|:---:|:--:|:--:|:-------:|:----:|:------------------|
+| L  | X  |  X  |  X  | X  | X  |    L    |  L   | Reset             |
+| H  | ↑  |  X  |  X  | L  | L  |    L    |  L   | Parallel Load     |
+| H  | ↑  |  X  |  X  | L  | H  |    H    | (1)  | Parallel Load     |
+| H  | ↑  |  H  |  H  | H  | X  | COUNT++ | (1)  | Count             |
+| H  | X  |  L  |  X  | H  | X  |    Qn   | (1)  | Hold (do nothing) |
+| H  | X  |  X  |  L  | H  | X  |    Qn   |  L   | Hold (do nothing) |
+<p class="table-notes">X = Doesn't Matter, (1) = TC output is High when CET is High and the counter is at Terminal Count (HHHH for 74F161A)</p>
+
+"""

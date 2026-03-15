@@ -16,6 +16,7 @@ list = [
   { display = "74x138", path = "data/74_series/74x138.toml" },
   { display = "74x139", path = "data/74_series/74x139.toml" },
   { display = "74x157", path = "data/74_series/74x157.toml" },
+  { display = "74x161", path = "data/74_series/74x161.toml" },
   { display = "74x174", path = "data/74_series/74x174.toml" },
   { display = "74x175", path = "data/74_series/74x175.toml" },
 
