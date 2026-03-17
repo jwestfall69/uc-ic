@@ -13,7 +13,7 @@ function defined(variable) {
 
 async function loadConfig() {
    try {
-        const res = await fetch("config.toml");
+        const res = await fetch(`config.toml?s=${sessionId}`);
         if(!res.ok)
             throw new Error(`HTTP ${res.status}`);
 
@@ -26,7 +26,7 @@ async function loadConfig() {
 async function loadTypes() {
     const typeSelect = document.getElementById("type-select");
     try {
-        const res = await fetch("data/types.toml");
+        const res = await fetch(`data/types.toml?s=${sessionId}`);
         if(!res.ok)
             throw new Error(`HTTP ${res.status}`);
 
@@ -66,7 +66,7 @@ async function handleTypeChange(event) {
     }
 
     try {
-        const res = await fetch(icListPath);
+        const res = await fetch(`${icListPath}?s=${sessionId}`);
         if(!res.ok)
             throw new Error(`HTTP ${res.status}`);
 
@@ -97,7 +97,7 @@ async function handleIcChange(event) {
     }
 
     try {
-        const res = await fetch(icPath);
+        const res = await fetch(`${icPath}?s=${sessionId}`);
         if(!res.ok)
             throw new Error(`HTTP ${res.status}`);
 
@@ -812,6 +812,7 @@ function mdTBParser( argText ) {
     return retText;
 }
 
+let sessionId = Date.now();
 let config = undefined;
 loadConfig();
 document.addEventListener("DOMContentLoaded", loadTypes);
