@@ -118,7 +118,7 @@ function getColor(color) {
         return config.pin.colors.default;
     }
 
-    if(color.match(/^#[a-fA-F0-9]{6}.*$/)) {
+    if(color.match(/^#[a-fA-F0-9]{6}$/)) {
         return color;
     }
 
@@ -324,7 +324,7 @@ function renderDIP(svg, ic) {
 
     for(let pinNum = 0; pinNum < numPins / 2; pinNum++) {
         svg.appendChild(drawPin(pinStartLeft, pinStartTop + pinNum * config.pin.spacing, PINSIDE.LEFT, pinNum + 1, ic.pins[pinNum + 1]));
-        svg.appendChild(drawPin(pinStartRight, pinStartTop + pinNum * config.pin.spacing, PINSIDE.Right, numPins - pinNum, ic.pins[numPins - pinNum]));
+        svg.appendChild(drawPin(pinStartRight, pinStartTop + pinNum * config.pin.spacing, PINSIDE.RIGHT, numPins - pinNum, ic.pins[numPins - pinNum]));
     }
 }
 
@@ -360,33 +360,37 @@ function renderEdge(svg, ic) {
     icName.textContent = ic.info.name;
     svg.appendChild(icName);
 
-    const icHeadingRight = document.createElementNS("http://www.w3.org/2000/svg", "text");
-    textX = config.package.edge.side_pad + icWidth + 20;
-    textY = 0;
-    icHeadingRight.setAttribute("x", textX);
-    icHeadingRight.setAttribute("y", textY);
-    icHeadingRight.setAttribute("text-anchor", "start");
-    icHeadingRight.setAttribute("dominant-baseline", "middle");
-    icHeadingRight.setAttribute("font-family", "Roboto Mono");
-    icHeadingRight.setAttribute("font-size", "32px");
-    icHeadingRight.setAttribute("font-weight", "500");
-    icHeadingRight.setAttribute("fill", "black");
-    icHeadingRight.textContent = ic.info.heading_right;
-    svg.appendChild(icHeadingRight);
+    if(ic.info.heading_right) {
+        const icHeadingRight = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        textX = config.package.edge.side_pad + icWidth + 20;
+        textY = 0;
+        icHeadingRight.setAttribute("x", textX);
+        icHeadingRight.setAttribute("y", textY);
+        icHeadingRight.setAttribute("text-anchor", "start");
+        icHeadingRight.setAttribute("dominant-baseline", "middle");
+        icHeadingRight.setAttribute("font-family", "Roboto Mono");
+        icHeadingRight.setAttribute("font-size", "32px");
+        icHeadingRight.setAttribute("font-weight", "500");
+        icHeadingRight.setAttribute("fill", "black");
+        icHeadingRight.textContent = ic.info.heading_right;
+        svg.appendChild(icHeadingRight);
+    }
 
-    const icHeadingLeft = document.createElementNS("http://www.w3.org/2000/svg", "text");
-    textX = config.package.edge.side_pad - 20;
-    textY = 0;
-    icHeadingLeft.setAttribute("x", textX);
-    icHeadingLeft.setAttribute("y", textY);
-    icHeadingLeft.setAttribute("text-anchor", "end");
-    icHeadingLeft.setAttribute("dominant-baseline", "middle");
-    icHeadingLeft.setAttribute("font-family", "Roboto Mono");
-    icHeadingLeft.setAttribute("font-size", "32px");
-    icHeadingLeft.setAttribute("font-weight", "500");
-    icHeadingLeft.setAttribute("fill", "black");
-    icHeadingLeft.textContent = ic.info.heading_left;
-    svg.appendChild(icHeadingLeft);
+    if(ic.info.heading_left) {
+        const icHeadingLeft = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        textX = config.package.edge.side_pad - 20;
+        textY = 0;
+        icHeadingLeft.setAttribute("x", textX);
+        icHeadingLeft.setAttribute("y", textY);
+        icHeadingLeft.setAttribute("text-anchor", "end");
+        icHeadingLeft.setAttribute("dominant-baseline", "middle");
+        icHeadingLeft.setAttribute("font-family", "Roboto Mono");
+        icHeadingLeft.setAttribute("font-size", "32px");
+        icHeadingLeft.setAttribute("font-weight", "500");
+        icHeadingLeft.setAttribute("fill", "black");
+        icHeadingLeft.textContent = ic.info.heading_left;
+        svg.appendChild(icHeadingLeft);
+    }
 
     const pinStartLeft = config.package.edge.side_pad - config.pin.width;
     const pinStartRight = pinStartLeft + icWidth + config.pin.width;
@@ -395,7 +399,7 @@ function renderEdge(svg, ic) {
     // right (top to bottom going from 1 to n)
     let offset = 0;
     for(let pinNum = 0; pinNum < numPins / 2; pinNum++) {
-        svg.appendChild(drawPin(pinStartRight, pinStartTop + offset, PINSIDE.Right, pinNum + 1, ic.pins[pinNum + 1]));
+        svg.appendChild(drawPin(pinStartRight, pinStartTop + offset, PINSIDE.RIGHT, pinNum + 1, ic.pins[pinNum + 1]));
         offset += config.pin.spacing;
     }
 
@@ -623,7 +627,7 @@ function renderSIP(svg, ic) {
     icName.setAttribute("text-anchor", "middle");
     icName.setAttribute("dominant-baseline", "middle");
     icName.setAttribute("font-family", "Roboto Mono");
-    icName.setAttribute("font-size", `${ic.info.name_size || config.package.dip.name_size}px`);
+    icName.setAttribute("font-size", `${ic.info.name_size || config.package.sip.name_size}px`);
     icName.setAttribute("font-weight", "500");
     icName.setAttribute("fill", "gray");
     icName.textContent = ic.info.name;
@@ -815,6 +819,8 @@ function mdTBParser( argText ) {
 let sessionId = Date.now();
 let config = undefined;
 loadConfig();
-document.addEventListener("DOMContentLoaded", loadTypes);
-document.getElementById("type-select").addEventListener("change", handleTypeChange);
-document.getElementById("ic-select").addEventListener("change", handleIcChange);
+document.addEventListener("DOMContentLoaded", () => {
+    loadTypes();
+    document.getElementById("type-select").addEventListener("change", handleTypeChange);
+    document.getElementById("ic-select").addEventListener("change", handleIcChange);
+});
