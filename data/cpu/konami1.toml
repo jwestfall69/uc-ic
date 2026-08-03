@@ -1,0 +1,57 @@
+[info]
+name = "Konami1"
+description = "# Konami1 (6809 based)"
+package = "DIP"
+num_pins = 42
+
+[pins]
+# left
+ 1 = { name = "A13",      dir = "IN",    color = "ADDR" }
+ 2 = { name = "A14",      dir = "IN",    color = "ADDR" }
+ 3 = { name = "A15",      dir = "IN",    color = "ADDR" }
+ 4 = { name = "D7",       dir = "INOUT", color = "DATA" }
+ 5 = { name = "D6",       dir = "INOUT", color = "DATA" }
+ 6 = { name = "D5",       dir = "INOUT", color = "DATA" }
+ 7 = { name = "D4",       dir = "INOUT", color = "DATA" }
+ 8 = { name = "D3",       dir = "INOUT", color = "DATA" }
+ 9 = { name = "D2",       dir = "INOUT", color = "DATA" }
+10 = { name = "D1",       dir = "INOUT", color = "DATA" }
+11 = { name = "NC"        dir = "NONE"                  }
+12 = { name = "D0",       dir = "INOUT", color = "DATA" }
+13 = { name = "RW",       dir = "OUT",   color = "MISC",  flags = [ "activeLow", "activeLowLastChar" ] }
+14 = { name = "NC",       dir = "NONE"                  }
+15 = { name = "E",        dir = "IN",    color = "CLOCK"}
+16 = { name = "LIC",      dir = "OUT",   color = "MISC" }
+17 = { name = "Q",        dir = "IN",    color = "CLOCK"}
+18 = { name = "AVMA",     dir = "OUT",   color = "MISC" }
+19 = { name = "RESET",    dir = "IN",    color = "MISC",  flags = [ "activeLow" ] }
+20 = { name = "TSC",      dir = "IN",    color = "MISC"}
+21 = { name = "HALT",     dir = "OUT",   color = "MISC",  flags = [ "activeLow" ] }
+
+# right
+22 = { name = "GND",      dir = "NONE",  color = "GND"  }
+23 = { name = "NMI",      dir = "IN",    color = "MISC",  flags = [ "activeLow" ] }
+24 = { name = "IRQ",      dir = "IN",    color = "MISC",  flags = [ "activeLow" ] }
+25 = { name = "FIRQ",     dir = "IN",    color = "MISC",  flags = [ "activeLow" ] }
+26 = { name = "BS",       dir = "OUT",   color = "MISC" }
+27 = { name = "BUSY",     dir = "OUT",   color = "MISC" }
+28 = { name = "BA",       dir = "OUT",   color = "MISC" }
+29 = { name = "VCC",      dir = "NONE",  color = "POWER"}
+30 = { name = "A0",       dir = "IN",    color = "ADDR" }
+31 = { name = "A1",       dir = "IN",    color = "ADDR" }
+32 = { name = "A2",       dir = "IN",    color = "ADDR" }
+33 = { name = "A3",       dir = "IN",    color = "ADDR" }
+34 = { name = "A4",       dir = "IN",    color = "ADDR" }
+35 = { name = "A5",       dir = "IN",    color = "ADDR" }
+36 = { name = "A6",       dir = "IN",    color = "ADDR" }
+37 = { name = "A7",       dir = "IN",    color = "ADDR" }
+38 = { name = "A8",       dir = "IN",    color = "ADDR" }
+39 = { name = "A9",       dir = "IN",    color = "ADDR" }
+40 = { name = "A10",      dir = "IN",    color = "ADDR" }
+41 = { name = "A11",      dir = "IN",    color = "ADDR" }
+42 = { name = "A12",      dir = "IN",    color = "ADDR" }
+
+[details]
+markdown = """
+Pinout comes from jailbreak arcade PCB schematics
+"""
