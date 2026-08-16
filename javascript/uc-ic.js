@@ -47,24 +47,14 @@ async function loadTypes() {
     }
 }
 
-async function handleTypeChange(event) {
-    const icListPath = event.target.value;
-    const icSelect = document.getElementById("ic-select");
-
+function clearIC() {
     document.getElementById("ic-svg").innerHTML = "";
     document.getElementById("ic-markdown").innerHTML = "";
     document.getElementById("ic-short-description").innerHTML = "";
+}
 
-    if(!icListPath) {
-        icSelect.innerHTML = "";
-        icSelect.disabled = true;
-
-        const option = document.createElement("option");
-        option.textContent = "-- Loading --";
-        icSelect.appendChild(option);
-        return;
-    }
-
+async function loadIcList(icListPath) {
+    const icSelect = document.getElementById("ic-select");
     try {
         const res = await fetch(`${icListPath}?s=${sessionId}`);
         if(!res.ok)
@@ -87,12 +77,11 @@ async function handleTypeChange(event) {
     }
 }
 
-async function handleIcChange(event) {
-    const icPath = event.target.value;
+async function selectIC(icPath, icDisplayName) {
+    clearIC();
+
     if(!icPath) {
-        document.getElementById("ic-svg").innerHTML = "";
-        document.getElementById("ic-markdown").innerHTML = "";
-        document.getElementById("ic-short-description").innerHTML = "";
+        historyUpdateState("ic", "");
         return;
     }
 
@@ -103,9 +92,88 @@ async function handleIcChange(event) {
 
         const ic = toml.parse(await res.text());
         renderIC(ic);
+        historyUpdateState("ic", icDisplayName);
     } catch (err) {
         console.error(err);
         document.getElementById("ic-svg").innerHTML = "";
+    }
+}
+
+async function handleTypeChange(event) {
+    const icListPath = event.target.value;
+    const typeDisplayName = icListPath && event.target.selectedOptions[0] ? event.target.selectedOptions[0].textContent : "";
+
+    clearIC();
+    historyUpdateState("type", typeDisplayName);
+    historyUpdateState("ic", "");
+
+    const icSelect = document.getElementById("ic-select");
+    if(!icListPath) {
+        icSelect.innerHTML = "";
+        icSelect.disabled = true;
+
+        const option = document.createElement("option");
+        option.textContent = "-- Loading --";
+        icSelect.appendChild(option);
+        return;
+    }
+
+    await loadIcList(icListPath);
+}
+
+function handleIcChange(event) {
+    const displayName = event.target.selectedOptions[0] ? event.target.selectedOptions[0].textContent : "";
+    selectIC(event.target.value, displayName);
+}
+
+function historyUpdateState(key, value) {
+    const url = new URL(window.location);
+    if(value) {
+        url.searchParams.set(key, value);
+    } else {
+        url.searchParams.delete(key);
+    }
+    history.replaceState(null, "", url);
+}
+
+async function initFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    const typeDisplay = params.get("type");
+    const icDisplay = params.get("ic");
+
+    if(!typeDisplay) {
+        return;
+    }
+
+    const typeSelect = document.getElementById("type-select");
+    let typeOption = null;
+    for(const option of typeSelect.options) {
+        if(option.textContent == typeDisplay) {
+            typeOption = option;
+            break;
+        }
+    }
+    if(!typeOption) {
+        return;
+    }
+    typeSelect.value = typeOption.value;
+
+    await handleTypeChange({ target: typeSelect });
+
+    if(icDisplay) {
+        const icSelect = document.getElementById("ic-select");
+        let icOption = null;
+        for(const option of icSelect.options) {
+            if(option.textContent == icDisplay) {
+                icOption = option;
+                break;
+            }
+        }
+        if(!icOption) {
+            return;
+        }
+        icSelect.value = icOption.value;
+        await selectIC(icOption.value, icDisplay);
     }
 }
 
@@ -820,7 +888,7 @@ let sessionId = Date.now();
 let config = undefined;
 loadConfig();
 document.addEventListener("DOMContentLoaded", () => {
-    loadTypes();
     document.getElementById("type-select").addEventListener("change", handleTypeChange);
     document.getElementById("ic-select").addEventListener("change", handleIcChange);
+    loadTypes().then(initFromUrl);
 });
