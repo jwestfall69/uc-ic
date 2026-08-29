@@ -886,9 +886,17 @@ function mdTBParser( argText ) {
 
 let sessionId = Date.now();
 let config = undefined;
-loadConfig();
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+    await Promise.all([loadConfig(), loadTypes()]);
+
+    if(!defined(config)) {
+        for(const id of ["type-select", "ic-select"]) {
+            document.getElementById(id).innerHTML = "<option>-- Failed to load --</option>";
+        }
+        return;
+    }
+
     document.getElementById("type-select").addEventListener("change", handleTypeChange);
     document.getElementById("ic-select").addEventListener("change", handleIcChange);
-    loadTypes().then(initFromUrl);
+    await initFromUrl();
 });
