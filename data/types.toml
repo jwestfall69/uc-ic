@@ -5,6 +5,7 @@ list = [
   { display = "Audio DAC",       path = "data/audio_dac/list.toml"      },
   { display = "Audio OP AMP",    path = "data/audio_op_amp/list.toml"   },
   { display = "CPU",             path = "data/cpu/list.toml"            },
+  { display = "DRAM",            path = "data/dram/list.toml"           },
   { display = "Edge Connector",  path = "data/edge_connector/list.toml" },
   { display = "EPROM",           path = "data/eprom/list.toml"          },
   { display = "Neo-Geo",         path = "data/neo-geo/list.toml"        },

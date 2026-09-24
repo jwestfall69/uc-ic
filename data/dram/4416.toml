@@ -1,0 +1,41 @@
+[info]
+name = "4416"
+description = "# 4416 (16K x 4bit DRAM)"
+package = "DIP"
+num_pins = 18
+width = "SKINNY"
+
+[pins]
+# left
+ 1 = { name = "OE",  dir = "IN",    color = "EN",    flags = [ "activeLow"] }
+ 2 = { name = "D0",  dir = "INOUT", color = "DATA" }
+ 3 = { name = "D1",  dir = "INOUT", color = "DATA" }
+ 4 = { name = "WE",  dir = "IN",    color = "EN",    flags = [ "activeLow"] }
+ 5 = { name = "RAS", dir = "IN",    color = "MISC",  flags = [ "activeLow"] }
+ 6 = { name = "A6",  dir = "IN",    color = "ADDR" }
+ 7 = { name = "A5",  dir = "IN",    color = "ADDR" }
+ 8 = { name = "A4",  dir = "IN",    color = "ADDR" }
+ 9 = { name = "VCC", dir = "NONE",  color = "POWER"}
+ 
+# right
+10 = { name = "A7",  dir = "IN",    color = "ADDR" }
+11 = { name = "A3",  dir = "IN",    color = "ADDR" }
+12 = { name = "A2",  dir = "IN",    color = "ADDR" }
+13 = { name = "A1",  dir = "IN",    color = "ADDR" }
+14 = { name = "A0",  dir = "IN",    color = "ADDR" }
+15 = { name = "D2",  dir = "INOUT", color = "DATA" }
+16 = { name = "CAS", dir = "IN",    color = "MISC",  flags = [ "activeLow"] }
+17 = { name = "D3",  dir = "INOUT", color = "DATA" }
+18 = { name = "GND", dir = "NONE",  color = "GND"  }
+
+[details]
+markdown = """
+
+### Common Models
+Fujitsu MB81416<br>
+Hitachi  HM48416<br>
+Mitsubishi M5M4416<br>
+Motorola MCM6288<br>
+NEC UPD41416<br>
+Texas Instruments TMS4416<br>
+"""

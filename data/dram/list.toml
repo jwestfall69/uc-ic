@@ -1,0 +1,6 @@
+# This list is what gets loaded into the 'IC' drop down list
+# when this 'Type' is selected.
+list = [
+  { display = "Generic 4416 (16K x 4bit)", path = "data/dram/4416.toml"  },
+  { display = "Generic 41464 (64K x 4bit)", path = "data/dram/41464.toml"  },
+]
