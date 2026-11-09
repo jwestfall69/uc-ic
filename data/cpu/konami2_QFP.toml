@@ -11,16 +11,16 @@ num_pins_base = 19
  2 = { name = "RESET", dir = "IN",    color = "MISC",  flags = [ "activeLow" ] }
  3 = { name = "NMI",   dir = "IN",    color = "MISC",  flags = [ "activeLow" ] }
  4 = { name = "IRQ",   dir = "IN",    color = "MISC",  flags = [ "activeLow" ] }
- 5 = { name = "R9",    dir = "IN",    color = "MISC"  }
- 6 = { name = "A7",    dir = "IN",    color = "DATA"  }
- 7 = { name = "A6",    dir = "IN",    color = "DATA"  }
- 8 = { name = "A5",    dir = "IN",    color = "DATA"  }
- 9 = { name = "A4",    dir = "IN",    color = "DATA"  }
+ 5 = { name = "R9",    dir = "IN",    color = "ADDR2"  }
+ 6 = { name = "A7",    dir = "IN",    color = "ADDR"  }
+ 7 = { name = "A6",    dir = "IN",    color = "ADDR"  }
+ 8 = { name = "A5",    dir = "IN",    color = "ADDR"  }
+ 9 = { name = "A4",    dir = "IN",    color = "ADDR"  }
 10 = { name = "GND",   dir = "NONE",  color = "GND"   }
-11 = { name = "A3",    dir = "IN",    color = "DATA"  }
-12 = { name = "A2",    dir = "IN",    color = "DATA"  }
-13 = { name = "A1",    dir = "IN",    color = "DATA"  }
-14 = { name = "A0",    dir = "IN",    color = "DATA"  }
+11 = { name = "A3",    dir = "IN",    color = "ADDR"  }
+12 = { name = "A2",    dir = "IN",    color = "ADDR"  }
+13 = { name = "A1",    dir = "IN",    color = "ADDR"  }
+14 = { name = "A0",    dir = "IN",    color = "ADDR"  }
 15 = { name = "RW",    dir = "OUT",   color = "MISC",  flags = [ "activeLow", "activeLowLastChar" ] }
 16 = { name = "AS",    dir = "OUT",   color = "MISC",  flags = [ "activeLow" ] }
 17 = { name = "NC",    dir = "NONE",  color = "NC"    }
@@ -39,46 +39,48 @@ num_pins_base = 19
 28 = { name = "D5",    dir = "INOUT", color = "DATA"  }
 29 = { name = "D6",    dir = "INOUT", color = "DATA"  }
 30 = { name = "D7",    dir = "INOUT", color = "DATA"  }
-31 = { name = "R0",    dir = "IN",    color = "DATA"  }
-32 = { name = "R1",    dir = "IN",    color = "DATA"  }
+31 = { name = "R0",    dir = "IN",    color = "ADDR2"  }
+32 = { name = "R1",    dir = "IN",    color = "ADDR2"  }
 
 # top
-33 = { name = "R2",    dir = "IN",    color = "DATA"  }
-34 = { name = "R3",    dir = "IN",    color = "DATA"  }
-35 = { name = "R4",    dir = "IN",    color = "DATA"  }
-36 = { name = "R5",    dir = "IN",    color = "DATA"  }
-37 = { name = "R6",    dir = "IN",    color = "DATA"  }
-38 = { name = "A16",   dir = "IN",    color = "DATA"  }
-39 = { name = "A17",   dir = "IN",    color = "DATA"  }
-40 = { name = "A18",   dir = "IN",    color = "DATA"  }
-41 = { name = "A19",   dir = "IN",    color = "DATA"  }
+33 = { name = "R2",    dir = "IN",    color = "ADDR2"  }
+34 = { name = "R3",    dir = "IN",    color = "ADDR2"  }
+35 = { name = "R4",    dir = "IN",    color = "ADDR2"  }
+36 = { name = "R5",    dir = "IN",    color = "ADDR2"  }
+37 = { name = "R6",    dir = "IN",    color = "ADDR2"  }
+38 = { name = "A16",   dir = "IN",    color = "ADDR"  }
+39 = { name = "A17",   dir = "IN",    color = "ADDR"  }
+40 = { name = "A18",   dir = "IN",    color = "ADDR"  }
+41 = { name = "A19",   dir = "IN",    color = "ADDR"  }
 42 = { name = "GND",   dir = "NONE",  color = "GND"   }
-43 = { name = "A20",   dir = "IN",    color = "DATA"  }
-44 = { name = "A21",   dir = "IN",    color = "DATA"  }
-45 = { name = "A22",   dir = "IN",    color = "DATA"  }
-46 = { name = "A23",   dir = "IN",    color = "DATA"  }
-47 = { name = "R7",    dir = "IN",    color = "DATA"  }
+43 = { name = "A20",   dir = "IN",    color = "ADDR"  }
+44 = { name = "A21",   dir = "IN",    color = "ADDR"  }
+45 = { name = "A22",   dir = "IN",    color = "ADDR"  }
+46 = { name = "A23",   dir = "IN",    color = "ADDR"  }
+47 = { name = "R7",    dir = "IN",    color = "ADDR2"  }
 48 = { name = "TES",   dir = "IN",    color = "MISC"  }
 49 = { name = "DTAC",  dir = "IN",    color = "MISC",  flags = [ "activeLow" ] }
 50 = { name = "EPA",   dir = "IN",    color = "MISC"  }
 51 = { name = "PE",    dir = "IN",    color = "MISC"  }
 
 # left
-52 = { name = "R8",    dir = "IN",    color = "DATA"  }
-53 = { name = "A15",   dir = "IN",    color = "DATA"  }
-54 = { name = "A14",   dir = "IN",    color = "DATA"  }
-55 = { name = "A13",   dir = "IN",    color = "DATA"  }
-56 = { name = "A12",   dir = "IN",    color = "DATA"  }
+52 = { name = "R8",    dir = "IN",    color = "ADDR2"  }
+53 = { name = "A15",   dir = "IN",    color = "ADDR"  }
+54 = { name = "A14",   dir = "IN",    color = "ADDR"  }
+55 = { name = "A13",   dir = "IN",    color = "ADDR"  }
+56 = { name = "A12",   dir = "IN",    color = "ADDR"  }
 57 = { name = "GND",   dir = "NONE",  color = "GND"   }
 58 = { name = "POWER", dir = "NONE",  color = "POWER" }
-59 = { name = "A11",   dir = "IN",    color = "DATA"  }
-60 = { name = "A10",   dir = "IN",    color = "DATA"  }
-61 = { name = "A9",    dir = "IN",    color = "DATA"  }
-62 = { name = "A8",    dir = "IN",    color = "DATA"  }
+59 = { name = "A11",   dir = "IN",    color = "ADDR"  }
+60 = { name = "A10",   dir = "IN",    color = "ADDR"  }
+61 = { name = "A9",    dir = "IN",    color = "ADDR"  }
+62 = { name = "A8",    dir = "IN",    color = "ADDR"  }
 63 = { name = "FIRQ",  dir = "IN",    color = "MISC",  flags = [ "activeLow" ] }
 64 = { name = "HALT",  dir = "OUT",   color = "MISC",  flags = [ "activeLow" ] }
 
 [details]
 markdown = """
 Pinout comes from rollergames arcade PCB schematics.
+
+Its unclear what the `Rx` pins are, but they are all tied to GND.
 """
