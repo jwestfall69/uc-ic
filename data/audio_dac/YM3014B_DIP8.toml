@@ -1,0 +1,38 @@
+[info]
+name = "YM3014B"
+name_size = 32
+description = "# Yamaha YM3014 Serial Input Floating D/A Converter"
+package = "DIP"
+num_pins = 8
+width = "SKINNY"
+
+[pins]
+# left
+ 1 = { name = "VCC",     dir = "NONE", color = "POWER"}
+ 2 = { name = "To BUFF", dir = "OUT",  color = "MISC",  flags = [ "audioProbe"] }
+ 3 = { name = "LOAD",    dir = "IN",   color = "MISC" }
+ 4 = { name = "SD",      dir = "IN",   color = "DATA" }
+
+# right
+ 5 = { name = "φ1",      dir = "IN",   color = "CLOCK"}
+ 6 = { name = "GND",     dir = "NONE", color = "GND"  }
+ 7 = { name = "RB",      dir = "OUT",  color = "MISC" }
+ 8 = { name = "MP",      dir = "IN",   color = "MISC" }
+
+[details]
+markdown = """
+
+<p class="center-text"><sup>**AP**</sup>pins you can audio probe.</p>
+
+This DAC is usually paired with a YM3812 FM Sound Generator?<p> 
+
+|  PIN NAME   | FUNCTION                                                                |
+|:-----------:|:------------------------------------------------------------------------|
+|    LOAD     | Generates in ternal signal to latch serial data by use of trailing edge |
+|     MP      | Normally biased to 1/2 VCC ??                                           |
+|     φ1      | Clock (usually from a YM2151)                                           |
+|     RB      | High precisions 1/2 VCC voltage generated internally ??                 |
+|     SD      | Serial input of converted digital signal                                |
+|  To BUFF    | Analog output from DAC, input to buffer OP AMP                          |
+
+"""

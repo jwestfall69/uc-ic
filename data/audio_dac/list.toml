@@ -1,5 +1,7 @@
 # This list is what gets loaded into the 'IC' drop down list
 # when this 'Type' is selected.
 list = [
-  { display = "Yamaha YM3012", path = "data/audio_dac/YM3012.toml" }
+  { display = "Yamaha YM3012",          path = "data/audio_dac/YM3012.toml"        },
+  { display = "Yamaha YM3014B (DIP8)",  path = "data/audio_dac/YM3014B_DIP8.toml"  },
+  { display = "Yamaha YM3014B (DIP16)", path = "data/audio_dac/YM3014B_DIP16.toml" }
 ]

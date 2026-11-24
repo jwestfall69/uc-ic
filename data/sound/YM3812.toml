@@ -1,0 +1,54 @@
+[info]
+name = "YM3812"
+description = "# Yamaha YM3812 FM Operator Type-L II (OPLII)"
+package = "DIP"
+num_pins = 24
+
+[pins]
+# left
+ 1 = { name = "VCC",   dir = "NONE",  color = "POWER"}
+ 2 = { name = "IRQ",   dir = "OUT",   color = "MISC",  flags = [ "activeLow"] }
+ 3 = { name = "RESET", dir = "IN",    color = "MISC",  flags = [ "activeLow"] }
+ 4 = { name = "A0",    dir = "IN",    color = "ADDR" }
+ 5 = { name = "WR",    dir = "IN",    color = "MISC",  flags = [ "activeLow"] }
+ 6 = { name = "RD",    dir = "IN",    color = "MISC",  flags = [ "activeLow"] }
+ 7 = { name = "CS",    dir = "IN",    color = "EN",    flags = [ "activeLow"] }
+ 8 = { name = "NC",    dir = "NONE",  color = "NC"   }
+ 9 = { name = "NC",    dir = "NONE",  color = "NC"   }
+10 = { name = "D0",    dir = "INOUT", color = "DATA" }
+11 = { name = "D1",    dir = "INOUT", color = "DATA" }
+12 = { name = "GND",   dir = "NONE",  color = "GND"  }
+
+# right
+13 = { name = "D2",    dir = "INOUT", color = "DATA" }
+14 = { name = "D3",    dir = "INOUT", color = "DATA" }
+15 = { name = "D4",    dir = "INOUT", color = "DATA" }
+16 = { name = "D5",    dir = "INOUT", color = "DATA" }
+17 = { name = "D6",    dir = "INOUT", color = "DATA" }
+18 = { name = "D7",    dir = "INOUT", color = "DATA" }
+19 = { name = "NC",    dir = "NONE",  color = "NC"   }
+20 = { name = "SH",    dir = "OUT",   color = "DATA" }
+21 = { name = "MO",    dir = "OUT",   color = "DATA",  flags = [ "audioProbe"] }
+22 = { name = "NC",    dir = "NONE",  color = "NC"   }
+23 = { name = "φSY",   dir = "OUT",   color = "CLOCK"}
+24 = { name = "φM",    dir = "IN",    color = "CLOCK"}
+
+[details]
+markdown = """
+
+This FM Sound Generator is usually paired with a YM30142 DAC?<p>
+
+| PIN NAME | FUNCTION                                                                            |
+|:--------:|:------------------------------------------------------------------------------------|
+|   A0     | When A0 = L, D0-D7 are address signal.  When A0 = H, they are data                  |
+|   CS     | Chip Select                                                                         |
+|  D0-D7   | Address/Data Bus (from CPU)                                                         |
+|   IRQ    | Used to send IRQ to CPU                                                             |
+|   MO     | Digital Output of FM sound generator.  The external DAC converter unit is necessary |
+|   φSY    | Clock for DAC                                                                       |
+|   φM     | Master Clock (3.58Mhz)                                                              |
+|   RD     | CPU read D0-D7 from YM2151                                                          |
+|  RESET   | Reset Chip (IC on datasheet)                                                        |
+|   SH     | Sample and Hold                                                                     |
+|   WR     | CPU write D0-D7 to YM2151                                                           |
+"""
